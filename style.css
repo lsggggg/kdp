@@ -1,486 +1,608 @@
-/* ==========================================================================
-   KDreamPartners Styles (refactored)
-   - Variables → Base → Layout → Buttons → Header/Menu/Logo → Dropdown
-   → Hero/Sections → Footer → Responsive → Debug
-   ========================================================================== */
-
-/* === 0) Variables (TUNE here) === */
+/* ===== Variables / Base ===== */
 :root{
-  /* brand palette */
-  --brand: #2563eb;
-  --brand-600:#1d4ed8;
-  --ink:#0f172a;
-  --muted:#64748b;
-  --card:#ffffff;
-  --border:#e2e8f0;
-  --shadow: 0 10px 20px rgba(2,6,23,0.06);
-  --radius: 14px;
+  --brand:#2563eb; --brand-600:#1d4ed8; --ink:#0f172a; --muted:#64748b;
+  --card:#ffffff; --border:#e2e8f0; --shadow:0 10px 20px rgba(2,6,23,.06); --radius:14px;
 
-  
-  /* 메뉴 상위 항목 전용 글꼴/굵기 */
-  --menu-font: "Poppins", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* A안 쓸 때 */
-  /* --menu-font: "Pretendard", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;  B안 쓸 때 */
-  --menu-weight: 700;         /* 기본 굵기 */
-  --menu-weight-open: 600;    /* 헤더 hover/open 시 굵기(선택) */
+  /* original header */
+  --menu-font:"Poppins","Noto Sans KR",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --menu-weight:700; --header-h:64px; --brand-w:150px;
+  --menu-gap:80px; --menu-offset:230px; --menu-size:18px; --menu-line:1; --menu-pad-y:10px;
+  --submenu-font:16px; --submenu-line:1.3; --submenu-pad-y:6px; --submenu-gap:0px;
+  --submenu-pad-x:10px; --submenu-text-max:150px; --submenu-text-align:center; --submenu-row-gap:10px;
+  --submenu-icon-gap:8px; --submenu-letter:0em; --submenu-weight:600;
+  --logo-size:35px; --logo-long-size:18px; --logo-long-size-open:21px;
+  --col-w:200px; --panel-pad-top:10px; --panel-pad-bottom:150px; --panel-grid-shift-x:160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%} html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+.container{width:min(1200px,92%);margin:0 auto}
+.section{padding:80px 0}
+.grid{display:grid;gap:24px}
+.center{text-align:center}
+.overline{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
+.lead{color:var(--muted);margin:8px 0 12px}
+.shadow-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
 
-  /*  /* header/menu knobs(헤더블록) /*     */  
+/* ===== Buttons ===== */
+.btn{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:600;text-decoration:none;transition:transform .05s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 8px 16px rgba(37,99,235,.18)}
+.btn:hover{background:var(--brand-600);transform:translateY(-1px)}
+.btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand);box-shadow:none}
 
-  /* 헤더 관련 */
-  --header-h: 64px;      /* 헤더 높이 */
-  --brand-w: 150px;      /* 좌측 로고(KDP) 가상 폭(상·하 정렬 기준) */
-  --menu-gap: 93px;      /* 상단 메뉴 간격 */
-  --menu-offset: 230px;    /* 메뉴 전체 좌우 이동(+오른쪽 / -왼쪽) */
-  
+/* ===== Header (original) ===== */
+.site-header{--bg:#ffffff;--fg:#0f172a;--fg-muted:#0f172a;position:sticky;top:0;z-index:1000;background:var(--bg);color:var(--fg);border-bottom:1px solid #e2e8f0;box-shadow:0 18px 28px rgba(2,6,23,.08)}
+.site-header .nav{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;position:relative}
+.brand{position:absolute;left:0;top:50%;transform:translateY(-50%);text-decoration:none;color:inherit;z-index:2}
+.logo-text{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;line-height:1}
+.logo-text.short{font-weight:900;font-size:var(--logo-size);letter-spacing:.25px;color:#2563eb}
+.logo-text.long{font-size:var(--logo-long-size);font-weight:700;letter-spacing:.1px;color:var(--brand);display:none}
+.menu{list-style:none;display:flex;gap:var(--menu-gap);margin-left:calc(var(--brand-w) + var(--menu-offset))}
+.menu a{font-size:var(--menu-size);line-height:var(--menu-line);padding:var(--menu-pad-y) 10px;text-decoration:none;color:var(--fg-muted);font-family:var(--menu-font);font-weight:var(--menu-weight);border-radius:10px}
+.menu a:hover{color:var(--fg);background:#eef2ff}
+.site-header:hover .logo-text.short,.site-header.open .logo-text.short{display:none}
+.site-header:hover .logo-text.long,.site-header.open .logo-text.long{display:inline;font-size:var(--logo-long-size-open)}
+.menu-toggle{display:none;background:transparent;border:0;font-size:20px;color:inherit}
+@media (max-width:960px){.menu{display:none}.menu-toggle{display:inline-flex;align-items:center;justify-content:center;padding:8px}}
 
-  /* 상단 상위 메뉴 */
+/* dropdown */
+.menu-panel{position:absolute;left:0;right:0;top:var(--header-h);background:#ffffff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 24px 40px rgba(2,6,23,.10);transform:translateY(-8px);opacity:0;pointer-events:none;max-height:0;overflow:hidden;transition:transform .25s ease,opacity .25s ease,max-height .25s ease;z-index:999}
+.site-header.open .menu-panel{transform:translateY(0);opacity:1;pointer-events:auto;max-height:calc(100vh - var(--header-h));overflow:auto}
+.panel-grid{position:relative;padding:var(--panel-pad-top) 0 var(--panel-pad-bottom);display:grid;grid-template-columns:var(--brand-w) repeat(5,1fr)}
+.menu-panel .col{position:absolute;top:var(--panel-pad-top);left:0;width:var(--col-w);display:none}
+#menuPanel[data-col="1"] .col[data-key="1"],#menuPanel[data-col="2"] .col[data-key="2"],#menuPanel[data-col="3"] .col[data-key="3"],#menuPanel[data-col="4"] .col[data-key="4"],#menuPanel[data-col="5"] .col[data-key="5"]{display:block}
+.site-header.open #menuPanel .panel-grid{grid-template-columns:var(--brand-w) repeat(5,var(--col-w))}
+.site-header.open #menuPanel .col{position:static!important;display:block!important;width:auto!important}
+#menuPanel .col a{display:flex;align-items:center;min-height:36px;padding:var(--submenu-pad-y) var(--submenu-pad-x);max-width:var(--submenu-text-max);text-align:var(--submenu-text-align);gap:var(--submenu-icon-gap);font-size:var(--submenu-font);line-height:var(--submenu-line);font-weight:var(--submenu-weight);color:#0f172a;text-decoration:none}
+#menuPanel .col a + a{margin-top:var(--submenu-row-gap)} #menuPanel .col a:hover{color:var(--brand)} .panel-grid{transform:translateX(var(--panel-grid-shift-x))}
 
-  --menu-size: 18px;     /* 상단 상위 메뉴 글자 크기 */
-  --menu-line: 1;        /* 줄간격 */
-  --menu-pad-y: 10px;     /* 위·아래 패딩 (크기 키우면 같이 ↑) */
-
-  /* 하위메뉴 */
-  --submenu-font: 17px;     /* 하위 항목 글자 크기 */
-  --submenu-line: 1.3;      /* 줄간격 */
-  --submenu-pad-y: 6px;     /* 위/아래 패딩 */
-  --submenu-head: 12px;     /* 상단 소제목(h4) 크기 */
-  --submenu-gap:-1px;        /* 하위 메뉴 간격 */
-
-  
-  /* 하위 항목 텍스트 크기 / 배치 / 간격 */
-  --submenu-pad-x: 10px;      /* 좌우 패딩 */
-  --submenu-text-max: 150px;  /* 글자 영역 최대 폭 */
-  --submenu-text-align: center; /* left|center|right */
-  --submenu-row-gap: 10px;     /* 항목 간 간격(수직) */
-  --submenu-icon-gap: 8px;    /* 아이콘-텍스트 간격(아이콘 쓸 경우) */
-  --submenu-letter: 0em;      /* 자간 */
-  --submenu-weight: 600;      /* 글자 두께 */
-
-  --panel-grid-shift-x: 190px; 
-
-  /* 칼럼/행 크기 (이미 있으면 유지) */
-  --col-w: 180px;           /* 칼럼(열) 너비 */
-  --row-h: 36px;            /* 항목 한 줄 높이(균일) */
-
-  /* 위치 오프셋(전역) */
-  --submenu-delta-x: 2px;   /* X축 미세 이동 (+오른쪽 / -왼쪽) */
-  --submenu-delta-y: -10px;   /* Y축 미세 이동 (+아래 / -위) */
-
-
-
-
-  /* logo */
-  --logo-size: 35px;     /* KDP 글자 크기(필요시 조정) */
-   
-  --logo-long-size: 18px;          /* 긴 로고 기본 크기 */
-  /* (선택) 열렸을 때 더 크게 보이고 싶으면 */
-  --logo-long-size-open: 21px;     /* 헤더 open/hover 상태 크기 */
-
+/* 상단 메뉴 hover 를 브랜드 컬러로 */
+.menu a{
+  color: var(--fg-muted);
+  transition: color .2s ease, background .2s ease;
 }
 
-
-
-/* === 1) Base === */
-*{ box-sizing: border-box; margin: 0; padding: 0; }
-html, body{ height:100%; }
-html{ scroll-behavior:smooth; }
-body{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-               Ubuntu, Cantarell, "Noto Sans KR", "Apple SD Gothic Neo",
-               "Malgun Gothic", "맑은 고딕", Arial, Helvetica, sans-serif;
-  color: var(--ink);
-  background: #f8fafc;
-  line-height: 1.6;
-}
-img{ max-width:100%; height:auto; display:block; }
-
-
-
-/* === 2) Layout / Utilities === */
-.container{ width: min(1100px, 92%); margin: 0 auto; }
-.section{ padding: 72px 0; }
-.grid{ display:grid; gap: 24px; }
-.mx-auto{ margin-inline:auto; }
-.w-70safe{ width: clamp(320px, 70vw, 1100px); }
-.w-50safe{ width: clamp(320px, 50vw, 1100px); }
-.h-fullvh{ min-height: 100vh; }
-
-
-
-/* === 3) Buttons === */
-.btn{
-  display:inline-block; padding: 12px 18px; border-radius: 999px;
-  background: var(--brand); color:#fff; font-weight:600; text-decoration:none;
-  transition: transform .05s ease, box-shadow .2s ease, background .2s ease;
-  box-shadow: 0 8px 16px rgba(37,99,235,.18);
-}
-.btn:hover{ background: var(--brand-600); transform: translateY(-1px); }
-.btn.outline{
-  background: #fff; color: var(--brand); border:1px solid var(--brand);
-  box-shadow:none;
+/* 기존의 연보라 배경 제거하고, 텍스트만 브랜드 색으로 */
+.menu a:hover,
+.menu a:focus-visible{
+  color: var(--brand);        /* 로고와 동일한 브랜드 컬러 */
+  background: transparent;    /* 필요하면 지워도 됨 */
 }
 
-
-
-/* === 4) Header / Menu / Logo === */
-/* 테마 변수(어두운 기본 → hover/focus/open 시 밝게) */
-.site-header{
-  --bg:#ffffff;      /* 기본 배경(어두움) */
-  --fg:#ffffff;      /* 기본 전경색 */
-  --fg-muted: #0b0f19;/*rgba(255,255,255,.72);*/
-
-  position: sticky; top:0; z-index:1000;
-  background: var(--bg); color: var(--fg);
-  border-bottom:1px solid transparent;
-  transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
-  overflow: visible; /* dropdown이 가려지지 않게 */
-}
-.site-header .nav{
-  height: var(--header-h);
-  display:flex; align-items:center; justify-content:space-between; position:relative;
-}
-
-
-
-/* 브랜드(좌측 고정) */
-.brand{
-  position:absolute; left:0; top:50%; transform:translateY(-50%);
-  text-decoration:none; color:inherit; z-index:2;
-}
-
-
-
-/* 로고: Poppins 고정 (head에 Google Fonts 링크 필요) */
-.logo-text{
-  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
-  line-height:1;
-}
-.logo-text.short{  /* KDP (기본 표시) */
-  font-weight: 900; font-size: var(--logo-size); letter-spacing:.25px; color:#0b0f19;
-}
-.logo-text.long{   /* KDreamPartners (헤더 활성 시) */
- 
-  font-size: var(--logo-long-size);
-  font-weight: 700;        /* 기존 유지 */
-  letter-spacing: .1px;
+/* 열려있는(활성) 메뉴에 마우스 올려도 같은 컬러 유지되게 */
+.site-header.open .menu a:hover,
+.site-header.open .menu a:focus-visible{
   color: var(--brand);
-  display: none;           /* 기본은 숨김(헤더 열리면 보임) */
 }
 
 
 
 
-/* 상단 메뉴(로고 폭만큼 시작 + 오프셋) */
-.menu a{
-  font-size: var(--menu-size);
-  line-height: var(--menu-line);
-  padding: var(--menu-pad-y) 10px;
-  /* 나머지 스타일은 그대로 / 메뉴 글자 크기*/
-
-  font-family: var(--menu-font);
-  font-weight: var(--menu-weight);
-  /* 나머지 기존 속성들은 그대로 */
-
-}
-.menu{
-  list-style:none; margin:0;
-  display:flex; gap: var(--menu-gap);
-  margin-left: calc(var(--brand-w) + var(--menu-offset));
-}
-.menu a{
-  text-decoration:none; color: var(--fg-muted); font-weight:700;
-  padding:8px 10px; border-radius:10px;
-}
-.menu a:hover{ color: var(--fg); background: rgba(255,255,255,.08); }
+/* ===== HERO: 중앙 타이포 버전 ===== */
+.kv--center{min-height:64vh;display:grid;place-items:center;background:#0A2342;color:#fff;text-align:center}
+.kv-overline{letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.kv-title{font-weight:900;font-family:Poppins, sans-serif;font-size:clamp(40px,8vw,96px);line-height:1}
+.kv-sub{margin-top:10px;opacity:.9}
+.kv .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
 
 
-/* 헤더 활성(hover/focus/open) → 밝은 테마 */
-
-.site-header.open .logo-text.long,
-.site-header:hover .logo-text.long,
-.site-header:focus-within .logo-text.long{
-  font-size: var(--logo-long-size-open);
-  display: inline;
-}    /* 긴로고(kdreampartners 크기 변경)*/
 
 
-.site-header:hover,
-.site-header:focus-within,
-.site-header.open{
-  --bg:#ffffff; --fg:#0f172a; --fg-muted:#475569;
-  border-bottom-color:#e2e8f0;
-  box-shadow: 0 18px 28px rgba(2,6,23,.08);
-}
-.site-header:hover .menu a,
-.site-header:focus-within .menu a,
-.site-header.open .menu a{
-  background: transparent; color: var(--fg-muted);
-}
-.site-header:hover .menu a:hover,
-.site-header:focus-within .menu a:hover,
-.site-header.open .menu a:hover{
-  color: var(--fg); background: #eef2ff;
+
+
+/* ===== COMPANY ===== *//* ===== COMPANY ===== *//* ===== COMPANY ===== *//* ===== COMPANY ===== */
+
+
+.c1 .c1-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center; margin-top:22px}
+.c1-feats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px}
+.c1-feats .feat{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+.c1-media img {
+  max-width: 280px;   /* 원하는 최대 너비 */
+  width: 100%;        /* 부모 영역 기준 반응형 */
+  height: auto;       /* 비율 유지 */
+  object-fit: contain; /* 이미지 찌그러짐 방지 */
+  margin: 0 auto;      /* 가운데 정렬 */
 }
 
-/* 로고 텍스트 스왑: 활성 시 긴 이름 표시 */
-.site-header:hover .logo-text.short,
-.site-header:focus-within .logo-text.short,
-.site-header.open .logo-text.short{ display:none; }
-.site-header:hover .logo-text.long,
-.site-header:focus-within .logo-text.long,
-.site-header.open .logo-text.long{ display:inline; }
-
-/* 모바일 토글(필요 시) */
-.menu-toggle{ display:none; background:transparent; border:0; font-size:20px; color:inherit; }
-@media (max-width: 960px){
-  .menu{ display:none; }
-  .menu-toggle{ display:inline-flex; align-items:center; justify-content:center; padding:8px; }
+#company .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;    /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
 }
 
-/* === 5) Shared Dropdown Panel (#menuPanel) === */
-/* 헤더 바로 아래 펼쳐지는 바(공유 패널 1개) */
-/* === 5) Shared Dropdown Panel (#menuPanel) === */
-/* TUNE: 숫자만 바꿔도 감이 바로 옵니다 */
-/* === 5) Shared Dropdown Panel (#menuPanel) — 전체표시 버전 === */
-/* 닫힘 상태 */
-.menu-panel{
-  position:absolute; left:0; right:0; top: var(--header-h);
-  background:#ffffff;
-  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-  box-shadow: 0 24px 40px rgba(2,6,23,.10);
-  transform: translateY(-8px);
-  opacity:0; pointer-events:none;
-  max-height:0; overflow:hidden;
-  transition:
-    transform var(--panel-speed, .25s) ease,
-    opacity   var(--panel-speed, .25s) ease,
-    max-height var(--panel-speed, .25s) ease;
-  z-index: 999;
+
+/* 공통 리스트 스타일 */
+.bullet h3 {
+  margin-left: 50px;        /* 왼쪽 여백 */
+  list-style-type: disc;    /* 기본 불릿 유지 (●) */
+  padding-left: 4px;        /* 글자와 불릿 사이 간격 */
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 500;        /* 굵기: 400~900 */
+  font-size: 20px;         /* 크기 */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
+}
+  
+
+
+/* ===== COMPANY ===== *//* ===== COMPANY ===== *//* ===== COMPANY ===== *//* ===== COMPANY ===== */
+
+
+
+
+
+
+/* ===== BUSINESS (4 grid) ===== *//* ===== BUSINESS (4 grid) ===== *//* ===== BUSINESS (4 grid) ===== *//* ===== BUSINESS (4 grid) ===== */
+
+.alt{background:#f8fafc}
+.b1-grid{grid-template-columns:repeat(6,1fr)}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:18px;margin-bottom:8px} .card p{color:var(--muted)}
+.b1-grid--4{grid-template-columns:repeat(4,1fr)}
+.b1-grid--4 .card img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+@media (max-width:960px){.b1-grid--4{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.b1-grid--4{grid-template-columns:1fr}}
+
+#business .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;      /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
 }
 
-/* 열림 상태(hover/focus/open): 충분한 높이 확보(넘치면 내부 스크롤) */
-.site-header:hover .menu-panel,
-.site-header:focus-within .menu-panel,
-.site-header.open .menu-panel{
-  transform: translateY(0);
-  opacity:1; pointer-events:auto;
-  max-height: calc(100vh - var(--header-h));
-  overflow:auto;
+
+/* ===== BUSINESS (4 grid) ===== *//* ===== BUSINESS (4 grid) ===== *//* ===== BUSINESS (4 grid) ===== */
+
+
+
+
+
+
+/* ===== PORTFOLIO (original marquee) ===== *//* ===== PORTFOLIO (original marquee) ===== *//* ===== PORTFOLIO (original marquee) ===== */
+.marquee{--scroll-speed:20s;--logo-h:46px;position:relative;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:12px 0}
+.marquee .track{display:flex;align-items:center;gap:48px;width:max-content;animation:marquee-scroll var(--scroll-speed) linear infinite;will-change:transform}
+@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.partner{background:transparent;border:0;padding:0;margin:0;display:flex;align-items:center;justify-content:center;min-width:160px;height:calc(var(--logo-h) + 10px);cursor:pointer;transition:transform .15s ease}
+.partner img{height:var(--logo-h);width:auto} .partner:hover{transform:translateY(-1px)}
+.partner-card{position:fixed;left:0;top:0;transform:translate(-50%,-110%);pointer-events:none;opacity:0;transition:opacity .15s ease,transform .15s ease;z-index:80}
+.partner-card.show{opacity:1;transform:translate(-50%,-114%)} .partner-card .card-inner{width:360px;max-width:calc(100vw - 32px);background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 16px 30px rgba(2,6,23,.10);padding:14px 16px}
+.partner-card .card-line{height:4px;background:var(--brand);border-radius:4px 4px 0 0;margin:-14px -16px 10px}
+.partner-card .card-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.partner-card .card-title{font-size:16px;font-weight:700} .partner-card .card-sub{color:var(--ink);opacity:.9;margin-top:6px;font-weight:600} .partner-card .card-desc{color:var(--muted);margin-top:4px}
+.badge{display:inline-block;padding:4px 8px;border-radius:8px;font-size:12px;line-height:1;border:1px solid var(--border);background:#eef2ff;color:#4338ca}
+.badge.sector{background:#f1f5f9;color:#475569;margin-top:8px}
+
+#portfolio .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;       /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
 }
 
-/* 내부 그리드(기본) — hover 전에도 grid로 잡아둠 */
-.panel-grid{
-  position:relative;
-  padding: var(--panel-pad-top, 18px) 0 var(--panel-pad-bottom, 22px);
-  display:grid;
-  grid-template-columns: var(--brand-w) repeat(5, 1fr); /* 메뉴 수=5면 유지, 바뀌면 N으로 */
-  column-gap: var(--submenu-gap, 0);
-  row-gap: 0;
+
+
+
+
+
+/* ===== OUR DESIGN (갤러리) ===== */
+.works-grid{grid-template-columns:repeat(2,1fr)}
+.wcard{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.wcard img{width:100%;height:260px;object-fit:cover}
+.wmeta{display:flex;align-items:center;justify-content:space-between;padding:12px 14px}
+@media (max-width:960px){.works-grid{grid-template-columns:1fr}}
+
+#works .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;        /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
 }
 
-/* ── 싱글 모드(hover 전): 한 칼럼만 absolute로 표시 ── */
-.menu-panel .col{
-  position:absolute;
-  top: calc(var(--panel-pad-top, 18px) + var(--submenu-delta-y, 0px));
-  left: calc(var(--submenu-left, 0px) + var(--submenu-delta-x, 0px));
-  width: var(--col-w, 240px);
-  display:none;
+
+
+
+/* ===== CTA BAND / VISION ===== */
+.ctaBand{background:#0b1324;color:#e5edff;padding:36px 0}
+.bandGrid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px}
+.ctaBand h3{font-size:22px;margin-bottom:4px} .ctaBand p{color:#b8c5ff}
+.ctaBand .btn{background:#4f7cff} .ctaBand .btn:hover{background:#3f64cc}
+
+#vision .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;        /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
 }
-#menuPanel[data-col="1"] .col[data-key="1"],
-#menuPanel[data-col="2"] .col[data-key="2"],
-#menuPanel[data-col="3"] .col[data-key="3"],
-#menuPanel[data-col="4"] .col[data-key="4"],
-#menuPanel[data-col="5"] .col[data-key="5"]{
+
+
+
+
+/* ===== NEWS ===== */
+.news-list{list-style:none; display:grid; gap:10px; margin-top:14px}
+.news-list a{display:flex; align-items:center; gap:12px; padding:12px 14px; background:#fff; border:1px solid var(--border); border-radius:12px; color:inherit; text-decoration:none}
+.news-list a:hover{border-color:#cbd5e1}
+.news-list time{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; color:#475569; font-size:13px}
+
+#news .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;        /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
+}
+
+
+
+
+
+/* ===== CONTACT/LOCATION ===== */
+.contactGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+input,textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:#fff;font-size:16px}
+textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink)} small.help{color:var(--muted)}
+.mapPh{margin-top:10px;height:220px;border:1px dashed var(--border);border-radius:12px;display:grid;place-items:center;color:#64748b}
+
+#contact .overline{
+  font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
+  font-weight: 600;        /* 굵기: 400~900 */
+  font-size: 28px;         /* 크기 */
+  letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
+  text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
+  color: #0b0f19;     /* 색상(브랜드 컬러 변수) */
+  margin-bottom: 30px;      /* 아래 여백 */
+}
+
+
+/* 오시는 길 카드 안의 지도 박스가 카드 폭에 정확히 맞도록 */
+#location.shadow-card {
+  /* 카드 안쪽 여백 (원하는 값으로) */
+  padding: 20px 20px 24px;
+}
+
+/* 지도 컨테이너: 카드 여백 내에서 꽉 차되, 모서리/그림자만 */
+#location .mapPh{
+  width: 100%;
+  height: clamp(200px, 20vw, 280px);   /* 반응형 높이 */
+  margin-top: 12px;
+  border-radius: 14px;
+
+  /* 튀어나오는 타일 잘라내기 */
+  overflow: hidden;
+
+  /* 기존 점선/테두리 제거하고 깔끔한 박스만 */
+  border: none;                        /* 필요하면 1px solid rgba(2,6,23,.08) */
+  box-shadow: 0 16px 36px rgba(2,6,23,.08);
+}
+
+/* 혹시 이미지 플레이스홀더를 잠깐 유지한다면(테스트용) */
+
+.map-link{ display:block; text-decoration:none; color:inherit; }
+
+#location .mapPh img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+.map-link{
   display:block;
+  text-decoration:none;
+  color:inherit;
 }
 
-/* ── 전체표시 모드(헤더 hover/focus/open): 모든 칼럼을 grid로 표시 ── */
-.site-header:hover #menuPanel .panel-grid,
-.site-header:focus-within #menuPanel .panel-grid,
-.site-header.open  #menuPanel .panel-grid{
-  grid-template-columns: var(--brand-w) repeat(5, var(--col-w, 240px));
-  column-gap: var(--submenu-gap, 0);
+.map-link:hover .mapPh{
+  filter: brightness(0.9);
+  cursor: pointer;
 }
-.site-header:hover #menuPanel .col,
-.site-header:focus-within #menuPanel .col,
-.site-header.open  #menuPanel .col{
-  position: static !important;
-  display: block !important;
+
+
+
+
+
+
+
+
+/* ===== Footer ===== */
+.footer{padding:26px 0;border-top:1px solid var(--border);color:var(--muted)}
+.footer .f-info{margin-bottom:6px; font-size: 16px; }
+
+/* ===== Responsive tweaks ===== */
+@media (max-width:1100px){:root{--menu-gap:16px}}
+@media (max-width:960px){
+  .c1 .c1-grid{grid-template-columns:1fr} .c1-feats{grid-template-columns:1fr 1fr}
+  .b1-grid{grid-template-columns:1fr 1fr 1fr}
+  .contactGrid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .menu{display:none} .menu-toggle{display:inline-flex}
+  .menu-panel{position:fixed;top:var(--header-h);bottom:0;left:0;right:0;max-height:calc(100vh - var(--header-h));overflow:auto}
+  .panel-grid{grid-template-columns:1fr}
+  .b1-grid{grid-template-columns:1fr 1fr}
+  .c1-feats{grid-template-columns:1fr}
+}
+
+
+/* Hero Title Hover 효과 */
+.kv-title {
+  transition: color 0.3s ease;   /* 부드럽게 색 전환 */
+}
+
+.kv-title:hover {
+  color: var(--brand);          /* 브랜드 컬러 (#2563eb) */
+  cursor: pointer;              /* 마우스 올렸을 때 손가락 모양 */
+}
+
+
+
+
+
+
+
+
+/* ===== Motion (template-like) ===== */
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+.reveal.show{opacity:1; transform:none}
+
+/* Hero fade-up */
+@keyframes fadeUp{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+.kv--center .kv-title{animation:fadeUp .7s ease .1s both}
+.kv--center .kv-sub{animation:fadeUp .7s ease .22s both}
+.kv--center .cta{animation:fadeUp .7s ease .34s both}
+
+/* Works gallery hover zoom */
+.works .wcard img{transition:transform .5s ease}
+.works .wcard:hover img{transform:scale(1.04)}
+
+/* 모션 최소화 선호 접근성 */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+}
+
+
+
+
+/* === KDP 로고크기 일정화 image responsive limit (Option 2: breakpoint-based) === */
+@media (max-width: 960px) {
+  .c1-media img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 640px) {
+  .c1-media img {
+    max-width: 180px;
+  }
+}
+
+/* ===== Hero scroll-down arrow ===== */
+.scroll-down{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:5}
+.scroll-down a{font-size:28px;color:#fff;text-decoration:none;opacity:.85;transition:opacity .3s, transform .3s}
+.scroll-down a:hover{opacity:1;transform:translateY(4px)}
+
+.scroll-down {
+  position: absolute;
+  bottom: 140px; /* 섹션 하단에서 여백 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-down a {
+  font-size:50px;   /* 화살표 크기 */
+  color: #808080;       /* 흰색 (배경색에 따라 조정 가능) */
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.scroll-down a:hover {
+  opacity: 1;
+  transform: translateY(4px); /* 살짝 아래로 움직이는 효과 */
+}
+
+/* ===== Hero scroll-down arrow: idle pulse + hover brand ===== */
+@keyframes kdpArrowPulse{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(10px); }   /* 두근- 위로 살짝 */
+  100%{ transform: translateY(0); }
+}
+.scroll-down a{
+  animation: kdpArrowPulse 1s ease-in-out infinite; /* 기본: 계속 두근 */
+  will-change: transform;
+  transition: color .25s ease;  /* 컬러 전환 */
+  cursor: pointer;
+}
+.scroll-down a:hover{
+  animation: none;         /* HOVER 시 움직임 멈춤 */
+  color: var(--brand);     /* 브랜드 컬러(#2563eb) */
+  transform: none;         /* 위치 고정 */
+}
+@media (prefers-reduced-motion: reduce){
+  .scroll-down a{ animation: none !important; }
+}
+
+
+
+
+/* ===== Manual dropdown alignment (pixel-perfect) ===== */
+/* 이 클래스를 헤더에 붙이면 수동 좌표 모드가 켜집니다 */
+.site-header.manual-align {
+  /* 드롭다운 칼럼의 기본 너비(필요하면 조정) */
+  --col-w: 280px;
+  --col-h: 300px;
+
+  /* 각 상단 메뉴 아래 칼럼의 '왼쪽 시작 좌표'를 직접 지정 (컨테이너 기준 px) */
+  --col1-left: 260px;  /* Company */
+  --col2-left: 420px;  /* Business */
+  --col3-left: 600px;  /* Portfolio */
+  --col4-left: 780px;  /* News */
+  --col5-left: 920px;  /* Contact */
+
+}
+
+/* 패널의 그리드/자동 위치 계산 비활성화 */
+.site-header.manual-align #menuPanel .panel-grid{
+  transform: none !important;
+}
+
+/* 칼럼을 '절대 좌표'로 배치해 수동 위치를 그대로 사용 */
+.site-header.manual-align #menuPanel .col{
+  position: absolute !important;
+  top: var(--panel-pad-top);
+  width: var(--col-w);
+  display: none; /* 기본은 숨김: data-col로 제어 */
+}
+
+/* 활성 메뉴에 해당하는 칼럼만 보이게 */
+.site-header.manual-align #menuPanel[data-col="1"] .col[data-key="1"]{ display:block; left: var(--col1-left); }
+.site-header.manual-align #menuPanel[data-col="2"] .col[data-key="2"]{ display:block; left: var(--col2-left); }
+.site-header.manual-align #menuPanel[data-col="3"] .col[data-key="3"]{ display:block; left: var(--col3-left); }
+.site-header.manual-align #menuPanel[data-col="4"] .col[data-key="4"]{ display:block; left: var(--col4-left); }
+.site-header.manual-align #menuPanel[data-col="5"] .col[data-key="5"]{ display:block; left: var(--col5-left); }
+
+
+
+/* ▼ 칼럼별 하위항목 가로 이동(px) */
+.site-header.manual-align{
+  --col1-dx: 0px;
+  --col2-dx: 0px;
+  --col3-dx: 0px;
+  --col4-dx: 0px;
+  --col5-dx: 0px;
+}
+
+/* manual-align(절대좌표 모드)와 mega(그리드 모드) 모두에 적용 */
+#menuPanel .col a{ transform: translateX(var(--item-dx, 0px)); }
+
+#menuPanel .col[data-key="1"] a{ --item-dx: var(--col1-dx); }
+#menuPanel .col[data-key="2"] a{ --item-dx: var(--col2-dx); }
+#menuPanel .col[data-key="3"] a{ --item-dx: var(--col3-dx); }
+#menuPanel .col[data-key="4"] a{ --item-dx: var(--col4-dx); }
+#menuPanel .col[data-key="5"] a{ --item-dx: var(--col5-dx); }
+
+
+
+
+
+
+/* 서브메뉴 중앙 정렬(선택) */
+.site-header.manual-align #menuPanel .col a{
+  justify-content: center;
+  max-width: none;
+}
+
+/* 모바일은 기존 로직 유지 */
+@media (max-width: 960px){
+  .site-header.manual-align #menuPanel .col{
+    position: static !important;
+    display: block !important;
+    width: auto;
+  }
+}
+
+
+/* ===== Mega menu 메가메뉴 패널 ===== */
+
+/* 상단 메뉴를 5등분 그리드로 */
+.menu{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+  margin-left: calc(var(--brand-w) + var(--menu-offset));
+  width: calc(100% - (var(--brand-w) + var(--menu-offset)));
+}
+
+/* 패널도 동일한 칼럼 체계: (브랜드+오프셋) + 5등분 */
+.panel-grid{
+  display: grid;
+  grid-template-columns: calc(var(--brand-w) + var(--menu-offset)) repeat(5, 1fr);
+  gap: 0;
+  padding: var(--panel-pad-top) 0 var(--panel-pad-bottom);
+  transform: none !important; /* 기존 수평 쉬프트 제거 */
+}
+
+/* 패널 화이트 배경 + 얇은 그림자(박스 라인 없음) */
+.menu-panel{
+  background:#ffffff !important;
+  border: none !important;
+  box-shadow: 0 24px 40px rgba(2,6,23,.10) !important;
+}
+
+/* 메가모드: 패널 열리면 5개 컬럼을 모두 보이게 */
+.site-header.mega #menuPanel .col{
+  display:block !important;
+  position: static !important; /* 그리드에 자연 배치 */
   width: auto !important;
-  top: auto; left: auto;
 }
-/* 각 칼럼을 상위 항목 바로 아래 칸(2~6열)에 고정 */
+
+/* 각 컬럼을 해당 그리드 칼럼에 매핑 */
 #menuPanel .col[data-key="1"]{ grid-column: 2; }
 #menuPanel .col[data-key="2"]{ grid-column: 3; }
 #menuPanel .col[data-key="3"]{ grid-column: 4; }
 #menuPanel .col[data-key="4"]{ grid-column: 5; }
 #menuPanel .col[data-key="5"]{ grid-column: 6; }
 
-/* 하위 항목 타이포/간격(전부 동일 크기/높이) */
+/* 항목(링크) 스타일: 검은 글자, 라인/박스 제거, 중앙정렬 */
 #menuPanel .col a{
-  display:flex; align-items:center;
-  min-height: var(--row-h, 36px);
-
-  /* ▶ 글자 폭/정렬/간격 노브 */
-  padding: var(--submenu-pad-y, 6px) var(--submenu-pad-x);
-  max-width: var(--submenu-text-max);
-  text-align: var(--submenu-text-align);
-  gap: var(--submenu-icon-gap);
-
-  /* ▶ 타이포 노브 */
-  font-size: var(--submenu-font, 15px);
-  line-height: var(--submenu-line, 1.3);
-  font-weight: var(--submenu-weight);
-  letter-spacing: var(--submenu-letter);
-
-  color:#0f172a; text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 0;
+  color:#0f172a;               /* 검은 텍스트 */
+  text-decoration:none;
+  background: transparent !important;
+  border: none !important;
+  max-width: none;
 }
 
-/* 항목 사이 간격 */
-#menuPanel .col a + a{ margin-top: var(--submenu-row-gap); }
-
-
+/* hover 시 글자색만 강조 */
 #menuPanel .col a:hover{ color: var(--brand); }
 
-/* 모바일(≤640px): 한 칼럼씩 세로로 */
-@media (max-width: 640px){
-  .site-header:hover #menuPanel .panel-grid,
-  .site-header.open  #menuPanel .panel-grid{
-    grid-template-columns: 1fr;
-  }
-  #menuPanel .col{ grid-column:auto; }
-}
-
-/* 기본(모든 칼럼 공통) */
-#menuPanel .col{ --col-offset-x: 0px; --col-offset-y: 0px; }
-
-/* 메뉴별 오프셋(예시) */
-#menuPanel .col[data-key="1"]{ --col-offset-x:  33px;  --col-offset-y:  0px; }
-#menuPanel .col[data-key="2"]{ --col-offset-x:  25px;  --col-offset-y:  0px; }
-#menuPanel .col[data-key="3"]{ --col-offset-x:  16px;  --col-offset-y:  0px; }
-#menuPanel .col[data-key="4"]{ --col-offset-x:  42px;  --col-offset-y:  0px; }
-#menuPanel .col[data-key="5"]{ --col-offset-x:  48px;  --col-offset-y:  0px; }
-
-/* 싱글/전체 모드 공통 적용 */
-.menu-panel .col{ transform: translate(var(--col-offset-x), var(--col-offset-y)); }
-
-/* ALL 모드(헤더 hover/focus/open)에서 하위 칼럼 미세 이동 적용 */
-.site-header:hover #menuPanel .col,
-.site-header:focus-within #menuPanel .col,
-.site-header.open  #menuPanel .col{
-  /* 전역 오프셋 + 칼럼별 오프셋을 합산해서 이동 */
-  transform: translate(
-    calc(var(--col-offset-x, 0px) + var(--submenu-delta-x, 0px)),
-    calc(var(--col-offset-y, 0px) + var(--submenu-delta-y, 0px))
-  );
-}
-
-.panel-grid{ transform: translateX(var(--panel-grid-shift-x)); }
-
-
-/* 매핑(About=1, LinkCo.=2, Portfolio=3, Insight=4, Contact=5) 
-#menuPanel[data-col="1"] .col[data-key="1"]{ display:block; grid-column:2; }
-#menuPanel[data-col="2"] .col[data-key="2"]{ display:block; grid-column:3; }
-#menuPanel[data-col="3"] .col[data-key="3"]{ display:block; grid-column:4; }
-#menuPanel[data-col="4"] .col[data-key="4"]{ display:block; grid-column:5; }
-#menuPanel[data-col="5"] .col[data-key="5"]{ display:block; grid-column:6; } */
-
-
-
-/* === 6) Hero / Sections === */
-header{ /* 옛 header 기본(투명/블러) 사용하지 않으면 삭제 가능 */
-  backdrop-filter: blur(8px);
-}
-.hero{
-  padding: 80px 0 64px;
-  background: radial-gradient(800px 300px at 50% -50%, #dbeafe, transparent 60%);
-}
-.heroInner{
-  display:grid; gap:28px; align-items:center;
-  grid-template-columns: 1.25fr .75fr;
-}
-.hero h1{
-  font-size: clamp(28px, 5vw, 44px);
-  line-height: 1.15; letter-spacing:-.5px;
-}
-.hero p{ color:var(--muted); margin-top:14px; font-size: clamp(16px, 2vw, 18px); }
-.hero .cta{ margin-top:22px; display:flex; gap:12px; flex-wrap: wrap; }
-
-.heroCard{
-  background: var(--card); border:1px solid var(--border); border-radius: var(--radius);
-  box-shadow: var(--shadow); padding: 18px;
-}
-.heroBox{
-  border:1px dashed var(--border); border-radius: 12px; padding: 28px; text-align:center;
-  color: var(--muted);
-}
-
-.heroLogo{ display:flex; justify-content:center; }
-.heroLogo img{ width: clamp(280px, 40vw, 640px); height:auto; }
-
-
-/* Features */
-.features .grid{ grid-template-columns: repeat(3, 1fr); }
-.card{
-  background: var(--card); border:1px solid var(--border); border-radius: var(--radius);
-  padding: 22px; box-shadow: var(--shadow);
-}
-.card h3{ font-size:20px; margin-bottom:8px; }
-.card p{ color: var(--muted); }
-
-/* About */
-
-
-
-.about .content{ display:grid; gap:24px; grid-template-columns: 1.1fr .9fr; }
-.kbd{
-  
-  display:inline-block; padding: 2px 8px; border:1px solid var(--border);
-  border-bottom-width:2px; border-radius:8px; background:#fff;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-/* Contact */
-.contact form{ display:grid; gap:14px; max-width: 520px; }
-input, textarea{
-  width:100%; padding: 12px 14px; border:1px solid var(--border); border-radius: 12px;
-  background:#fff; font-size:16px;
-}
-textarea{ min-height:120px; resize: vertical; }
-label{ font-weight:600; color: var(--ink); }
-small.help{ color: var(--muted); }
-
-/* === 7) Footer === */
-footer{ padding: 26px 0; border-top:1px solid var(--border); color:var(--muted); }
-
-/* === 8) Responsive === */
-@media (max-width: 1100px){
-  :root{ --menu-gap: 16px; }
-}
+/* 데스크톱에서만 메가메뉴 보이기, 모바일은 기존 세로 스택 유지 */
 @media (max-width: 960px){
-  .heroInner{ grid-template-columns: 1fr; }
-  .about .content{ grid-template-columns: 1fr; }
-  .features .grid{ grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 640px){
-  .features .grid{ grid-template-columns: 1fr; }
-  /* 모바일 메뉴/패널 */
-  .menu{ display:none; }
-  .menu-toggle{ display:inline-flex; }
-  .menu-panel{
-    position:fixed; top: var(--header-h); bottom:0; left:0; right:0;
-    max-height: calc(100vh - var(--header-h)); overflow:auto;
-  }
   .panel-grid{ grid-template-columns: 1fr; }
-  .menu-panel .col{ display:block; }
+  #menuPanel .col{ grid-column: auto; }
 }
 
-/* === 9) Reduced motion === */
-@media (prefers-reduced-motion: reduce){
-  .menu-panel{ transition:none; }
+
+
+
+
+
+/*  *********** Company html용 *************** */
+
+
+/* === ABOUT (안1) === */
+.about-hero{background:#e5e7eb;padding:68px 0 90px}
+.ah-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.ah-title{font-family:Poppins, sans-serif;font-weight:900;font-size:clamp(28px,5vw,56px);line-height:1.1}
+.ah-art{width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 30% 35%, #2563eb 0%, #1d4ed8 40%, #0b1324 100%);justify-self:end;box-shadow:0 24px 40px rgba(2,6,23,.15)}
+.subttl{font-size:14px;letter-spacing:.14em;color:var(--brand);text-transform:uppercase;margin-bottom:10px}
+.ah-head{font-size:24px;margin:6px 0 10px}
+.about-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:960px){
+  .ah-grid{grid-template-columns:1fr}
+  .ah-art{justify-self:start;margin-top:12px;width:220px;height:220px}
+  .about-3{grid-template-columns:1fr}
 }
-
-/* === 10) Debug (작업 때만 켜세요) === */
-/* .debug *{ outline:1px dashed rgba(37,99,235,.35); } */
-
-

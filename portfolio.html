@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — K-Dream Partners</title>
+  <meta name="description" content="K-Dream Partners — 초기·극초기 스타트업의 발굴·투자·성장을 지원하는 액셀러레이터" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* 현재 페이지 메뉴 강조 */
+    .menu a[aria-current="page"]{ color: var(--brand); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" role="navigation">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="홈으로" title="홈으로">
+        <span class="logo-text short">KDP</span>
+        <span class="logo-text long">KDreamPartners</span>
+      </a>
+      <nav aria-label="주요">
+        <ul class="menu">
+          <li class="mitem" data-col="1"><a href="company.html">Company</a></li>
+          <li class="mitem" data-col="2"><a href="business.html">Business</a></li>
+          <li class="mitem" data-col="3"><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+          <li class="mitem" data-col="4"><a href="news.html">News</a></li>
+          <li class="mitem" data-col="5"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menuPanel" aria-label="메뉴 열기">☰</button>
+    </div>
+
+    <!-- 공유 드롭다운 패널 (파일 기반 링크로 변경) -->
+    <div id="menuPanel" class="menu-panel" aria-hidden="true">
+      <div class="container panel-grid">
+        <div class="col" data-key="1">
+          <a href="company.html">회사 소개</a>
+          <a href="company.html#values">핵심 가치</a>
+        </div>
+        <div class="col" data-key="2">
+          <a href="business.html">사업 영역</a>
+          <a href="business.html#recruit">채용</a>
+        </div>
+        <div class="col" data-key="3">
+          <a href="portfolio.html">포트폴리오</a>
+        </div>
+        <div class="col" data-key="4">
+          <a href="news.html#events">Events</a>
+          <a href="news.html">News</a>
+        </div>
+        <div class="col" data-key="5">
+          <a href="contact.html">문의하기</a>
+          <a href="contact.html#location">오시는 길</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="portfolio" class="section portfolio p1">
+    <div class="container">
+      <div class="portfolio-head">
+        <span class="overline">PORTFOLIO</span>
+      </div>
+      <div id="partnersMarquee" class="marquee" aria-label="파트너 로고 슬라이더">
+        <div class="track">
+          <button class="partner" type="button"><img src="assets/eggpool.png" alt="EggPool"></button>
+          <button class="partner" type="button"><img src="assets/akroneco1.png" alt="AkronEco"></button>
+          <button class="partner" type="button"><img src="assets/manwol.png" alt="Manwol"></button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <nav class="container">
+      <div class="f-info">대표: 이인섭 <br>| H.P 010-5577-4376 <br>| T. 070-4113-5577 <br>| E. kdream2060@gmail.com</div>
+      © <span id="y"></span> KDreamPartners
+    </nav>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

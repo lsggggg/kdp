@@ -1,195 +1,274 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta name="naver-site-verification" content="baeb1ce7089175a0e93f381ea208c0e2e595ea62" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>(주)케이드림파트너스</title>
-
-  <!-- 로고용 폰트 (KDP=900 / KDreamPartners=700) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-  <!-- 메인 CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <meta name="theme-color" content="#ffffff" />
+  <title>(주)케이드림파트너스 — Corporate1 (Applied)</title>
+  <meta name="description" content="K-Dream Partners — 초기·극초기 스타트업의 발굴·투자·성장을 지원하는 액셀러레이터" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900;900&family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <!-- ================= Header / Nav ================= -->
+  <!-- ====== HEADER (원본 상단메뉴/로고 그대로 유지) ====== -->
   <header class="site-header" role="navigation">
-    
     <div class="container nav">
-      <!-- 브랜드 로고(클릭 → 홈) -->
-      <a href="./" class="brand" aria-label="홈으로" title="홈으로">
+      <a href="#home" class="brand" aria-label="홈으로" title="홈으로">
         <span class="logo-text short">KDP</span>
         <span class="logo-text long">KDreamPartners</span>
       </a>
 
-      <!-- 상단 메뉴 (data-col = 1..5 매핑) -->
       <nav aria-label="주요">
         <ul class="menu">
-          <li class="mitem" data-col="1"><a href="#about">About</a></li>
-          <li class="mitem" data-col="2"><a href="#linkco">LinkCo.</a></li>
-          <li class="mitem" data-col="3"><a href="#portfolio">Portfolio</a></li>
-          <li class="mitem" data-col="4"><a href="#insight">Insight</a></li>
-          <li class="mitem" data-col="5"><a href="#contact">Contact</a></li>
+          <li class="mitem" data-col="1"><a href="#company.html">Company</a></li>
+          <li class="mitem" data-col="2"><a href="#business.html">Business</a></li>
+          <li class="mitem" data-col="3"><a href="#portfolio.html">Portfolio</a></li>
+          <li class="mitem" data-col="4"><a href="#news.html">News</a></li>
+          <li class="mitem" data-col="5"><a href="#contact.html">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- 모바일 토글(640px↓에서 표시) -->
+      
+
       <button class="menu-toggle" aria-expanded="false" aria-controls="menuPanel" aria-label="메뉴 열기">☰</button>
     </div>
 
-    <!-- 공유 드롭다운 패널(헤더 내부에 있어야 함) -->
+    <header class="site-header manual-align" role="navigation">
+
+</header>
+
+
+    <!-- 공유 드롭다운 패널 (원본) -->
     <div id="menuPanel" class="menu-panel" aria-hidden="true">
       <div class="container panel-grid">
-        <!-- data-key = 상단 메뉴 번호와 매칭 -->
-        <div class="col" data-key="1">          
-          <a href="#about">회사 소개</a>
-          <a href="#team">&nbsp;&nbsp;팀 소개</a>
+        <div class="col" data-key="1">
+          <a href="#company.html" style="--item-dx: 180px" >회사 소개</a>
+          <a href="#values.html#values" style="--item-dx: 180px">핵심 가치</a>
         </div>
-
-        <div class="col" data-key="2">          
-          <a href="#link-a">&nbsp;기업 연계</a>
-          <a href="#link-b">기업인 만남</a>
+        <div class="col" data-key="2">
+          <a href="#business.html" style="--item-dx: 163px">사업 영역</a>
+          <a href="#recruit.html#recruit"  style="--item-dx: 163px">채용</a>
         </div>
-
         <div class="col" data-key="3">
-          <a href="#portfolio">포트폴리오 소개</a>
+          <a href="#portfolio.html" style="--item-dx: 145px">포트폴리오</a>
         </div>
-
         <div class="col" data-key="4">
-          <a href="#events">&nbsp;Events</a>
-          <a href="#contents">Contents</a>
-          <a href="#news">&nbsp;&nbsp;News</a>
+          <a href="news.html#events" style="--item-dx: 126px">Events</a>
+          <a href="news.html" style="--item-dx: 124px">News</a>
         </div>
-        <div class="col" data-key="5">          
-          <a href="#apply">Apply</a>
-          <a href="#faq">&nbsp;FAQ</a>
+        <div class="col" data-key="5">
+          <a href="#contact.html" style="--item-dx: 105px">문의하기</a>
+          <a href="contact.html#location" style="--item-dx: 105px">오시는 길</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ================= Main ================= -->
-  <main>
 
+
+
+  <!-- ====== HERO (기업1 느낌의 중앙 타이포형) ====== -->
+  <section id="home" class="kv kv--center">
+    <div class="kv-center container">
+      <p class="kv-overline">START-UP with K-Dream-Partners</p>
+      <h1 class="kv-title">INNOVATION</h1>
+      <p class="kv-sub">혁신을 위한 첫 발걸음</p>
+     <div class="scroll-down">
+
+<div class="scroll-down">
+  <a href="#company" aria-label="다음 섹션으로">
+    ↓
+  </a>
   
-    <!-- Hero -->
-    <section class="hero h-fullvh" id="home">
-      <div class="container heroInner">
-        <div>
-          <h1>모든 혁신은 시작에서 나옵니다.</h1>
-          <p>처음이라는 막막함에 시작을 망설이지 않도록,</p>
-          <p>혁신을 위한 대표님의 도전과 여정을 KDP가 동행하겠습니다.</p>
-          <p></p>
-          <div class="cta">
-            <a class="btn" href="#contact">지금 문의하기</a>
-           <!-- <a class="btn outline" href="#features">기능 살펴보기</a> -->
-          </div>
-        </div>
-       
-         <!-- 카드/이미지 영역 -->
-          
-    <aside class="heroCard">
-      <div class="heroLogo">
-        
-        <!-- 상대경로 + 파일이름 + 확장자 -->
-        
-        <img src="assets/hero-kdp.png"
-             alt="KDP Partners — We're AC. We're company builder" />
-             
-      </div>
-    </aside>
-  </div>
 </div>
-<br><br><br><br><br><br><br>
+<section id="home" class="kv kv--center">
+  <div class="kv-center container">
+    <!-- ... 타이틀/서브 ... -->
+  </div>
+  <div class="scroll-down">
+    <a href="#company" aria-label="다음 섹션으로">↓</a>
+  </div>
+</section>
+<section id="home" class="kv kv--center">
+  <div class="kv-center container">
+    <!-- 타이틀/서브 -->
+  </div>
+  <div class="scroll-down">
+    <a href="#company" aria-label="다음 섹션으로">↓</a>
+  </div>
+</section>
+
+
+
+</div>
+
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- ====== COMPANY (원본 유지) ====== -->
+  <section id="company" class="section company c1">
+    <div class="container c1-grid">
+      <div class="c1-copy">
+        <span class="overline">COMPANY</span>
+        <h2>케이드림파트너스는 실행 중심의 AC(액셀러레이터)입니다.</h2><br>
+        <p class="lead">아이디어 검증부터 스케일업까지, 실무형 코칭과 자금·네트워크로 성장의 속도를 높입니다.
+        <br> 기업의 시작과 도약을 함께하며, 시드/브릿지 투자와 컨설팅 지원을 제공합니다.</p>
         
-    <!-- Features 
-    <section id="features" class="section features">
-      <div class="container">
-        <h2>주요 특징</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>PORTFOLIO</h3>
-            <p>포트폴리오</p>
-          </article>
-          <article class="card">
-            <h3>CONTENTS</h3>
-            <p>콘텐츠</p>
-          </article>
-          <article class="card">
-            <h3>INVEST-STAIR</h3>
-            <p>기업의 성장 단계에 따른 솔루션</p>
-          </article>
+        <ul class="bullet"> <!-- bullet = company li리스트 변수선언-->
+          <br>
+         <!-- <h3>아이디어 검증 및 경영 멘토링</h3><br>
+          <h3>Gov‑Fund 매칭 for 정부/지자체 과제</h3><br>
+          <h3>TIPS 및 Seed/Bridge 투자 진행</h3>
+        </ul>-->
+      </div>
+      <aside class="c1-media shadow-card">
+        <img src="assets/hero-kdp.png" alt="KDP — We're AC, we're company builder.">
+      </aside>
+    </div>
+<br><br>
+    <div class="container c1-feats">
+      <article class="feat">
+        <h3>실행 코칭</h3>
+        <p>고객개발 · 실험 설계 · 지표 관리</p>
+      </article>
+      <article class="feat">
+        <h3>투자 연계</h3>
+        <p>Seed/Bridge · 후속 VC 파이프라인</p>
+      </article>
+      <article class="feat">
+        <h3>R&D / 공공</h3>
+        <p>정부지원금 기획 · 문서 · 평가 대응</p>
+      </article>
+    </div>
+  </section>
+
+   <!-- ====== PORTFOLIO (원본 로고바/호버카드 그대로 유지) ====== -->
+  <section id="portfolio" class="section portfolio p1">
+    <div class="container">
+      <div class="portfolio-head">
+        <span class="overline">PORTFOLIO</span>
+
+      </div>
+      <div id="partnersMarquee" class="marquee" aria-label="파트너 로고 슬라이더">
+        <div class="track">
+          <button class="partner" type="button" data-company="EggPool" data-stage="Seed" data-sector="Media" data-title="주식회사 에그풀" data-subtitle="AI 기반 테이블오더 광고" data-desc="시청행동 기반 성과 예측 시스템.">
+            <img src="assets/eggpool.png" alt="EggPool">
+          </button>
+          <button class="partner" type="button" data-company="AkronEco" data-stage="Seed" data-sector="Healthcare" data-title="주식회사 아크론에코" data-subtitle="원격모니터링 솔루션" data-desc="만성질환 비대면 모니터링 플랫폼.">
+            <img src="assets/akroneco1.png" alt="AkronEco">
+          </button>
+          <button class="partner" type="button" data-company="Manwol" data-stage="Growth" data-sector="Workspace" data-title="주식회사 만월회" data-subtitle="신개념 공유오피스" data-desc="테크 스타트업을 위한 성수동 공간.">
+            <img src="assets/manwol.png" alt="Manwol">
+          </button>
+          <button class="partner" type="button" data-company="ClueMetic" data-stage="Seed" data-sector="Bio/AI" data-title="주식회사 클루메틱" data-subtitle="AI 기반 분석" data-desc="바이오/메디컬 데이터 분석.">
+            <img src="assets/cluemetic.png" alt="ClueMetic">
+          </button>
+          <button class="partner" type="button" data-company="Intelligent-Gene" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
+            <img src="assets/intelligent-gene.png" alt="Intelligent Gene">
+          </button>
+           <button class="partner" type="button" data-company="gundol" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
+            <img src="assets/gundol.png" alt="gundol">
+          </button>
+          <button class="partner" type="button" data-company="viveai" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
+            <img src="assets/viveai.png" alt="viveai">
+          </button>
         </div>
       </div>
-    </section>-->
 
-    <!-- About -->
-    <section id="about" class="section about">
-      <div class="container w-70safe content">
-        <div>
-          <h2>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;소개</h2>
-        </br>
-          <p>&emsp;&emsp;&emsp;KDP는 초기 기업의 엑셀러레이팅 단계를 통해 
-          </br>&emsp;&emsp;&emsp;&emsp;&emsp;초기 스타트업의 성장을 돕습니다.
-        </p></br>
-          <p>&emsp;&emsp;&emsp;다양한 커뮤니티와 기업들과의 연계를 통해         
-          </br>&emsp;강력한 네트워킹으로 초기 기업의 막막함을 해소합니다.</p>
-        </div>
-        <div class="card" id="team">
-          
-          <h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;AC(Acelerating)</h3>
-          <ol style="padding-left:18px; color:var(--muted);">
-            &nbsp;엑셀러레이팅(AC)는 스타트업의 초기 단계를 가속화 합니다.
-            <br> 
-            <br>
-            &nbsp;자금&nbsp;&#183;&nbsp;멘토링&nbsp;&#183;&nbsp;네트워킹을 제공합니다.
-          
-            
-          </ol>
+      <div id="partnerCard" class="partner-card" role="dialog" aria-hidden="true">
+        <div class="card-inner">
+          <div class="card-line"></div>
+          <div class="card-header">
+            <span class="badge stage" id="pcStage">Stage</span>
+            <h3 class="card-title" id="pcTitle">회사명</h3>
+          </div>
+          <div class="badge sector" id="pcSector">Sector</div>
+          <p class="card-sub" id="pcSub">부제</p>
+          <p class="card-desc" id="pcDesc">설명</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- LinkCo. -->
-    <section id="linkco" class="section">
-      <div class="container w-70safe">
-        <h2>LinkCo.</h2>
-        <div class="grid">
-          <article id="link-a" class="card"><h3>링크 항목 1</h3><p>설명…</p></article>
-          <article id="link-b" class="card"><h3>링크 항목 2</h3><p>설명…</p></article>
-        </div>
+  <!-- ====== portfolio  ====== -->
+  <section id="portfolio" class="section portfolio b1 alt">
+    <div class="container">
+      <span class="overline">DETAIL PORT.</span>
+      <h2 class="center"></h2>
+      <br>
+      <div class="grid b1-grid b1-grid--4">
+        <article class="card"><img src="assets/biz1.jpg" alt=""><h3>Acceleration</h3><p>MVP·고객개발·성장실험</p></article>
+        <article class="card"><img src="assets/biz2.jpg" alt=""><h3>Investment</h3><p>Seed/Bridge·후속투자</p></article>
+        <article class="card"><img src="assets/biz3.jpg" alt=""><h3>Gov‑Fund</h3><p>정부/지자체 과제 매칭</p></article>
+        <article class="card"><img src="assets/biz4.jpg" alt=""><h3>Tech & ESG</h3><p>AI/IoT·해양/환경 PoC</p></article>
       </div>
-    </section>
+   <div style="margin-top:110px;">
+            <a></a><button class="btn" type="submit">더보기</button>
+          </div>
+    </div>
+  </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="section">
-      <div class="container w-70safe">
-        <h2>Portfolio</h2>
-        <div class="grid cards">
-          <article class="card"><h3>프로젝트 A</h3><p>요약…</p></article>
-          <article class="card"><h3>프로젝트 B</h3><p>요약…</p></article>
-          <article class="card"><h3>프로젝트 C</h3><p>요약…</p></article>
-        </div>
+  <!-- ====== VISION (기업1 느낌의 단락형 카피) ====== -->
+  <section id="vision" class="section vision">
+    <div class="container">
+      <span class="overline">Vision</span>
+      <h2>혁신은 시작에서 나옵니다.</h2>
+      <p class="lead">처음이라는 막막함에 시작을 망설이지 않도록, 토탈 멘토링과 투자를 진행합니다.</p>
+      <a class="btn" href="#contact">문의하기</a>
+    </div>
+  </section>
+
+ 
+
+  <!-- ====== CO-PARTNER ====== -->
+  <section id="works" class="section works alt">
+    <div class="container">
+      <span class="overline">CO-PARTNER</span>
+      <h2 class="center"></h2>
+      <div class="grid works-grid">
+        <article class="wcard">
+          <img src="assets/work1.jpg" alt="work1">
+          <div class="wmeta"><strong>예시</strong><span>2022</span></div>
+        </article>
+        <article class="wcard">
+          <img src="assets/work2.jpg" alt="work2">
+          <div class="wmeta"><strong>예시</strong><span>2023</span></div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Insight -->
-    <section id="insight" class="section">
-      <div class="container w-70safe">
-        <h2>Insight</h2>
-        <div class="grid">
-          <div id="events" class="card"><h3>Events</h3><p>리스트…</p></div>
-          <div id="contents" class="card"><h3>Contents</h3><p>리스트…</p></div>
-          <div id="news" class="card"><h3>News</h3><p>리스트…</p></div>
-        </div>
+  <!-- ====== RECRUIT (카피 톤 강화) ====== -->
+  <section id="recruit" class="ctaBand">
+    <div class="container bandGrid">
+      <div>
+        <h3>함께 성장하는 곳, KDP에서 기업의 성장을 함께하세요</h3>
+        <p>스타트업/컨설팅/Seed-bridge 투자제안 문의</p>
       </div>
-    </section>
+      <a class="btn" href="https://forms.gle/FORM_ID" target="_blank" rel="noopener">문의하기</a>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-      <div class="container w-50safe">
+  <!-- ====== NEWS (원본 유지) ====== -->
+  <section id="news" class="section news n1 alt">
+    <div class="container">
+      <span class="overline">NEWS</span>
+      <h2 class="center">소식</h2>
+      <ul class="news-list">
+        <li><a href="#"><time datetime="2025-08-10">2025.08.10</time> [보도] KDP, 5개 스타트업 피봇팅 진행 中 </a></li>
+        <li><a href="#"><time datetime="2025-08-05">2025.08.25</time> [행사] [테크아트 스타트업 x NextGen 10 Talk] 참가기업 모집</a></li>
+        <li><a href="#"><time datetime="2025-09-28">2025.08.28</time> [공지] 포트폴리오 상시 채용</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT / LOCATION (원본 유지) ====== -->
+  <section id="contact" class="section contact c2">
+    <div class="container contactGrid">
+      <div>
+        <span class="overline">CONTACT</span>
         <h2>문의하기</h2>
         <form id="contactForm">
           <div>
@@ -204,50 +283,55 @@
             <label for="msg">메시지</label>
             <textarea id="msg" placeholder="문의 내용을 적어주세요"></textarea>
           </div>
-          <small class="help">※ 아직 구현되지 못했습니다.&nbsp; <br>&nbsp;&nbsp;&#183;&nbsp;070-8287-2588 혹은<br>&nbsp;&nbsp;&#183;&nbsp;010-5577-4376 로  연락 부탁드립니다.</small>
-          <div style="margin-top:10px;">
+          <small class="help">※ 임시 폼입니다. 090-4113-559 / 010-559-4396 로 연락해 주세요.</small>
+          <div style="margin-top:110px;">
             <button class="btn" type="submit">보내기</button>
           </div>
         </form>
       </div>
-    </section>
-  </main>
+      <aside id="location" class="shadow-card">
+        <h3>오시는 길</h3><br>
+        <p>대전광역시 유성구 테크노2로 160,<br>충남대학교 산학협력센터 301호</p>
+       <a
+  href="https://map.naver.com/p/search/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0/place/33253518?c=19.23,0,0,0,dh&placePath=/home?entry=pll&from=map&fromPanelNum=2&timestamp=202508291906&locale=ko&svcName=map_pcv5&searchText=%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0"
+  class="map-link" aria-label="네이버지도에서 보기"
+>
+  <div class="mapPh">
+    <img src="assets/maps.png" alt="" class="mapImg" />
+</a> <img src="assets/maPh.png" alt="maPh">
+        </div>
+        
+      </aside>
+    </div>
+  </section>
 
-  <!-- ================= Footer ================= -->
+  <!-- ====== FOOTER (회사정보 블록 추가) ====== -->
   <footer class="footer">
-
-    <nav class="container">© <span id="y"></span> KDreamPartners
-    
-    <aside> Office <br> 대전광역시 유성구 테크노2로 160, <br>충남대학교 산학협력센터 301호
-    <div> </div>
-
+    <nav class="container">
+      <div class="f-info">대표: 이인섭 <br>
+        | H.P 010-559-4396 <br>
+        | T. 090-4113-559 <br>
+        | E. kdream2060@gmail.com</div>
+      © <span id="y"></span> KDreamPartners
+    </nav>
   </footer>
-    
 
-  <!-- ================= Scripts ================= -->
+  <!-- ====== SCRIPTS (헤더/포트폴리오 원본 동작 유지) ====== -->
   <script>
-    // 푸터 연도
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // 드롭다운: 어느 상위 메뉴인지 패널에 전달
+    // header interactions (existing)
     (function () {
       const header = document.querySelector('.site-header');
       const panel  = document.querySelector('#menuPanel');
       if (!header || !panel) return;
-
-      // 기본: About(=1)
       panel.setAttribute('data-col', '1');
-
       header.querySelectorAll('.mitem[data-col]').forEach(li => {
         const c = li.getAttribute('data-col');
         li.addEventListener('mouseenter', () => panel.setAttribute('data-col', c));
         li.addEventListener('focusin',    () => panel.setAttribute('data-col', c));
       });
-
-      // 헤더 영역을 벗어나면 기본으로 복귀
       header.addEventListener('mouseleave', () => panel.setAttribute('data-col', '1'));
-
-      // 모바일 토글 (640px↓에서 버튼 노출)
       const btn = header.querySelector('.menu-toggle');
       if (btn) {
         btn.addEventListener('click', () => {
@@ -255,8 +339,6 @@
           btn.setAttribute('aria-expanded', String(open));
           panel.setAttribute('aria-hidden', String(!open));
         });
-
-        // ESC로 닫기
         panel.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
             header.classList.remove('open');
@@ -266,8 +348,6 @@
           }
         });
       }
-
-      // 앵커 클릭 시 모바일 패널 자동 닫기
       panel.addEventListener('click', (e) => {
         const a = e.target.closest('a[href^="#"]');
         if (!a) return;
@@ -277,121 +357,130 @@
       });
     })();
 
-    // 문의 폼 (데모)
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    // dropdown positioning (existing logic)
+    (function(){
+      const header = document.querySelector('.site-header');
+      const panel  = document.querySelector('#menuPanel');
+      const grid   = panel?.querySelector('.panel-grid');
+      if (!header || !panel || !grid) return;
+
+      const styles = getComputedStyle(document.documentElement);
+      const PAD_TOP = parseInt(styles.getPropertyValue('--panel-pad-top')) || 18;
+      const PAD_BOTTOM = parseInt(styles.getPropertyValue('--panel-pad-bottom')) || 22;
+      const COL_W = parseInt(styles.getPropertyValue('--col-w')) || 240;
+
+      function setOpenHeight(key){
+        const col = panel.querySelector(`.col[data-key="${key}"]`);
+        if (!col) return;
+        const h = col.scrollHeight + PAD_TOP + PAD_BOTTOM;
+        panel.style.setProperty('--open-h', h + );
+      }
+      function positionUnder(li){
+        const cLeft = grid.getBoundingClientRect().left + window.scrollX;
+        const r = li.getBoundingClientRect();
+        const center = r.left + (r.width/2) + window.scrollX - cLeft;
+        const left = Math.max(0, Math.round(center - (COL_W/2)));
+        panel.style.setProperty('--submenu-left', left + );
+      }
+      function activate(li){
+        const key = li.dataset.col;
+        if (!key) return;
+        panel.setAttribute('data-col', key);
+        positionUnder(li);
+        setOpenHeight(key);
+      }
+      const items = header.querySelectorAll('.mitem[data-col]');
+      items.forEach(li=>{
+        li.addEventListener('mouseenter', ()=>{ header.classList.add('open'); activate(li); });
+        li.addEventListener('focusin',    ()=>{ header.classList.add('open'); activate(li); });
+        li.querySelector('a')?.addEventListener('click', (e)=>{
+            const a = e.currentTarget;
+             const href = a.getAttribute('href') || '';
+
+        // 패널 닫기 (UX)
+      header.classList.remove('open');
+      panel.setAttribute('aria-hidden','true');
+
+  if (href.startsWith('#')) {
+    // 해시(섹션)이면 부드럽게 스크롤
+    e.preventDefault();
+    document.querySelector(href)?.scrollIntoView({ behavior:'smooth' });
+  }
+  // 해시가 아니면(e.g. *.html) 기본 동작 = 페이지 이동
+});
+
+      });
+      header.addEventListener('mouseleave', ()=> header.classList.remove('open'));
+      if (items[0]) activate(items[0]);
+      let t;
+      window.addEventListener('resize', ()=>{
+        clearTimeout(t);
+        t = setTimeout(()=>{
+          const activeKey = panel.getAttribute('data-col') || '1';
+          const li = header.querySelector(`.mitem[data-col="${activeKey}"]`) || items[0];
+          if (li) activate(li);
+        }, 80);
+      });
+    })();
+
+    // portfolio hover card (existing)
+    (function(){
+      const card = document.getElementById('partnerCard');
+      const stage = document.getElementById('pcStage');
+      const title = document.getElementById('pcTitle');
+      const sector= document.getElementById('pcSector');
+      const sub   = document.getElementById('pcSub');
+      const desc  = document.getElementById('pcDesc');
+
+      function show(e, el){
+        const r = el.getBoundingClientRect();
+        card.style.left = (r.left + r.width/2) + ;
+        card.style.top  = (r.top  - 10 + window.scrollY) + ;
+        stage.textContent = el.dataset.stage || '';
+        title.textContent = el.dataset.title || '';
+        sector.textContent= el.dataset.sector|| '';
+        sub.textContent   = el.dataset.subtitle || '';
+        desc.textContent  = el.dataset.desc || '';
+        card.classList.add('show');
+      }
+      function hide(){ card.classList.remove('show'); }
+
+      document.querySelectorAll('.partner').forEach(el=>{
+        el.addEventListener('mouseenter', (e)=> show(e, el));
+        el.addEventListener('mouseleave', hide);
+        el.addEventListener('focusin',    (e)=> show(e, el));
+        el.addEventListener('focusout',   hide);
+      });
+    })();
+
+    // form demo
+    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
       e.preventDefault();
       alert('폼 예시입니다. 실제 전송 기능은 다음 단계에서 구현합니다.');
     });
   </script>
 
-<script>
-(()=>{
-  const header = document.querySelector('.site-header');
-  const panel  = document.querySelector('#menuPanel');
-  const grid   = panel?.querySelector('.panel-grid');
-  if (!header || !panel || !grid) return;
+    ...
+    <!-- 기존에 들어있던 스크립트들 -->
 
-  // 숫자 변수 읽기(패딩/칼럼너비)
-  const styles = getComputedStyle(document.documentElement);
-  const PAD_TOP = parseInt(styles.getPropertyValue('--panel-pad-top')) || 18;
-  const PAD_BOTTOM = parseInt(styles.getPropertyValue('--panel-pad-bottom')) || 22;
-  const COL_W = parseInt(styles.getPropertyValue('--col-w')) || 240;
+    <script>
+      // 여기서부터 (B) 코드 추가
+      const header = document.querySelector('.site-header');
+      const btn = header?.querySelector('.menu-toggle');
+      const panel = document.querySelector('#menuPanel');
 
-  // 현재 칼럼 전체가 보이도록 패널 높이를 '내용 실제 높이'로 맞춤
-  function setOpenHeight(key){
-    const col = panel.querySelector(`.col[data-key="${key}"]`);
-    if (!col) return;
-    const h = col.scrollHeight + PAD_TOP + PAD_BOTTOM;
-    panel.style.setProperty('--open-h', h + 'px');
-  }
+      header?.addEventListener('mouseenter', ()=> header.classList.add('mega', 'open'));
+      header?.addEventListener('mouseleave', ()=> header.classList.remove('mega', 'open'));
 
-  // 상위 메뉴 중앙 바로 아래에 칼럼이 오도록 left 좌표 계산
-  function positionUnder(li){
-    const cLeft = grid.getBoundingClientRect().left + window.scrollX;
-    const r = li.getBoundingClientRect();
-    const center = r.left + (r.width/2) + window.scrollX - cLeft;
-    const left = Math.max(0, Math.round(center - (COL_W/2)));
-    panel.style.setProperty('--submenu-left', left + 'px');
-  }
+      btn?.addEventListener('click', ()=>{
+        const open = header.classList.toggle('open');
+        header.classList.toggle('mega', open);
+      });
+    </script>
 
-  function activate(li){
-    const key = li.dataset.col;
-    if (!key) return;
-    panel.setAttribute('data-col', key);
-    positionUnder(li);
-    setOpenHeight(key);
-  }
-
-  // 이벤트 바인딩(hover/focus/click)
-  const items = header.querySelectorAll('.mitem[data-col]');
-  items.forEach(li=>{
-    li.addEventListener('mouseenter', ()=>{ header.classList.add('open'); activate(li); });
-    li.addEventListener('focusin',    ()=>{ header.classList.add('open'); activate(li); });
-    li.querySelector('a')?.addEventListener('click', (e)=>{
-      // 상위 링크 클릭 시: 토글로 고정/해제 (하위 전체 표시 유지)
-      e.preventDefault();
-      const willOpen = !header.classList.contains('open');
-      header.classList.toggle('open', willOpen);
-      activate(li);
-    });
-  });
-
-  // 헤더 밖으로 나가면 닫기(원하면 주석 처리)
-  header.addEventListener('mouseleave', ()=> header.classList.remove('open'));
-
-  // 초기 상태: 1번(About)
-  if (items[0]) activate(items[0]);
-
-  // 리사이즈 시 좌표/높이 재계산(디바운스)
-  let t;
-  window.addEventListener('resize', ()=>{
-    clearTimeout(t);
-    t = setTimeout(()=>{
-      const activeKey = panel.getAttribute('data-col') || '1';
-      const li = header.querySelector(`.mitem[data-col="${activeKey}"]`) || items[0];
-      if (li) activate(li);
-    }, 80);
-  });
-})();
-</script>
-
-
-
-
-
-
-
-
-</body>
-
-
+  </body>
 </html>
 
 
-<!-- 1) 링크/팝업을 안전하게 열기
-새 탭 권장 (팝업 차단 우회 + 보안 안전) -->
-
-<a href="https://forms.gle/FORM_ID"
-   target="_blank"
-   rel="noopener noreferrer"
-   referrerpolicy="no-referrer">
-  신청하기
-</a>
-
-<!-- 팝업 -->
-
-<button id="apply">신청하기</button>
-<script>
-document.getElementById('apply').addEventListener('click', ()=>{
-  const url = 'https://forms.gle/FORM_ID';
-  const w = window.open(url, '_blank', 'noopener,width=960,height=720');
-  if (!w) alert('브라우저가 팝업을 차단했습니다. 새 탭으로 열어주세요.');
-});
-</script>
-
-<!--폼 근처에 넣을 프라이버시 고지 안내문
-<p class="privacy-note">
-본 신청은 Google Forms로 처리되며, 입력하신 정보는 <strong>케이드림파트너스</strong>가
-지원자 확인 및 연락 목적에 한해 이용합니다. 보관기간: 접수일로부터 3개월.
-문의: k-dp.kr. <br>Google의 처리에 대해서는 Google 개인정보처리방침을 참고하세요.
-</p> -->
+</body>
+</html>
