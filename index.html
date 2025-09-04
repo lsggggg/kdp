@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <!-- ====== HEADER (원본 상단메뉴/로고 그대로 유지) ====== -->
+  <!-- ====== HEADER ====== -->
   <header class="site-header" role="navigation">
     <div class="container nav">
       <a href="#home" class="brand" aria-label="홈으로" title="홈으로">
@@ -67,7 +67,7 @@
 
 
 
-  <!-- ====== HERO (기업1 느낌의 중앙 타이포형) ====== -->
+  <!-- ====== HERO (중앙 타이포) ====== -->
   <section id="home" class="kv kv--center">
     <div class="kv-center container">
       <p class="kv-overline">START-UP with K-Dream-Partners</p>
@@ -107,7 +107,7 @@
     
   </section>
 
-  <!-- ====== COMPANY (원본 유지) ====== -->
+  <!-- ====== COMPANY ====== -->
   <section id="company" class="section company c1">
     <div class="container c1-grid">
       <div class="c1-copy">
@@ -144,7 +144,7 @@
     </div>
   </section>
 
-   <!-- ====== PORTFOLIO (원본 로고바/호버카드 그대로 유지) ====== -->
+   <!-- ====== PORTFOLIO  ====== -->
   <section id="portfolio" class="section portfolio p1">
     <div class="container">
       <div class="portfolio-head">
@@ -210,7 +210,7 @@
     </div>
   </section>
 
-  <!-- ====== VISION (기업1 느낌의 단락형 카피) ====== -->
+  <!-- ====== VISION ====== -->
   <section id="vision" class="section vision">
     <div class="container">
       <span class="overline">Vision</span>
@@ -240,7 +240,7 @@
     </div>
   </section>
 
-  <!-- ====== RECRUIT (카피 톤 강화) ====== -->
+  <!-- ====== RECRUIT ) ====== -->
   <section id="recruit" class="ctaBand">
     <div class="container bandGrid">
       <div>
@@ -251,7 +251,7 @@
     </div>
   </section>
 
-  <!-- ====== NEWS (원본 유지) ====== -->
+  <!-- ====== NEWS  ====== -->
   <section id="news" class="section news n1 alt">
     <div class="container">
       <span class="overline">NEWS</span>
@@ -264,7 +264,7 @@
     </div>
   </section>
 
-  <!-- ====== CONTACT / LOCATION (원본 유지) ====== -->
+  <!-- ====== CONTACT / LOCATION ====== -->
   <section id="contact" class="section contact c2">
     <div class="container contactGrid">
       <div>
@@ -305,7 +305,7 @@
     </div>
   </section>
 
-  <!-- ====== FOOTER (회사정보 블록 추가) ====== -->
+  <!-- ====== FOOTER  ====== -->
   <footer class="footer">
     <nav class="container">
       <div class="f-info">대표: 이인섭 <br>
@@ -316,7 +316,7 @@
     </nav>
   </footer>
 
-  <!-- ====== SCRIPTS (헤더/포트폴리오 원본 동작 유지) ====== -->
+  <!-- ====== SCRIPTS  ====== -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -461,7 +461,7 @@
   </script>
 
     ...
-    <!-- 기존에 들어있던 스크립트들 -->
+    <!-- 기존 스크립트 -->
 
     <script>
       // 여기서부터 (B) 코드 추가
@@ -609,9 +609,19 @@
     if(t) document.title = t + " - 공지 모달";
   }
 
-  function open(){ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='auto'; }
-  function close(){ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  function open(){
+  overlay.classList.add('show');
+  overlay.setAttribute('aria-hidden','false');
+  overlay.style.display = 'grid';        // ← CSS 실패 대비 안전핀
+  document.body.style.overflow = 'hidden';
+}
 
+function close(){
+  overlay.classList.remove('show');
+  overlay.setAttribute('aria-hidden','true');
+  overlay.style.display = '';            // ← 인라인 display 해제
+  document.body.style.overflow = '';
+}
   function setHide1d(){
     try{ localStorage.setItem(HIDE_KEY, String(Date.now()+ONE_DAY)); }catch(e){}
   }

@@ -396,7 +396,7 @@ textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink
 }
 
 /* ===== Hero scroll-down arrow ===== */
-.scroll-down{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:5}
+.scroll-down{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);*:5}
 .scroll-down a{font-size:28px;color:#fff;text-decoration:none;opacity:.85;transition:opacity .3s, transform .3s}
 .scroll-down a:hover{opacity:1;transform:translateY(4px)}
 
@@ -600,7 +600,7 @@ body { scrollbar-gutter: stable both-edges; }
 
 
 
-.kdp-modal-overlay{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.45);z-index:4000}
+.kdp-modal-overlay{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.45);z-index:12000}
 .kdp-modal-overlay.show{display:grid}
 .kdp-modal{
   width: 500px;       /* 가로 500px */
@@ -630,7 +630,7 @@ body { scrollbar-gutter: stable both-edges; }
 .kdp-pager .now{font-weight:700;color:#2563eb}.kdp-pager .sep{color:#9ca3af}
 .kdp-modal-body{
   padding:22px 22px 0;
-  overflow:hidden;
+  overflow:auto;
   flex:1 1 auto;
   min-height:0;     /* flex 자식 스크롤 보장 */}
 .kdp-page{display:none}.kdp-page.active{display:block}
