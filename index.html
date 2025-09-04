@@ -435,7 +435,7 @@
       function show(e, el){
         const r = el.getBoundingClientRect();
         card.style.left = (r.left + r.width/2) + 'px';
-        card.style.top = (r.top - 10 + window.scrollY) + 'px';
+       card.style.top = (r.top - 10 + window.scrollY) + 'px';
         stage.textContent = el.dataset.stage || '';
         title.textContent = el.dataset.title || '';
         sector.textContent= el.dataset.sector|| '';
@@ -609,19 +609,9 @@
     if(t) document.title = t + " - 공지 모달";
   }
 
-  function open(){
-  overlay.classList.add('show');
-  overlay.setAttribute('aria-hidden','false');
-  overlay.style.display = 'grid';        // ← CSS 실패 대비 안전핀
-  document.body.style.overflow = 'hidden';
-}
+  function open(){ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='auto'; }
+  function close(){ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
 
-function close(){
-  overlay.classList.remove('show');
-  overlay.setAttribute('aria-hidden','true');
-  overlay.style.display = '';            // ← 인라인 display 해제
-  document.body.style.overflow = '';
-}
   function setHide1d(){
     try{ localStorage.setItem(HIDE_KEY, String(Date.now()+ONE_DAY)); }catch(e){}
   }
