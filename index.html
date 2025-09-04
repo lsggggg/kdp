@@ -435,7 +435,7 @@
       function show(e, el){
         const r = el.getBoundingClientRect();
         card.style.left = (r.left + r.width/2) + 'px';
-       card.style.top = (r.top - 10 + window.scrollY) + 'px';
+        card.style.top = (r.top - 10 + window.scrollY) + 'px';
         stage.textContent = el.dataset.stage || '';
         title.textContent = el.dataset.title || '';
         sector.textContent= el.dataset.sector|| '';
