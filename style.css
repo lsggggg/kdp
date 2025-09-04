@@ -600,7 +600,7 @@ body { scrollbar-gutter: stable both-edges; }
 
 
 
-.kdp-modal-overlay{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.45);z-index:9999}
+.kdp-modal-overlay{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.45);z-index:999}
 .kdp-modal-overlay.show{display:grid}
 .kdp-modal{
   width: 500px;       /* 가로 500px */
