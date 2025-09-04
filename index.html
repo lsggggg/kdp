@@ -487,7 +487,7 @@
   <div class="kdp-modal" role="dialog" aria-modal="true" aria-labelledby="kdpModalTitle">
 
     <!-- 우측 상단 페이지 네비 -->
-     <section class="kdp-page active" data-title="공지사항"></section>
+    
     <div class="kdp-pager" aria-label="페이지 전환">
       <button id="kdpPrev" title="이전 페이지" aria-label="이전 페이지">◀</button>
       <span class="now" id="kdpNow">1</span><span class="sep">/</span><span id="kdpTotal">3</span>
@@ -609,7 +609,7 @@
     if(t) document.title = t + " - 공지 모달";
   }
 
-  function open(){ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function open(){ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='auto'; }
   function close(){ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
 
   function setHide1d(){
