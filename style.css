@@ -631,7 +631,8 @@ body { scrollbar-gutter: stable both-edges; }
 .kdp-modal-body{
   padding:22px 22px 0;
   overflow:hidden;
-  flex:1 1 auto}
+  flex:1 1 auto;
+  min-height:0;     /* flex 자식 스크롤 보장 */}
 .kdp-page{display:none}.kdp-page.active{display:block}
 .kdp-modal-footer{
   display:flex;
