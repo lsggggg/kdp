@@ -609,26 +609,7 @@
     if(t) document.title = t + " - 공지 모달";
   }
 
-  function getScrollbarWidth(){ return window.innerWidth - document.documentElement.clientWidth; }
-
-function open(){
-  if(!overlay) return;
-  overlay.classList.add('show');
-  overlay.setAttribute('aria-hidden','false');
-  overlay.style.display = 'grid';              // CSS 미적용 대비 안전장치
-  const sbw = getScrollbarWidth();
-  document.body.style.overflow = 'hidden';
-  if (sbw>0) document.body.style.paddingRight = sbw + 'px';  // 레이아웃 흔들림 방지
-}
-
-function close(){
-  if(!overlay) return;
-  overlay.classList.remove('show');
-  overlay.setAttribute('aria-hidden','true');
-  overlay.style.display = '';                  // 인라인 display 해제
-  document.body.style.overflow = '';
-  document.body.style.paddingRight = '';
-}
+  function open(){ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
   function close(){ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
 
   function setHide1d(){
