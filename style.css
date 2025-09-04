@@ -587,19 +587,161 @@ textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink
 
 
 
+/* *********************** 팝업 모달 ****************************/
+
+/* ====== KDP Modal (vanilla) ====== */
+
+
+/* 레이아웃 밀림 방지: 스크롤바가 사라져도 폭 유지 */
+html, body { height: 100%; }
+body { scrollbar-gutter: stable both-edges; }
+
+
+
+
+
+.kdp-modal-overlay{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.45);z-index:9999}
+.kdp-modal-overlay.show{display:grid}
+.kdp-modal{
+  width: 500px;       /* 가로 500px */
+  height: 770px;      /* 세로 740px */
+  max-height: none;   /* 기존 max-height 제한 제거 */
+  background:#fff;color:#0f172a;
+  border-radius:0px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  display:flex;
+  flex-direction:column;overflow:auto;position:relative
+}
+.kdp-pager{position:absolute;
+  top:10px;
+  right:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.9);
+  border:1px solid #e5e7eb;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:13px;
+  backdrop-filter:blur(6px)}
+
+.kdp-pager button{border:0;background:transparent;cursor:pointer;padding:4px 6px;border-radius:8px}
+.kdp-pager button:hover{background:#f3f4f6}
+.kdp-pager .now{font-weight:700;color:#2563eb}.kdp-pager .sep{color:#9ca3af}
+.kdp-modal-body{
+  padding:22px 22px 0;
+  overflow:hidden;
+  flex:1 1 auto}
+.kdp-page{display:none}.kdp-page.active{display:block}
+.kdp-modal-footer{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;padding:12px 16px;
+  border-top:1px solid #e5e7eb;
+  background:#fafafa}
+.kdp-btn{
+  appearance:none;
+  border:1px solid #fff;
+  background:#fff;
+  color:#111827;
+  padding:10px 14px;border-radius:0px;
+  cursor:pointer;
+  font-weight:600}
+.kdp-btn:hover{background:#f8fafc}
+.kdp-btn.primary{
+  background:#fff;
+
+  color:#111827;
+  border-color:#fff}
+
+  
+.kdp-btn.primary:hover{filter:brightness(.95)}
+.kdp-divider { /*공지사항 하단 구분선*/
+  height: 1px;
+  background: #e5e7eb;   /* 연한 회색 */
+  border: 0;
+  margin-top: px;
+  margin-bottom : 10px;      /* 위·아래 여백 */
+
+  
+}
+
+@media (max-height:640px)
+{.kdp-modal-body{padding-top:34px}
+.kdp-modal {
+    width: 92vw;       /* 화면 너비의 92% */
+    height: auto;      /* 내용에 맞게 자동 높이 */
+    max-height: 84vh;  /* 너무 길어지지 않도록 제한 */
+    border-radius:0px;
+  }
+}
+
+
+
+
+/* --- modal text article (scoped) --- */
+.kdp-modal-body .ta-wrap{ font-size:12px; line-height:1.7; color:#111827; }
+.kdp-modal-body .ta-head{ margin-bottom:6px; }
+.kdp-modal-body .ta-title{ margin:0 0 2px; font-size:16px; font-weight:800; }
+.kdp-modal-body .ta-sub{ margin:0; color:#2563eb; font-weight:400; }
+
+.kdp-modal-body .ta-sec{ margin-top:12px; }
+.kdp-modal-body .ta-sec h4{ margin:0 0 2px; font-size:14px; font-weight:800; }
+.kdp-modal-body .ta-ul{ margin:0; padding-left:18px; }
+.kdp-modal-body .ta-ul > li{ margin:4px 0; }
+
+.kdp-modal-body .ta-dl{ 
+  display:grid; grid-template-columns:70px 1fr; gap:6px 12px; margin:0;
+}
+.kdp-modal-body .ta-dl dt{ color:#374151; font-weight:700; }
+.kdp-modal-body .ta-dl dd{ margin:0; }
+
+.kdp-modal-body .ta-cta{ margin-top:14px; }
+.kdp-modal-body .ta-cta a{
+  display:inline-block; padding:8px 12px; border-radius:8px;
+  color:#2563eb;text-decoration:none; font-weight:700;
+  padding-left:180px;
+}
+.kdp-modal-body .ta-cta a:hover{ filter:brightness(.95); }
+
+
+
+
+
+
+
+
+
 
 
 
 /*  *********** Company html용 *************** */
 
 
-/* === ABOUT (안1) === */
+/* === ABOUT Hybrid Style === */
+
+/* Hero */
 .about-hero{background:#e5e7eb;padding:68px 0 90px}
 .ah-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
-.ah-title{font-family:Poppins, sans-serif;font-weight:900;font-size:clamp(28px,5vw,56px);line-height:1.1}
-.ah-art{width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 30% 35%, #2563eb 0%, #1d4ed8 40%, #0b1324 100%);justify-self:end;box-shadow:0 24px 40px rgba(2,6,23,.15)}
+.ah-title{font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.1}
+.ah-art{width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle at 30% 35%, #2563eb 0%, #1d4ed8 40%, #0b1324 100%);
+  justify-self:end;box-shadow:0 24px 40px rgba(2,6,23,.15)}
 .subttl{font-size:14px;letter-spacing:.14em;color:var(--brand);text-transform:uppercase;margin-bottom:10px}
 .ah-head{font-size:24px;margin:6px 0 10px}
+ 
+/* Philosophy visual */
+.about-visual{
+  position:relative;min-height:56vh;color:#fff;
+  background-image:var(--bg);background-size:cover;background-position:center;
+}
+.av-shade{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.25))}
+.av-copy{position:relative;padding:72px 0}
+.av-copy h1{font-size:clamp(28px,5vw,48px);line-height:1.15;font-weight:900;margin-bottom:10px}
+.av-copy p{opacity:.92}
+
+/* 3 features */
 .about-3{grid-template-columns:repeat(3,1fr)}
 @media (max-width:960px){
   .ah-grid{grid-template-columns:1fr}
