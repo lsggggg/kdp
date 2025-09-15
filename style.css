@@ -773,15 +773,20 @@ body { scrollbar-gutter: stable both-edges; }
   
 }
 
-@media (max-height:640px)
-{.kdp-modal-body{padding-top:34px}
+
+
+@media (max-height:10px)
+{.kdp-modal-body{padding-top:1px}
 .kdp-modal {
-    width: 30vw;       /* 화면 너비의 50% */
+    width: 10vw;       /* 화면 너비의 50% */
     height: auto;      /* 내용에 맞게 자동 높이 */
-    max-height: 84vh;  /* 너무 길어지지 않도록 제한 */
+    max-height: 84vh;  /* 너무 길어지지 않도록 제한 */ 
     border-radius:0px;
   }
-}
+} 
+
+
+
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
@@ -907,7 +912,7 @@ font-weight: 100;
 /* Hero */
 .kdp-hero{ 
   background:linear-gradient(180deg,#999999), var(--kdp-soft);
-  padding:72px 0 126px; 
+  padding:72px 0 60px; 
   border-top:1px solid #eef2f7; 
 }
 
@@ -915,14 +920,21 @@ font-weight: 100;
 
 
 .kdp-hero h1{ 
-  font-family:'Poppins', 'Noto Sans KR',sans-serif,'Noto Sans KR';;
+  font-family:'Poppins', 'Noto Sans KR',sans-serif,'Noto Sans KR';
   margin:20px 0px 30px; 
   font-weight:500; 
   letter-spacing:-.02em;
   font-size:clamp(20px,3.2vw,28px); 
 }
 
-
+.kdp-ac {
+  font-family:'Poppins';
+  color : #0f172a;
+  font-size: 24px;
+  font-weight:300;
+  letter-spacing:-.01em;
+  
+} 
 
 
 .kdp-hero p{ 
