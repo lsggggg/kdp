@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>(주)케이드림파트너스 — Corporate1 (Applied)</title>
   <meta name="description" content="K-Dream Partners — 초기·극초기 스타트업의 발굴·투자·성장을 지원하는 액셀러레이터" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900;900&family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -20,11 +21,11 @@
 
       <nav aria-label="주요">
         <ul class="menu">
-          <li class="mitem" data-col="1"><a href="#company.html">Company</a></li>
-          <li class="mitem" data-col="2"><a href="#business.html">Business</a></li>
-          <li class="mitem" data-col="3"><a href="#portfolio.html">Portfolio</a></li>
-          <li class="mitem" data-col="4"><a href="#news.html">News</a></li>
-          <li class="mitem" data-col="5"><a href="#contact.html">Contact</a></li>
+          <li class="mitem" data-col="1"><a href="company.html">Company</a></li>
+          <li class="mitem" data-col="2"><a href="business.html">Business</a></li>
+          <li class="mitem" data-col="3"><a href="portfolio.html">Portfolio</a></li>
+          <li class="mitem" data-col="4"><a href="news.html">News</a></li>
+          <li class="mitem" data-col="5"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -42,22 +43,22 @@
     <div id="menuPanel" class="menu-panel" aria-hidden="true">
       <div class="container panel-grid">
         <div class="col" data-key="1">
-          <a href="#company.html" style="--item-dx: 180px" >회사 소개</a>
-          <a href="#values.html#values" style="--item-dx: 180px">핵심 가치</a>
+          <a href="company.html" style="--item-dx: 180px" >회사 소개</a>
+          <a href="values.html#values" style="--item-dx: 180px">핵심 가치</a>
         </div>
         <div class="col" data-key="2">
-          <a href="#business.html" style="--item-dx: 163px">사업 영역</a>
-          <a href="#recruit.html#recruit"  style="--item-dx: 163px">채용</a>
+          <a href="business.html" style="--item-dx: 163px">사업 영역</a>
+          <a href="recruit.html#recruit"  style="--item-dx: 163px">채용</a>
         </div>
         <div class="col" data-key="3">
-          <a href="#portfolio.html" style="--item-dx: 145px">포트폴리오</a>
+          <a href="portfolio.html" style="--item-dx: 145px">포트폴리오</a>
         </div>
         <div class="col" data-key="4">
           <a href="news.html#events" style="--item-dx: 126px">Events</a>
           <a href="news.html" style="--item-dx: 124px">News</a>
         </div>
         <div class="col" data-key="5">
-          <a href="#contact.html" style="--item-dx: 105px">문의하기</a>
+          <a href="contact.html" style="--item-dx: 105px">문의하기</a>
           <a href="contact.html#location" style="--item-dx: 105px">오시는 길</a>
         </div>
       </div>
@@ -306,16 +307,51 @@
   </section>
 
   <!-- ====== FOOTER  ====== -->
-  <footer class="footer">
-    <nav class="container">
-      <div class="f-info">대표: 이인섭 <br>
-        | H.P 010-5577-4376 <br>
-        | T. 070-8287-7600 <br>
-        | E. kdream2060@gmail.com</div>
-      © <span id="y"></span> KDreamPartners
-    </nav>
-  </footer>
+ <footer class="kdp-footer">
+  <div class="container">
+    <!-- 상단: 3컬럼 + SNS -->
+    <div class="kdp-footer-top">
+      <section class="kdp-foot-col">
+        <h4>DAEJEON OFFICE</h4>
+        대전광역시 유성구 테크노2로 160, 
+        <br>충남대학교 산학협력지원센터 301호
+       
+        </p> <!-- 주소 알려주시면 바로 채워 넣을게요 -->
+      </section>
 
+
+      <section class="kdp-foot-col">
+        <h4>CONTACT</h4>
+        <ul class="kdp-contact">
+          <li><span class="k">H.P</span> 010-5577-4376</li>
+          <li><span class="k">Tel.</span> 070-8287-7600</li>
+          <li><span class="k">Email</span> <a href="mailto:kdream2060@gmail.com">&nbsp; kdream2060@gmail.com</a></li>
+        </ul>
+      </section>
+      </div>
+<!--
+      <aside class="kdp-foot-social" aria-label="소셜 링크">
+        <a class="sns yt" href="#" aria-label="YouTube"></a>
+        <a class="sns fb" href="#" aria-label="Facebook"></a>
+        <a class="sns blog" href="#" aria-label="Blog"></a>
+        <a class="sns ig" href="#" aria-label="Instagram"></a>
+      </aside>
+    </div>-->
+
+    <hr class="kdp-foot-divider"> 
+
+    <!-- 하단: 좌-정책 / 우-카피 -->
+    <div class="kdp-footer-bottom">
+      <a class="kdp-privacy" href="/privacy.html">개인정보 처리방침</a>
+      <p class="kdp-copy">© <span id="y"></span> KDreamPartners. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 연도 자동 표기(기존 #y 재사용)
+  (function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();
+</script>
   <!-- ====== SCRIPTS  ====== -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
@@ -513,7 +549,7 @@
       
 
         
-        <section class="kdp-page" data-title="테크아트 스타트업 × NextGen 10 Talk">
+  <section class="kdp-page" data-title="테크아트 스타트업 × NextGen 10 Talk">
   <article class="ta-wrap">
     <header class="ta-head">
       <h3 class="ta-title">‘테크아트 스타트업 × NextGen 10 Talk’</h3>

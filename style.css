@@ -30,10 +30,44 @@ img{max-width:100%;height:auto;display:block}
 .btn:hover{background:var(--brand-600);transform:translateY(-1px)}
 .btn.outline{background:#fff;color:var(--brand);border:1px solid var(--brand);box-shadow:none}
 
+/* 좌우/상하 미세 이동을 변수로 (브랜드 로고)*/
+.site-header{ --brand-x: 12px; --brand-y: 0px; }
+.brand{ left: var(--brand-x); top: calc(50% + var(--brand-y)); }
+
 /* ===== Header (original) ===== */
-.site-header{--bg:#ffffff;--fg:#0f172a;--fg-muted:#0f172a;position:sticky;top:0;z-index:1000;background:var(--bg);color:var(--fg);border-bottom:1px solid #e2e8f0;box-shadow:0 18px 28px rgba(2,6,23,.08)}
-.site-header .nav{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;position:relative}
-.brand{position:absolute;left:0;top:50%;transform:translateY(-50%);text-decoration:none;color:inherit;z-index:2}
+.site-header{
+
+  --bg:#ffffff;
+  --fg:#0f172a;
+  --fg-muted:#0f172a;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--bg);
+  color:var(--fg);
+  border-bottom:1px solid #e2e8f0;
+  box-shadow:0 18px 28px rgba(2,6,23,.08)
+
+}
+
+.site-header .nav{height:var(--header-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative
+
+}
+
+.brand{position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  text-decoration:none;
+  color:inherit;
+  z-index:2
+
+}
+
 .logo-text{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;line-height:1}
 .logo-text.short{font-weight:900;font-size:var(--logo-size);letter-spacing:.25px;color:#2563eb}
 .logo-text.long{font-size:var(--logo-long-size);font-weight:700;letter-spacing:.1px;color:var(--brand);display:none}
@@ -321,8 +355,80 @@ textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink
 
 
 /* ===== Footer ===== */
-.footer{padding:26px 0;border-top:1px solid var(--border);color:var(--muted)}
-.footer .f-info{margin-bottom:6px; font-size: 16px; }
+/* ===== KDP Footer (Bluepoint-like) ===== */
+
+
+.kdp-footer{
+  font:"Poppins","Monsterrat",system-ui,"Segoe UI",Roboto,sans-serif;
+  background:#2f3135; color:#d9dde3; padding:40px 0 60px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.kdp-footer a{ color:#e6ebf2; text-decoration:none; }
+.kdp-footer a:hover{ text-decoration:underline; }
+
+/* 레이아웃 */
+.kdp-footer-top{
+  display:grid; 
+  grid-template-columns: 1.6fr 1.6fr 2fr auto; 
+  gap:24px; 
+  align-items:flex-start;
+}
+.kdp-foot-col {
+  margin:0 0 10px; 
+  font: "Poppins","Monsterrat",system-ui,"Segoe UI",Roboto,sans-serif;
+  font-weight:450;
+  letter-spacing:.06em; color:#aeb4be; text-transform:none;
+  font-size : 12px;}
+
+.kdp-foot-col h4{
+  margin:0 0 20px; font:800 13px/1.2 "Monsterrat";
+  letter-spacing:.01em; color:#ffffff; text-transform:uppercase;
+  font-size : 13px;
+}
+.kdp-foot-col p{ margin:0; color:#c3c8d0;
+  font-size: 9px; }
+
+.kdp-contact{ 
+   font: "Poppins","Monsterrat",system-ui,"Segoe UI",Roboto,sans-serif;
+   list-style:none; margin:0; padding:0; color:#c3c8d0;
+  font-size: 12px; }
+.kdp-contact li{ margin:4px 0; }
+.kdp-contact .k{ display:inline-block; width:2.2em; color:#aeb4be; }
+/* === KDP Footer 폰트 크기 컨트롤 === */
+
+
+
+/* SNS 아이콘 (심플 원형 배지) — 필요 시 href만 채우세요 */
+/*
+.kdp-foot-social{ display:flex; gap:10px; align-items:center; }
+.sns{ width:36px; height:36px; border-radius:50%; display:inline-flex;
+      align-items:center; justify-content:center; background:#4b5563; position:relative; }
+.sns:before{ content:""; width:0; height:0; border-style:solid; } /* 기본값 
+.sns.yt{ background:#ff3d2e; }      .sns.yt:before{ border-width:6px 0 6px 10px; border-color:transparent transparent transparent #fff; }
+.sns.fb{ background:#1877f2; }      .sns.fb:before{ content:"f"; color:#fff; font-weight:800; font-size:14px; }
+.sns.blog{ background:#21c531; }    .sns.blog:before{ content:"b"; color:#fff; font-weight:800; font-size:14px; }
+.sns.ig{ background:#c13584; }      .sns.ig:before{ content:"◎"; color:#fff; font-size:12px; }*/
+
+
+/* 구분선 + 하단 바 */
+.kdp-foot-divider{border:0; height:1px; background:rgba(255,255,255,.08); margin:22px 0; }
+.kdp-footer-bottom{
+  font: "Poppins","Monsterrat",system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size: 12px;
+  display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.kdp-privacy{ opacity:.9; }
+.kdp-copy{ margin:0; color:#aab1ba; }
+
+/* 반응형 */
+@media (max-width: 980px){
+  .kdp-footer-top{ grid-template-columns: 1fr 1fr; }
+  .kdp-foot-social{ justify-content:flex-start; }
+}
+@media (max-width: 640px){
+  .kdp-footer-top{ grid-template-columns: 1fr; }
+  .kdp-footer-bottom{ flex-direction:column; align-items:flex-start; gap:6px; }
+}
+
 
 /* ===== Responsive tweaks ===== */
 @media (max-width:1100px){:root{--menu-gap:16px}}
@@ -670,14 +776,14 @@ body { scrollbar-gutter: stable both-edges; }
 @media (max-height:640px)
 {.kdp-modal-body{padding-top:34px}
 .kdp-modal {
-    width: 92vw;       /* 화면 너비의 92% */
+    width: 30vw;       /* 화면 너비의 50% */
     height: auto;      /* 내용에 맞게 자동 높이 */
     max-height: 84vh;  /* 너무 길어지지 않도록 제한 */
     border-radius:0px;
   }
 }
 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
 
 /* --- modal text article (scoped) --- */
@@ -722,7 +828,7 @@ body { scrollbar-gutter: stable both-edges; }
 /* === ABOUT Hybrid Style === */
 
 /* Hero */
-.about-hero{background:#e5e7eb;padding:68px 0 90px}
+.about-hero{background:#868e96;padding:68px 0 90px}
 .ah-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
 .ah-title{font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.1}
 .ah-art{width:320px;height:320px;border-radius:50%;
@@ -749,3 +855,201 @@ body { scrollbar-gutter: stable both-edges; }
   .ah-art{justify-self:start;margin-top:12px;width:220px;height:220px}
   .about-3{grid-template-columns:1fr}
 }
+
+/* === COMPANY 사이트 HTML ============================================== */
+:root{
+  --kdp-brand:#2563eb;            /* KDP 블루 */
+  --kdp-brand-dark:#1e40af;
+  --kdp-ink:#0f172a;              /* 본문 */
+  --kdp-muted:#64748b;            /* 보조 텍스트 */
+  --kdp-soft:#495057;             /* 섹션 배경 */
+  --kdp-maxw:1100px;
+  --kdp-eyebrow1:"Noto Sans KR";
+}
+
+
+
+
+/* 패널-회색(히어로) 사이 1px 경계 제거 */
+.site-header.on-hero,
+.site-header.open { border-bottom: 0 !important; box-shadow:none !important; } /* 헤더 하단선 끔 */
+.site-header.open .menu-panel,
+.site-header.on-hero .menu-panel { border-top: 0 !important; }                 /* 패널 상단선 끔 */
+/* 드물게 남는 머리카락 선 보정 */
+.site-header.open .menu-panel { top: calc(var(--header-h) -1px); }
+
+
+
+
+
+
+.kdp-about{ color:var(--kdp-ink); }
+.kdp-about .container{ 
+  font-family:'Poppins',;
+  max-width:var(--kdp-maxw); 
+  margin:0 auto; 
+  padding:0 0px;
+  font-size: 20x;
+  color : #efefef;
+  
+  
+}
+
+.kdp-about .container .h0{ /* ABOUT 글꼴 */ 
+font-family:'Poppins', 'Noto Sans KR';
+font-size: 40px;
+font-weight: 100;
+
+
+}
+
+
+/* Hero */
+.kdp-hero{ 
+  background:linear-gradient(180deg,#999999), var(--kdp-soft);
+  padding:72px 0 126px; 
+  border-top:1px solid #eef2f7; 
+}
+
+
+
+
+.kdp-hero h1{ 
+  font-family:'Poppins', 'Noto Sans KR',sans-serif,'Noto Sans KR';;
+  margin:20px 0px 30px; 
+  font-weight:500; 
+  letter-spacing:-.02em;
+  font-size:clamp(20px,3.2vw,28px); 
+}
+
+
+
+
+.kdp-hero p{ 
+  margin:0; 
+  color:var(--kdp-muted); 
+  font-size:1.05rem; 
+}
+.kdp-badges{ margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; }
+.kdp-badge{ background:#eaf1ff; color:var(--kdp-brand-dark); border-radius:999px; padding:6px 10px; font-weight:700; font-size:12px; }
+
+/* Section scaffolds */
+.kdp-sec{ padding:80px 0; 
+  border-top:1px solid #eef2f7; 
+  background:#fff; 
+}
+
+.kdp-eyebrow1{ 
+  color:var(--kdp-brand); 
+  font-family:'Poppins','Noto Sans KR',sans-serif,'Noto Sans KR';
+  text-transform:lowercase; 
+  font-weight:600; 
+  font-size:35px; 
+  letter-spacing:.06em;
+  text-transform: uppercase; /* 대문자 고정 없애러면 none*/
+ }
+
+ .kdp-eyebrow2{ 
+  color:var(--kdp-brand); 
+  font-family:'Poppins','Noto Sans KR',sans-serif,'Noto Sans KR';
+  text-transform:lowercase; 
+  font-weight:600; 
+  font-size:35px; 
+  letter-spacing:.06em;
+  text-transform: uppercase; /* 대문자 고정 없애러면 none*/
+ }
+
+
+.kdp-title{ 
+  color :#0f172a;
+  margin:.3rem 0 1rem; 
+  font-weight:800; 
+  font-size:clamp(20px,2.2vw,28px); 
+}
+
+.kdp-lead{ color:var(--kdp-ink); font-size:1.05rem; }
+
+/* Timeline */
+.kdp-timeline{ list-style:none; margin:16px 0 0; padding:0; display:grid; gap:12px; }
+.kdp-timeline li{ display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:start; }
+.kdp-timeline time{ color:var(--kdp-brand-dark); font-weight:800; }
+.kdp-timeline p{ margin:0; color:var(--kdp-ink); }
+@media (max-width:900px){ .kdp-timeline li{ grid-template-columns:90px 1fr; } }
+
+/* Pillars (vision) */
+.kdp-pillars{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin-top:16px; }
+.kdp-pillar{ background:#fff; border:0px solid #e5e7eb; border-radius:14px; padding:18px; box-shadow:0 6px 20px rgba(15,23,42,.04); }
+.kdp-pillar h4{ margin:0 0 8px; font-size:16px; font-weight:800; }
+.kdp-pillar p{ margin:0; color:var(--kdp-muted); }
+@media (max-width:900px){ .kdp-pillars{ grid-template-columns:1fr; } }
+
+/* Button (optional) */
+.kdp-btn{ appearance:none; border:1px solid #dbe3f1; background:#fff; color:#111827;
+  padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer; }
+.kdp-btn.primary{ background:var(--kdp-brand); color:#fff; border-color:var(--kdp-brand); }
+.kdp-btn.primary:hover{ filter:brightness(.96); }
+
+/* Soft section */
+.kdp-soft{ background:var(--kdp-soft); }
+
+
+
+/* 0) 회색 히어로와 동일하게 쓸 공통 변수 (필요시 색만 바꾸면 됨) */
+:root{ --hero-top-bg: #999999; }
+
+/* 1) 회사소개 히어로 자체 배경을 변수로 통일 */
+.kdp-hero{ background: var(--hero-top-bg); } /* 기존 gradient 한 줄 교체 */
+
+/* 2) 히어로 위에 올라간 헤더 상태(최상단 + 비호버/비오픈) */
+.site-header.on-hero:not(.open):not(:hover){
+  --bg: var(--hero-top-bg);   /* 헤더 배경 = 히어로 회색 */
+  --fg: #ffffff;              /* 헤더 안 기본 글자색 */
+  --fg-muted: #f5f7ff;        /* 메뉴 기본색(연한 흰색) */
+  border-bottom-color: rgba(255,255,255,.18);
+  box-shadow: none;
+}
+
+/* 로고 색상을 흰색으로 강제 */
+.site-header.on-hero:not(.open):not(:hover) .logo-text.short,
+.site-header.on-hero:not(.open):not(:hover) .logo-text.long{
+  color:#fff !important;
+}
+
+/* 메뉴 컬러/호버 */
+.site-header.on-hero:not(.open):not(:hover) .menu a{ color:#fff; }
+.site-header.on-hero:not(.open):not(:hover) .menu a:hover{
+  color:#fff;
+  background: rgba(255,255,255,.10);   /* 살짝 밝아지는 느낌 */
+}
+
+
+/************ company 최우측 상단 로고 이미지 관련*************/ 
+.kdp-hero{ position: relative; }
+.hero-right{
+  position:absolute; 
+  z-index:2; 
+}
+.hero-right img{ 
+ width: clamp(220px, 20.07vw, 360px);
+  height:auto; 
+  display:block; }
+
+/* (코너 프리셋 4종 (기본 오프셋: 24px) )*/
+.pos-tr{ top: var(--y,24px); right: var(--x,24px); }   /* 오른쪽-위 */
+.pos-tl{ top: var(--y,24px); left:  var(--x,24px); }   /* 왼쪽-위 */
+.pos-br{ bottom: var(--y,24px); right: var(--x,24px); }/* 오른쪽-아래 */
+.pos-bl{ bottom: var(--y,24px); left:  var(--x,24px); }/* 왼쪽-아래 */
+
+
+/* 삭제하거나 이렇게 낮추세요 */
+@media (max-width:640px){
+  .hero-right{ display:none; }
+}
+
+/************ company 최우측 상단 로고 이미지 관련*************/ 
+
+
+
+
+
+
