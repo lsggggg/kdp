@@ -25,6 +25,37 @@ img{max-width:100%;height:auto;display:block}
 .lead{color:var(--muted);margin:8px 0 12px}
 .shadow-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
 
+
+
+/* 모든 박스 모서리 0 (이 페이지 한정) */
+.no-radius,
+.no-radius *::before,
+.no-radius *::after,
+.no-radius *{
+  border-radius: 0 !important;
+}
+
+/* 원형은 유지하고 싶을 때의 예외(원형도 각지게 하려면 이 블록 삭제) */
+.no-radius .pf-dots button,   /* 포트폴리오 페이지 인덱스 점 */
+.no-radius .sns,              /* SNS 원형 아이콘 */
+.no-radius .avatar,
+.no-radius .circle,
+.no-radius .round {
+  border-radius: 50% !important;
+}
+
+/* (우리 코드에서 라디우스 변수를 쓰는 곳도 한 번에 0으로) */
+.no-radius{
+  --pf-radius: 0;     /* 카드 등에서 사용 */
+  --radius: 0;        /* 다른 컴포넌트가 쓸 수 있는 제너릭 변수 */
+}
+ 
+/* 모든 박스 모서리 0 (이 페이지 한정) */
+
+
+
+
+
 /* ===== Buttons ===== */
 .btn{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:600;text-decoration:none;transition:transform .05s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 8px 16px rgba(37,99,235,.18)}
 .btn:hover{background:var(--brand-600);transform:translateY(-1px)}
@@ -80,7 +111,12 @@ img{max-width:100%;height:auto;display:block}
 @media (max-width:960px){.menu{display:none}.menu-toggle{display:inline-flex;align-items:center;justify-content:center;padding:8px}}
 
 /* dropdown */
-.menu-panel{position:absolute;left:0;right:0;top:var(--header-h);background:#ffffff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 24px 40px rgba(2,6,23,.10);transform:translateY(-8px);opacity:0;pointer-events:none;max-height:0;overflow:hidden;transition:transform .25s ease,opacity .25s ease,max-height .25s ease;z-index:999}
+.menu-panel{position:absolute;
+  left:0;right:0;top:var(--header-h);
+  background:#ffffff;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 24px 40px rgba(2,6,23,.10);transform:translateY(-8px);opacity:0;pointer-events:none;max-height:0;overflow:hidden;transition:transform .25s ease,opacity .25s ease,max-height .25s ease;z-index:999}
 .site-header.open .menu-panel{transform:translateY(0);opacity:1;pointer-events:auto;max-height:calc(100vh - var(--header-h));overflow:auto}
 .panel-grid{position:relative;padding:var(--panel-pad-top) 0 var(--panel-pad-bottom);display:grid;grid-template-columns:var(--brand-w) repeat(5,1fr)}
 .menu-panel .col{position:absolute;top:var(--panel-pad-top);left:0;width:var(--col-w);display:none}
@@ -269,14 +305,15 @@ img{max-width:100%;height:auto;display:block}
 
 
 /* ===== NEWS ===== */
-.news-list{list-style:none; display:grid; gap:10px; margin-top:14px}
+.news-list{list-style:none; display:grid; gap:10px; margin-top:14px;
+ font-weight: 450; }
 .news-list a{display:flex; align-items:center; gap:12px; padding:12px 14px; background:#fff; border:1px solid var(--border); border-radius:12px; color:inherit; text-decoration:none}
 .news-list a:hover{border-color:#cbd5e1}
 .news-list time{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; color:#475569; font-size:13px}
 
 #news .overline{
   font-family: 'Poppins','Noto Sans KR',sans-serif; /* 폰트 */
-  font-weight: 600;        /* 굵기: 400~900 */
+  font-weight: 400;        /* 굵기: 400~900 */
   font-size: 28px;         /* 크기 */
   letter-spacing: .009em;   /* 자간(영문은 크게, 한글은 줄이세요) */
   text-transform: uppercase; /* 대문자 고정 해제하려면 'none' */
@@ -309,6 +346,7 @@ textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink
 #location.shadow-card {
   /* 카드 안쪽 여백 (원하는 값으로) */
   padding: 20px 20px 24px;
+  font-weight: 450;
 }
 
 /* 지도 컨테이너: 카드 여백 내에서 꽉 차되, 모서리/그림자만 */
@@ -550,6 +588,131 @@ textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink
 
 
 
+
+
+/* ===== Detail Portfolios (cards + carousel-like) ======================== */
+
+
+:root{
+  --brand: var(--kdp-brand, #2563eb);
+  --ink:#0f172a; --muted:#6b7280; --card:#fff; --line:#e5e7eb;
+  --pf-gap: 32px;             /* 카드 간격 */
+  --pf-radius: 0;             /* 카드 모서리 */
+}
+
+/* 섹션/헤더 */
+.pf-section{ padding:20px 0; background:#fff; color:var(--ink); }
+.pf-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.pf-head h2{ margin:0; font-weight:900; letter-spacing:.02em; }
+
+/* 내비 버튼 */
+.pf-nav{ display:flex; gap:10px; }
+.pf-btn{
+  width:38px; height:38px; border-radius:0; cursor:pointer;
+  border:1px solid #e5e7eb; background:#fff; font-size:18px;
+}
+.pf-btn:hover{ border-color:var(--brand); color:var(--brand); }
+
+/* 뷰포트/트랙 */
+.pf-viewport{ overflow:hidden; position:relative; }
+.pf-track{ display:flex; transition:transform .4s ease; will-change:transform; }
+
+/* 한 페이지 = 뷰포트 100% / 가로 3개 고정 */
+.pf-page{
+  flex:0 0 100%;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:var(--pf-gap);
+}
+
+/* 카드 */
+.pf-card{
+  display:flex; flex-direction:column; text-decoration:none; color:inherit;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--pf-radius);
+  transition:border-color .2s, box-shadow .2s;
+  min-height:420px;            /* 줄글 차이 있어도 높이 통일 */
+}
+.pf-card:hover,.pf-card:focus-visible{
+  border-color:var(--brand);
+  box-shadow:0 0 0 1px var(--brand) inset;
+}
+
+/* 로고 영역 */
+.pf-logo-wrap{
+  height:195px;                /* 위/아래 여백 균형 */
+  display:flex; align-items:center; justify-content:center;
+}
+.pf-logo-wrap img{
+  max-height:150px;            /* 로고 크기(필요시 72~100px 사이 조절) */
+  max-width:160px;             /* 가로 상한으로 과확대 방지 */
+  width:auto; height:auto; object-fit:contain;
+}
+
+/*'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif*/
+
+
+/* 상/하단 구분선 */
+.pf-div{ border-top:1px solid var(--line); }
+
+/* 내부 여백(텍스트 블록) */
+.pf-badge{
+  align-self:flex-start;
+  margin:18px 18px 8px;
+  padding:6px 10px; border-radius:0;
+  font:1000 12px/1 "Monsterrat",system-ui,sans-serif; color:var(--brand);
+  border:1px solid var(--brand); background:rgba(37,99,235,.06);
+}
+.pf-name{  
+  font : 'Spoqa Han Sans',sans-serif;
+  margin:30px 30px 12px;  
+  font-weight:600;
+  font-size: 1.09em;
+ letter-spacing : .02em; }
+
+.pf-tag{  
+  display:inline-flex;               /* 텍스트 중앙정렬 */
+  align-items:center;
+  justify-content:center;
+  width: 95px;                       /* 정사각형 크기 (필요 시 조절) */
+  height: 30px;
+  margin:10px 30px 20px;  
+  font: "Poppins","Monsterrat";
+  font-size:12px;
+  color:#6366f1;
+  background:#eef2ff; 
+  border:1px solid #e0e7ff; 
+  padding:10px 10px; 
+  border-radius:0; }
+
+.pf-desc{ /* 1번째 본문*/ 
+  margin: 10px 30px 10px;
+  font : 'Noto Sans KR',sans-serif;
+  font-weight: 550;
+
+}
+.pf-sub{  /* 2번째 본문*/
+  margin:5px 30px 10px; 
+  color:var(--muted);
+  font : 'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;
+  font-weight: 350;
+  font-size : 14px;
+ }
+
+/* 페이지 인덱스(도트) */
+.pf-dots{ display:flex; justify-content:center; gap:10px; margin-top:20px; }
+.pf-dots button{ width:8px; height:8px; border-radius:50%; border:0; background:#cbd5e1; cursor:pointer; }
+.pf-dots button.on{ background:var(--brand); transform:scale(1.15); }
+
+
+
+
+
+
+
+
+
+
+
 /* ===== Manual dropdown alignment (pixel-perfect) ===== */
 /* 이 클래스를 헤더에 붙이면 수동 좌표 모드가 켜집니다 */
 .site-header.manual-align {
@@ -568,7 +731,9 @@ textarea{min-height:120px;resize:vertical} label{font-weight:600;color:var(--ink
 
 /* 패널의 그리드/자동 위치 계산 비활성화 */
 .site-header.manual-align #menuPanel .panel-grid{
+ 
   transform: none !important;
+
 }
 
 /* 칼럼을 '절대 좌표'로 배치해 수동 위치를 그대로 사용 */
@@ -835,7 +1000,7 @@ body { scrollbar-gutter: stable both-edges; }
 /* Hero */
 .about-hero{background:#868e96;padding:68px 0 90px}
 .ah-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
-.ah-title{font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.1}
+.ah-title{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.1}
 .ah-art{width:320px;height:320px;border-radius:50%;
   background:radial-gradient(circle at 30% 35%, #2563eb 0%, #1d4ed8 40%, #0b1324 100%);
   justify-self:end;box-shadow:0 24px 40px rgba(2,6,23,.15)}
@@ -1058,10 +1223,6 @@ font-weight: 100;
   .hero-right{ display:none; }
 }
 
-/************ company 최우측 상단 로고 이미지 관련*************/ 
-
-
-
-
+/************ company 최우측 상단 로고 이미지 관련*************/
 
 
