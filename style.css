@@ -99,7 +99,8 @@ img{max-width:100%;height:auto;display:block}
 
 }
 
-.logo-text{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;line-height:1}
+.logo-text{margin-right:70px;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif;line-height:1}
 .logo-text.short{font-weight:900;font-size:var(--logo-size);letter-spacing:.25px;color:#2563eb}
 .logo-text.long{font-size:var(--logo-long-size);font-weight:700;letter-spacing:.1px;color:var(--brand);display:none}
 .menu{list-style:none;display:flex;gap:var(--menu-gap);margin-left:calc(var(--brand-w) + var(--menu-offset))}
@@ -116,7 +117,7 @@ img{max-width:100%;height:auto;display:block}
   background:#ffffff;
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
-  box-shadow:0 24px 40px rgba(2,6,23,.10);transform:translateY(-8px);opacity:0;pointer-events:none;max-height:0;overflow:hidden;transition:transform .25s ease,opacity .25s ease,max-height .25s ease;z-index:999}
+  box-shadow:0 24px 60px rgba(2,6,23,.10);transform:translateY(-8px);opacity:0;pointer-events:none;max-height:0;overflow:hidden;transition:transform .25s ease,opacity .25s ease,max-height .25s ease;z-index:999}
 .site-header.open .menu-panel{transform:translateY(0);opacity:1;pointer-events:auto;max-height:calc(100vh - var(--header-h));overflow:auto}
 .panel-grid{position:relative;padding:var(--panel-pad-top) 0 var(--panel-pad-bottom);display:grid;grid-template-columns:var(--brand-w) repeat(5,1fr)}
 .menu-panel .col{position:absolute;top:var(--panel-pad-top);left:0;width:var(--col-w);display:none}
@@ -1225,4 +1226,240 @@ font-weight: 100;
 
 /************ company 최우측 상단 로고 이미지 관련*************/
 
+
+
+
+
+
+/*****************  CONTACT ***************************/
+
+
+/* ============ Contact (scoped to .contact-page only) ============ */
+
+
+.contact-page{
+  --c-blue:#2563eb;
+  --c-blue-600:#1e40af;
+  --c-line:#e5e7eb;
+  --c-muted:#6b7280;
+  font : 'Poppins',system-ui,-apple-system,"Segoe UI","Roboto","Noto Sans KR",sans-serif;
+}
+
+/* 글로벌 .container를 건드리지 않도록 스코프 */
+.contact-page .container{max-width: min(1200px, 92%); }
+
+/* Hero */
+.contact-page .c-hero{ position:relative; height:550px; background:url('assets/contact5.jpg') center/cover no-repeat; }
+.contact-page .c-hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.18)); }
+.contact-page .c-hero__inner{ position:relative; z-index:1; height:100%; display:flex; align-items:flex-end; 
+  padding:200px 1140px 200px;
+font-size : 24px; }
+.contact-page .c-hero h1{ color:#fff; font-weight:900; letter-spacing:.05em; margin:0; }
+
+/* Tabs */
+.contact-page .c-tabs{ background:#fff; border-bottom:1px solid var(--c-line); }
+.contact-page .c-tabs ul{ display:flex; gap:34px; height:60px; align-items:flex-end; list-style:none; margin:0 auto; padding:0 20px; max-width:980px; }
+.contact-page .c-tabs a{ display:inline-block; padding-bottom:14px; color:#222; text-decoration:none; }
+.contact-page .c-tabs li.on a{ color:var(--c-blue); border-bottom:2px solid var(--c-blue); }
+
+/* Intro */
+.contact-page .c-intro{ padding:70px 0 80px; }
+.contact-page .c-intro__lead{ font-size:30px; font-weight:500; margin:0 0 6px;
+font : 'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans KR',sans-serif; }
+.contact-page .c-intro__faq{ 
+  margin: 0px 0px 10px;
+  font-size:14px; color:var(--c-blue-600); text-decoration:none; }
+
+/* Card/Form */
+.contact-page .c-card{ background:#fff; border:1px solid var(--c-line); border-radius:8px; padding:24px; }
+.contact-page .c-form{ padding:8px 0 60px; }
+.contact-page .c-sec-title1{margin:5px 0 50px; font-size:26px; font-weight:600; padding-bottom: 12px;                 /* 선과 제목 간 간격 */
+  position: relative;}
+.contact-page .c-sec-title{ margin:100px 0 50px; font-size:26px; font-weight:600; padding-bottom: 12px;                 /* 선과 제목 간 간격 */
+  position: relative;                   /* ::after 위치 기준 */ }
+.contact-page .c-sec-title::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:1px;
+  background: var(--c-line);            /* #e5e7eb */
+}
+ .contact-page .c-sec-title1::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:1px;
+  background: var(--c-line);            /* #e5e7eb */
+}
+
+.contact-page .foot-divider{border:0; height:1px; background:rgba(255,255,255,.08); margin:22px 0; }
+.contact-page .c-sec-title small{ font-weight:500; font-size:14px; color:var(--c-muted); margin-left:12px; }
+.contact-page .c-sec-title1 small{ font-weight:500; font-size:14px; color:var(--c-muted); margin-left:8px; }
+.contact-page .c-sec-help{ margin:10px 0px 20px; color:var(--c-muted); font-size:15px; }
+.contact-page .c-sec-help-detail{ margin:; color:var(--c-muted); font-size:15px; }
+
+/* Grid */
+.contact-page .grid{ display:grid; gap:14px; }
+.contact-page .g2{ grid-template-columns:1fr 1fr; }
+.contact-page .g-full{ grid-column:1 / -1; }
+@media(max-width:860px){ .contact-page .g2{ grid-template-columns:1fr; } }
+
+/* Fields */
+.contact-page .f>span{ display:block; font-size:16px; font-weight: 500; color:#111; margin-bottom:6px; }
+.contact-page .f input, 
+.contact-page .f textarea{
+  width:100%; background:#f8fafc; border:1px solid var(--c-line);
+  padding:12px 12px; border-radius:6px; font-size:14px; outline:none;
+}
+.contact-page .f textarea{ resize:vertical; }
+.contact-page .f input:focus, 
+.contact-page .f textarea:focus{ border-color:var(--c-blue); background:#fff; box-shadow:0 0 0 3px rgba(37,99,235,.08); }
+
+/* Chips */
+/* === 칩: 박스 전체 선택 스타일 === */
+.contact-page .chip-wrap{ display:flex; flex-wrap:wrap; gap:10px; }
+
+.contact-page .chip{
+  display:inline-block; cursor:pointer; user-select:none;
+}
+
+.contact-page .chip input{
+  /* 인풋은 화면에서 숨기되 접근성/포커스는 유지 */
+  position:absolute; opacity:0; width:1px; height:1px; margin:-1px;
+}
+
+/* 실제 보이는 박스 */
+.contact-page .chip .pill{
+  display:inline-block;
+  padding:8px 14px;
+  font-size:14px; font-weight:600;
+  color:#475569; background:#f3f4f6;
+  border:1px solid var(--c-line);
+  border-radius:0;              /* 각진 박스(요청사항) */
+  transition:background .15s, color .15s,  border-color .15s, box-shadow .15s;
+}
+
+/* hover */
+.contact-page .chip:hover .pill{
+  border-color:#cfd6e0; background:#f8fafc;
+}
+
+/* checked → 박스 전체가 파란색 */
+.contact-page .chip input:checked + .pill{
+  background:var(--c-blue);
+  border-color:var(--c-blue);
+  color:#fff;
+  box-shadow:0 1px 0 rgba(0,0,0,.04);
+}
+
+/* 키보드 포커스 접근성 */
+.contact-page .chip input:focus-visible + .pill{
+  outline:2px solid color-mix(in srgb, var(--c-blue) 70%, #ffffff 30%);
+  outline-offset:2px;
+}
+
+/* Radios */
+.contact-page .radio-col{ display:flex; flex-direction:column; gap:8px; }
+.contact-page .r{ display:flex; align-items:center; gap:8px; font-size:14px; color:#111; }
+.contact-page .r input{ width:14px; height:14px; }
+
+/* Actions (전역 .btn 충돌 방지 위해 범위 지정) */
+.contact-page .c-actions{ display:flex; align-items:center; gap:16px; margin-top:24px; }
+.contact-page .btn{ display:inline-flex; align-items:center; justify-content:center; min-width:140px; height:44px; padding:0 18px; border:1px solid transparent; border-radius:6px; cursor:pointer; text-decoration:none; font-weight:700; }
+.contact-page .btn-primary{ background:var(--c-blue); color:#fff; }
+.contact-page .btn-primary:hover{ background:#1f4de7; }
+.contact-page .msg{ font-size:14px; margin:0; }
+.contact-page .msg.ok{ color:#16a34a; }
+.contact-page .msg.err{ color:#dc2626; }
+
+/* 접근성 */
+.contact-page .sr-only{ position:absolute; width:1px; height:1px; clip:rect(0 0 0 0); white-space:nowrap; clip-path:inset(50%); overflow:hidden; }
+
+/* ------------ Contact: 업로드 행 ------------ */
+.contact-page .upload-row{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:0;
+  border:1px solid var(--c-line);
+  border-radius:0px;
+  overflow:hidden;
+  box-shadow: 0 1px 0 rgba(0,0,0,.02);
+  background:#fff;
+  max-width: 760px; /* 폼 너비 내에서 적당히 */
+}
+
+.contact-page .upload-display{
+  border:0; outline:0;
+  padding:12px 16px;
+  font-size:14px;
+  color:#111;
+  background:#fff;
+}
+.contact-page .upload-display::placeholder{ color:#9ca3af; }
+
+/* 파란 업로드 버튼 */
+.contact-page .upload-action{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:0 16px; height:44px;
+  background:var(--c-blue); color:#fff;
+  border:0; border-left:1px solid rgba(255,255,255,.2);
+  cursor:pointer; font-weight:700;
+  border-radius: 0px;
+}
+.contact-page .upload-action:hover{ background:#1f4de7; }
+.contact-page .upload-action:disabled{
+  opacity:.7; cursor:default; filter:saturate(.7);
+}
+
+/* 진행바 */
+.contact-page .upload-bar{
+  display:none; width:100%; height:6px; margin-top:10px;
+  background:#eef2ff; border-radius: 0px;
+}
+.contact-page .upload-bar i{
+  display:block; width:0%; height:100%;
+  background:var(--c-blue); border-radius: 0px;
+  transition: width .25s ease;
+}
+
+/* 기타 입력 박스 기본 숨김/표시 스타일 */
+.contact-page .other-box{
+  display:none;                        /* 기본 숨김 */
+  margin-left: 4px;  
+  margin-top: 5px;                  /* 칩 옆에 바짝 */
+}
+.contact-page .other-box input{
+  height:32px; padding:0 10px; font-size:13px;
+  border:1px solid var(--c-line); border-radius:999px;
+  background:#fff; min-width:200px;
+}
+.contact-page .other-box input:focus{
+  outline:none; border-color:var(--c-blue);
+  box-shadow:0 0 0 3px rgba(37,99,235,.08);
+}
+
+/* 줄바꿈이 좋으면 아래 두 줄을 사용 (칩 아래로 내림)
+.contact-page .other-box{ display:none; width:100%; margin:6px 0 0; }
+.contact-page .other-box input{ border-radius:6px; min-width:0; width:300px; }
+*/
+
+/* Contact: 모든 코너를 0으로(스코프 한정) */
+.contact-page .c-card,
+.contact-page .upload-row,
+.contact-page .upload-display,
+.contact-page .upload-action,
+.contact-page .f input,
+.contact-page .f textarea,
+.contact-page .chip,
+.contact-page .chip input,
+.contact-page .other-box input,
+.contact-page .btn {
+  border-radius: 0 !important;
+}
+
+/* 진행바도 네모 */
+.contact-page .upload-bar,
+.contact-page .upload-bar i {
+  border-radius: 0 !important;
+}
 
