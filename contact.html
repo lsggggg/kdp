@@ -1,7 +1,9 @@
 <!doctype html>
-<body class="contact-page"></body>
 <html lang="ko">
+
+
 <head>
+ 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>(주)케이드림파트너스 — Corporate1 (Applied)</title>
@@ -10,65 +12,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900;900&family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
   <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="./style.css" />
+
+
+  </head>
 </head>
-<body>
+<body class="contact-page" data-tab="apply">
 
-  <!-- ====== HEADER ====== -->
-  <header class="site-header" role="navigation">
-    <div class="container nav">
-      <a href="#home" class="brand" aria-label="홈으로" title="홈으로">
-        <span class="logo-text short">KDP</span>
-        <span class="logo-text long">KDreamPartners</span>
-      </a>
+ <!-- 단일 헤더 -->
+<header class="site-header manual-align" role="navigation">
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="홈으로" title="홈으로">
+      <span class="logo-text short">KDP</span>
+      <span class="logo-text long">KDreamPartners</span>
+    </a>
 
-      <nav aria-label="주요">
-        <ul class="menu">
-          <li class="mitem" data-col="1"><a href="company.html">Company</a></li>
-          <li class="mitem" data-col="2"><a href="business.html">Business</a></li>
-          <li class="mitem" data-col="3"><a href="portfolio.html">Portfolio</a></li>
-          <li class="mitem" data-col="4"><a href="news.html">News</a></li>
-          <li class="mitem" data-col="5"><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <nav aria-label="주요">
+      <ul class="menu">
+        <li class="mitem" data-col="1"><a href="company.html">Company</a></li>
+        <li class="mitem" data-col="2"><a href="business.html">Business</a></li>
+        <li class="mitem" data-col="3"><a href="portfolio.html">Portfolio</a></li>
+        <li class="mitem" data-col="4"><a href="news.html">News</a></li>
+        <li class="mitem" data-col="5"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-      
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menuPanel" aria-label="메뉴 열기">☰</button>
+  </div>
 
-      <button class="menu-toggle" aria-expanded="false" aria-controls="menuPanel" aria-label="메뉴 열기">☰</button>
-    </div>
-
-    <header class="site-header manual-align" role="navigation">
-
-</header>
-
-
-    <!-- 공유 드롭다운 패널 (원본) -->
-    <div id="menuPanel" class="menu-panel" aria-hidden="true">
-      <div class="container panel-grid">
-        <div class="col" data-key="1">
-          <a href="company.html" style="--item-dx: 180px" >회사 소개</a>
-          <a href="team.html#team" style="--item-dx: 180px">팀 소개</a>
-        </div>
-        <div class="col" data-key="2">
-          <a href="business.html" style="--item-dx: 175px">사업 영역</a>
-          <a href="recruit.html#recruit"  style="--item-dx: 170px">채용</a>
-        </div>
-        <div class="col" data-key="3">
-          <a href="portfolio.html" style="--item-dx: 160px">포트폴리오</a>
-        </div>
-        <div class="col" data-key="4">
-          <a href="news.html#events" style="--item-dx: 130px">Events</a>
-          <a href="news.html" style="--item-dx: 130px">News</a>
-        </div>
-        <div class="col" data-key="5">
-          <a href="contact.html" style="--item-dx: 105px">문의하기</a>
-          <a href="contact.html#location" style="--item-dx: 105px">오시는 길</a>
-        </div>
+  <!-- 드롭다운 패널: 이 헤더 안에 딱 1개만 -->
+  <div id="menuPanel" class="menu-panel" aria-hidden="true">
+    <div class="container panel-grid">
+      <div class="col" data-key="1">
+        <a href="company.html">회사 소개</a>
+        <a href="team.html#team">팀 소개</a>
+      </div>
+      <div class="col" data-key="2">
+        <a href="business.html">사업 영역</a>
+        <a href="recruit.html#recruit">채용</a>
+      </div>
+      <div class="col" data-key="3"><a href="portfolio.html">포트폴리오</a></div>
+      <div class="col" data-key="4">
+        <a href="news.html#events">Events</a>
+        <a href="news.html">News</a>
+      </div>
+      <div class="col" data-key="5">
+        <a href="contact.html">문의하기</a>
+        <a href="contact.html#location">오시는 길</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-
-  
+        
 
       
 
@@ -80,21 +75,43 @@
   </div>
 </section>
 
-<!-- 탭 (Apply/Partnership/FAQ) -->
-<nav class="c-tabs" aria-label="Contact Sections">
-  <ul>
-    <li class="on"><a href="#" aria-current="page">지원</a></li>
-    <li><a href="#">협업문의</a></li>
-    <li><a href="#">FAQ</a></li>
-  </ul>
-</nav> 
+
 
 <!-- 인트로 카피 -->
 <section class="c-intro container">
-  <h2 class="sr-only">소개</h2>
-  <p class="c-intro__lead">케이드림파트너스와 함께 동행할 <br>스타트업을 찾습니다!</p>
-<!--  <a class="c-intro__faq" href="#">자주 묻는 질문 ↗</a>  -->
+  <div class="c-intro__row">
+    <p class="c-intro__lead">케이드림파트너스와 함께 동행할 <br>스타트업을 찾습니다!</p>
+
+    <!-- 새 탭바: 버튼형 + 외부 URL -->
+    <nav class="c-tabbar" aria-label="Contact Tabs">
+      <a class="tabbtn" href="/contact/apply"     data-tab="apply">지원</a>
+      <a class="tabbtn" href="/contact/cooperate" data-tab="cooperate">협업문의</a>
+      <a class="tabbtn" href="/contact/faq"       data-tab="faq">FAQ</a>
+    </nav>
+  </div>
 </section>
+
+<!-- 협업문의 섹션 -->
+<section class="container c-cooperate c-card" hidden>
+  <h3 class="c-sec-title">협업 문의</h3>
+  <p class="c-sec-help">콘텐츠·행사·투자/파트너십 관련 협업 제안을 남겨주세요.</p>
+  <ul class="bullet">
+    <li>이메일: <a href="mailto:kdream2060@gmail.com">kdream2060@gmail.com</a></li>
+    <li>전화: 070-8287-2588</li>
+    <li>대표: 010-5577-4376</li>
+  </ul>
+  <!-- 필요시 간단 폼/캘린들리 추가 가능 -->
+</section>
+
+<!-- FAQ 섹션 -->
+<section class="container c-faq c-card" hidden>
+  <h3 class="c-sec-title">FAQ</h3>
+  <details><summary>투자 대상 단계는?</summary><p>아이디어~시드(브릿지)까지 집중합니다.</p></details>
+  <details><summary>정부과제 컨설팅도 해주나요?</summary><p>네, 기획/문서/평가 대응을 지원합니다.</p></details>
+</section>
+
+
+
 
 <!-- 폼 -->
 <section class="container c-form">
@@ -193,7 +210,7 @@
 </div>
 
     <!-- 세부 내용 -->
-    <h3 class="c-sec-title">세부 내용<small>기본 정보를 입력해주세요.</small></h3></h3>
+    <h3 class="c-sec-title">세부 내용<small>기본 정보를 입력해주세요.</small></h3>
     <p class="c-sec-help">해결하고자 하는 문제, 페인 포인트에 대해 설명해주세요. (500자 이내)</p>
     <label class="f g-full">
       <textarea name="problem" rows="5" placeholder="내용을 입력해주세요."></textarea>
@@ -414,85 +431,6 @@
 
 
 
-<script>
-/* ===== 파일 업로드 (file.io 사용) =====
- * 1) 사용자가 파일 선택
- * 2) file.io 로 업로드 (익명, 30MB 권장)
- * 3) 업로드 결과의 URL을 hidden input(file_url)에 기록
- * 4) 폼 전송 시 함께 제출됨
- */
-(() => {
-  const input = document.getElementById('fileInput');
-  const bar   = document.getElementById('uploadBar');
-  const barI  = bar?.querySelector('i');
-  const meta  = document.getElementById('uploadMeta');
-  const msg   = document.getElementById('uploadMsg');
-  const out   = document.getElementById('fileUrl');
-  if(!input || !bar || !barI || !meta || !msg || !out) return;
-
-  // 용량 제한 (필요 시 조정)
-  const MAX = 30 * 1024 * 1024; // 30MB
-
-  input.addEventListener('change', async () => {
-    msg.textContent = '';
-    out.value = '';
-    if(!input.files || !input.files[0]) { meta.textContent='선택된 파일 없음'; return; }
-    const file = input.files[0];
-
-    // 용량/확장자 간단 검증
-    if(file.size > MAX){
-      msg.textContent = '⚠ 30MB 이하 파일만 업로드할 수 있어요.';
-      meta.textContent = '선택된 파일 없음';
-      input.value = '';
-      return;
-    }
-    meta.textContent = `${file.name} (${Math.ceil(file.size/1024/1024)}MB)`;
-
-    // 진행바 표시
-    bar.style.display = 'block';
-    barI.style.width = '10%';
-
-    try{
-      const fd = new FormData();
-      fd.append('file', file);
-
-      // file.io 업로드 (링크 1회 다운로드/기간 제한 옵션이 기본. 필요시 API 문서에 따라 param 추가)
-      const res = await fetch('https://file.io', { method:'POST', body: fd });
-
-      // file.io는 업로드 진행률 이벤트를 fetch에서 제공하지 않으므로 UI만 단계적으로 업데이트
-      barI.style.width = '60%';
-
-      if(!res.ok) throw new Error('upload failed');
-      const data = await res.json();
-      // data.link 또는 data.url 형식(서비스 변경 시 콘솔로 확인)
-      const url = data.link || data.url;
-      if(!url) throw new Error('no url');
-
-      out.value = url;                       // ← 폼과 함께 제출될 링크
-      msg.textContent = '✅ 업로드 완료. 제출 시 이 파일 링크가 함께 전송됩니다.';
-      barI.style.width = '100%';
-      setTimeout(()=>{ bar.style.display='none'; }, 600);
-    }catch(e){
-      console.error(e);
-      msg.textContent = '❌ 업로드에 실패했습니다. 네트워크 상태를 확인하거나 링크 입력 칸을 사용해 주세요.';
-      bar.style.display = 'none';
-    }
-  });
-
-  // 폼 전송 시: 업로드 중이면 막기(선택)
-  const form = document.getElementById('contactForm');
-  const btn  = document.getElementById('sendBtn');
-  if(form && btn){
-    form.addEventListener('submit', (e)=>{
-      const uploading = bar.style.display === 'block' && (barI.style.width !== '100%');
-      if(uploading){
-        e.preventDefault();
-        msg.textContent = '⏳ 파일 업로드가 끝난 뒤 제출해 주세요.';
-      }
-    });
-  }
-})();
-</script>
 
 
 
@@ -642,11 +580,7 @@
       });
     })();
 
-    // form demo
-    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      alert('폼 예시입니다. 실제 전송 기능은 다음 단계에서 구현합니다.');
-    });
+    
   </script>
 
     ...
@@ -670,6 +604,35 @@
 
 
 
+<script>
+(() => {
+  // 현재 페이지 탭 표시 (body의 data-tab 기준)
+  const cur = document.body.dataset.tab || 'apply';
+
+  // 탭 버튼 강조
+  document.querySelectorAll('.c-tabbar .tabbtn').forEach(a => {
+    if (a.dataset.tab === cur) a.classList.add('is-active');
+  });
+
+  // 섹션 토글: 기본 폼은 apply 전용
+  const show = sel => { const el = document.querySelector(sel); if (el) el.hidden = false; };
+  const hide = sel => { const el = document.querySelector(sel); if (el) el.hidden = true;  };
+
+  if (cur === 'apply') {
+    show('.c-form');      hide('.c-cooperate'); hide('.c-faq');
+  } else if (cur === 'cooperate') {
+    hide('.c-form');      show('.c-cooperate'); hide('.c-faq');
+  } else if (cur === 'faq') {
+    hide('.c-form');      hide('.c-cooperate'); show('.c-faq');
+  }
+})();
+</script>
+
+
+
+
+
+
 
 <!-- ====== FOOTER  ====== -->
  <footer class="kdp-footer">
@@ -678,7 +641,8 @@
     <div class="kdp-footer-top">
       <section class="kdp-foot-col">
         <h4>DAEJEON OFFICE</h4>
-        대전광역시 유성구 테크노2로 160, 
+        
+        <p>대전광역시 유성구 테크노2로 160, 
         <br>충남대학교 산학협력지원센터 301호
        
         </p> <!-- 주소 알려주시면 바로 채워 넣을게요 -->
@@ -712,3 +676,5 @@
     </div>
   </div>
 </footer>
+</body></html>
+
