@@ -11,15 +11,12 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-
-  <!-- ====== HEADER ====== -->
   <header class="site-header" role="navigation">
     <div class="container nav">
       <a href="#home" class="brand" aria-label="홈으로" title="홈으로">
         <span class="logo-text short">KDP</span>
         <span class="logo-text long">KDreamPartners</span>
       </a>
-
       <nav aria-label="주요">
         <ul class="menu">
           <li class="mitem" data-col="1"><a href="company.html">Company</a></li>
@@ -29,27 +26,17 @@
           <li class="mitem" data-col="5"><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-
-      
-
       <button class="menu-toggle" aria-expanded="false" aria-controls="menuPanel" aria-label="메뉴 열기">☰</button>
     </div>
-
-    <header class="site-header manual-align" role="navigation">
-
-</header>
-
-
-    <!-- 공유 드롭다운 패널 (원본) -->
     <div id="menuPanel" class="menu-panel" aria-hidden="true">
       <div class="container panel-grid">
         <div class="col" data-key="1">
-          <a href="company.html" style="--item-dx: 180px" >회사 소개</a>
+          <a href="company.html" style="--item-dx: 180px">회사 소개</a>
           <a href="team.html#team" style="--item-dx: 180px">팀 소개</a>
         </div>
         <div class="col" data-key="2">
           <a href="business.html" style="--item-dx: 175px">사업 영역</a>
-          <a href="recruit.html#recruit"  style="--item-dx: 170px">채용</a>
+          <a href="recruit.html#recruit" style="--item-dx: 170px">채용</a>
         </div>
         <div class="col" data-key="3">
           <a href="portfolio.html" style="--item-dx: 160px">포트폴리오</a>
@@ -65,51 +52,16 @@
       </div>
     </div>
   </header>
-
-
-
-
-  <!-- ====== HERO (중앙 타이포) ====== -->
   <section id="home" class="kv kv--center">
     <div class="kv-center container">
       <p class="kv-overline">START-UP with K-Dream-Partners</p>
       <h1 class="kv-title">INNOVATION</h1>
       <p class="kv-sub">혁신을 위한 첫 발걸음</p>
-     <div class="scroll-down">
-
-<div class="scroll-down">
-  <a href="#company" aria-label="다음 섹션으로">
-    ↓
-  </a>
-  
-</div>
-<section id="home" class="kv kv--center">
-  <div class="kv-center container">
-    <!-- ... 타이틀/서브 ... -->
-  </div>
-  <div class="scroll-down">
-    <a href="#company" aria-label="다음 섹션으로">↓</a>
-  </div>
-</section>
-<section id="home" class="kv kv--center">
-  <div class="kv-center container">
-    <!-- 타이틀/서브 -->
-  </div>
-  <div class="scroll-down">
-    <a href="#company" aria-label="다음 섹션으로">↓</a>
-  </div>
-</section>
-
-
-
-</div>
-
-      </div>
     </div>
-    
+    <div class="scroll-down">
+      <a href="#company" aria-label="다음 섹션으로">↓</a>
+    </div>
   </section>
-
-  <!-- ====== COMPANY ====== -->
   <section id="company" class="section company c1">
     <div class="container c1-grid">
       <div class="c1-copy">
@@ -117,19 +69,13 @@
         <h2>케이드림파트너스는 실행 중심의 AC(액셀러레이터)입니다.</h2><br>
         <p class="lead">아이디어 검증부터 스케일업까지, 실무형 코칭과 자금·네트워크로 성장의 속도를 높입니다.
         <br> 기업의 시작과 도약을 함께하며, 시드/브릿지 투자와 컨설팅 지원을 제공합니다.</p>
-        
-        <ul class="bullet"> <!-- bullet = company li리스트 변수선언-->
-          <br>
-         <!-- <h3>아이디어 검증 및 경영 멘토링</h3><br>
-          <h3>Gov‑Fund 매칭 for 정부/지자체 과제</h3><br>
-          <h3>TIPS 및 Seed/Bridge 투자 진행</h3>
-        </ul>-->
+        <ul class="bullet"></ul>
       </div>
       <aside class="c1-media shadow-card">
         <img src="assets/hero-kdp.png" alt="KDP — We're AC, we're company builder.">
       </aside>
     </div>
-<br><br>
+    <br><br>
     <div class="container c1-feats">
       <article class="feat">
         <h3>실행 코칭</h3>
@@ -145,13 +91,10 @@
       </article>
     </div>
   </section>
-
-   <!-- ====== PORTFOLIO  ====== -->
   <section id="portfolio" class="section portfolio p1">
     <div class="container">
       <div class="portfolio-head">
         <span class="overline">PORTFOLIO</span>
-
       </div>
       <div id="partnersMarquee" class="marquee" aria-label="파트너 로고 슬라이더">
         <div class="track">
@@ -170,7 +113,7 @@
           <button class="partner" type="button" data-company="Intelligent-Gene" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
             <img src="assets/intelligent-gene.png" alt="Intelligent Gene">
           </button>
-           <button class="partner" type="button" data-company="gundol" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
+          <button class="partner" type="button" data-company="gundol" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
             <img src="assets/gundol.png" alt="gundol">
           </button>
           <button class="partner" type="button" data-company="viveai" data-stage="Seed" data-sector="Bio" data-title="Intelligent Gene" data-subtitle="유전체 분석" data-desc="바이오 데이터 기반 헬스케어.">
@@ -178,7 +121,6 @@
           </button>
         </div>
       </div>
-
       <div id="partnerCard" class="partner-card" role="dialog" aria-hidden="true">
         <div class="card-inner">
           <div class="card-line"></div>
@@ -193,112 +135,66 @@
       </div>
     </div>
   </section>
-
-
-
-<!-- ==== PORTFOLIOS.DETAIL Section (drop-in) ================================== -->
-
-<section class="pf-section">
-  <div class="container">
-    <div class="pf-head">
-      <h2></h2>
-      <div class="pf-nav">
-        <button class="pf-btn pf-prev" aria-label="Previous">‹</button>
-        <button class="pf-btn pf-next" aria-label="Next">›</button>
-      </div>
-    </div>
-
-    <div class="pf-viewport" aria-label="Portfolios">
-      <div class="pf-track">
-        <!-- 카드 1 -->
-        <a class="pf-card" href="/portfolio/130">
-          <span class="pf-badge">Venture &amp; TIPS</span>
-          <div class="pf-logo-wrap">
-            <img src="assets/retouch/akroneco_fit.png" alt="ak">
-          </div>
-          <div class="pf-div"></div>
-          <h3 class="pf-name">(주)아크론에코</h3>
-          <span class="pf-tag"><b>Plastic Recy.<b></span>
-          <p class="pf-desc">폐플라스틱 열분해 및 방사능 제염 솔루션</p>
-          <p class="pf-sub">복합 폐 플라스틱 열분해를 통해 손쉬운 처리 솔루션</p>
-        </a>
-
-        <!-- 카드 2 -->
-        <a class="pf-card" href="/portfolio/131">
-          <span class="pf-badge">SEED</span>
-          <div class="pf-logo-wrap">
-            <img src="assets/retouch/eggpool_fit.png" alt="QUIKS">
-          </div>
-          <div class="pf-div"></div>
-          <h3 class="pf-name">에그풀</h3>
-          <span class="pf-tag"><b>Manufature<b></span>
-          <p class="pf-desc">테이블링 오더에 광고를 접목한 기프트오더</p>
-          <p class="pf-sub">여분의 시간에 광고를 활용한 기프트오더</p>
-        </a>
-
-        <!-- 카드 3 -->
-        <a class="pf-card" href="/portfolio/132">
-          <span class="pf-badge"> Growth</span>
-          <div class="pf-logo-wrap">
-            <img src="assets/retouch/manwol_fit1.png" alt="아벤티">
-          </div>
-          <div class="pf-div"></div>
-          <h3 class="pf-name">만월상회</h3>
-          <span class="pf-tag"><b>F&B Retail<b></span>
-          <p class="pf-desc">카페 재료 및 식음료 리테일 플랫폼  </p>
-          <p class="pf-sub">B2B, B2C, 개인카페 모두 이용가능한<br>F&B 플랫폼</p>
-        </a>
-
-        <a class="pf-card" href="/portfolio/131">
-          <span class="pf-badge">V Growth</span>
-          <div class="pf-logo-wrap">
-            <img src="assets/portfolio/quiks.png" alt="QUIKS">
-          </div>
-          <div class="pf-div"></div>
-          <h3 class="pf-name"></h3>
-          <span class="pf-tag">Digital Life</span>
-          <p class="pf-desc"></p>
-          <p class="pf-sub"></p>
-        </a>
-
-
-
-
-      </div> <!-- 카드 내용은 이 위에만 넣으세요. -->
-    </div>
-
-    <div class="pf-dots" aria-label="pagination" role="tablist"></div>
-  </div>
-  <body class="no-radius"></body>
-</section>
-
-<!-- ==== /PORTFOLIOS =================================================== -->
-
-  <!--
-  <section id="portfolio" class="section portfolio b1 alt">
+  <section class="pf-section">
     <div class="container">
-      <span class="overline">DETAIL PORT.</span>
-      <h2 class="center"></h2>
-      <br>
-      <div class="grid b1-grid b1-grid--4">
-        <article class="card"><img src="assets/biz1.jpg" alt=""><h3>Acceleration</h3><p>MVP·고객개발·성장실험</p></article>
-        <article class="card"><img src="assets/biz2.jpg" alt=""><h3>Investment</h3><p>Seed/Bridge·후속투자</p></article>
-        <article class="card"><img src="assets/biz3.jpg" alt=""><h3>Gov‑Fund</h3><p>정부/지자체 과제 매칭</p></article>
-        <article class="card"><img src="assets/biz4.jpg" alt=""><h3>Tech & ESG</h3><p>AI/IoT·해양/환경 PoC</p></article>
+      <div class="pf-head">
+        <h2></h2>
+        <div class="pf-nav">
+          <button class="pf-btn pf-prev" aria-label="Previous">‹</button>
+          <button class="pf-btn pf-next" aria-label="Next">›</button>
+        </div>
       </div>
-   <div style="margin-top:110px;">
-            <a></a><button class="btn" type="submit">더보기</button>
-          </div>
+      <div class="pf-viewport" aria-label="Portfolios">
+        <div class="pf-track">
+          <a class="pf-card" href="/portfolio/130">
+            <span class="pf-badge">Venture &amp; TIPS</span>
+            <div class="pf-logo-wrap">
+              <img src="assets/retouch/akroneco_fit.png" alt="ak">
+            </div>
+            <div class="pf-div"></div>
+            <h3 class="pf-name">(주)아크론에코</h3>
+            <span class="pf-tag"><b>Plastic Recy.<b></span>
+            <p class="pf-desc">폐플라스틱 열분해 및 방사능 제염 솔루션</p>
+            <p class="pf-sub">복합 폐 플라스틱 열분해를 통해 손쉬운 처리 솔루션</p>
+          </a>
+          <a class="pf-card" href="/portfolio/131">
+            <span class="pf-badge">SEED</span>
+            <div class="pf-logo-wrap">
+              <img src="assets/retouch/eggpool_fit.png" alt="egp">
+            </div>
+            <div class="pf-div"></div>
+            <h3 class="pf-name">에그풀</h3>
+            <span class="pf-tag"><b>Manufature<b></span>
+            <p class="pf-desc">테이블링 오더에 광고를 접목한 기프트오더</p>
+            <p class="pf-sub">여분의 시간에 광고를 활용한 기프트오더</p>
+          </a>
+          <a class="pf-card" href="/portfolio/132">
+            <span class="pf-badge"> Growth</span>
+            <div class="pf-logo-wrap">
+              <img src="assets/retouch/manwol_fit1.png" alt="mw">
+            </div>
+            <div class="pf-div"></div>
+            <h3 class="pf-name">만월상회</h3>
+            <span class="pf-tag"><b>F&B Retail<b></span>
+            <p class="pf-desc">카페 재료 및 식음료 리테일 플랫폼</p>
+            <p class="pf-sub">B2B, B2C, 개인카페 모두 이용가능한<br>F&B 플랫폼</p>
+          </a>
+          <a class="pf-card" href="/portfolio/131">
+            <span class="pf-badge">V Growth</span>
+            <div class="pf-logo-wrap">
+              <img src="assets/portfolio/quiks.png" alt="QUIKS">
+            </div>
+            <div class="pf-div"></div>
+            <h3 class="pf-name"></h3>
+            <span class="pf-tag">Digital Life</span>
+            <p class="pf-desc"></p>
+            <p class="pf-sub"></p>
+          </a>
+        </div> </div>
+      <div class="pf-dots" aria-label="pagination" role="tablist"></div>
     </div>
-  </section> -->
-
-
-
-
-
-
-  <!-- ====== VISION ====== -->
-
+    <body class="no-radius"></body>
+  </section>
   <section id="vision" class="section vision">
     <div class="container">
       <span class="overline">Vision</span>
@@ -307,28 +203,6 @@
       <a class="btn" href="contact.html">문의하기</a>
     </div>
   </section>
-
- 
-
-  <!-- ====== CO-PARTNER ====== 
-  <section id="works" class="section works alt">
-    <div class="container">
-      <span class="overline">CO-PARTNER</span>
-      <h2 class="center"></h2>
-      <div class="grid works-grid">
-        <article class="wcard">
-          <img src="assets/work1.jpg" alt="work1">
-          <div class="wmeta"><strong>예시</strong><span>2022</span></div>
-        </article>
-        <article class="wcard">
-          <img src="assets/work2.jpg" alt="work2">
-          <div class="wmeta"><strong>예시</strong><span>2023</span></div>
-        </article>
-      </div>
-    </div>
-  </section>  -->
-
-  <!-- ====== RECRUIT ) ====== -->
   <section id="recruit" class="ctaBand">
     <div class="container bandGrid">
       <div>
@@ -338,8 +212,6 @@
       <a class="btn" href="contact.html">문의하기</a>
     </div>
   </section>
-
-  <!-- ====== NEWS  ====== -->
   <section id="news" class="section news n1 alt">
     <div class="container">
       <span class="overline">NEWS</span>
@@ -351,8 +223,6 @@
       </ul>
     </div>
   </section>
-
-  <!-- ====== CONTACT / LOCATION ====== -->
   <section id="contact" class="section contact c2">
     <div class="container contactGrid">
       <div>
@@ -380,79 +250,50 @@
       <aside id="location" class="shadow-card">
         <h3>오시는 길</h3><br>
         <p>대전광역시 유성구 테크노2로 160,<br>충남대학교 산학협력센터 301호</p>
-       <a
-  href="https://map.naver.com/p/search/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0/place/33253518?c=19.23,0,0,0,dh&placePath=/home?entry=pll&from=map&fromPanelNum=2&timestamp=202508291906&locale=ko&svcName=map_pcv5&searchText=%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0"
-  class="map-link" aria-label="네이버지도에서 보기"
->
-  <div class="mapPh">
-    <img src="assets/maps.png" alt="" class="mapImg" />
-</a> <img src="assets/maPh.png" alt="maPh">
-        </div>
-        
+        <a href="https://map.naver.com/p/search/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0/place/33253518?c=19.23,0,0,0,dh&placePath=/home?entry=pll&from=map&fromPanelNum=2&timestamp=202508291906&locale=ko&svcName=map_pcv5&searchText=%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0" class="map-link" aria-label="네이버지도에서 보기">
+          <div class="mapPh">
+            <img src="assets/maps.png" alt="" class="mapImg" />
+          </div>
+        </a>
       </aside>
     </div>
   </section>
-
-  <!-- ====== FOOTER  ====== -->
- <footer class="kdp-footer">
-  <div class="container">
-    <!-- 상단: 3컬럼 + SNS -->
-    <div class="kdp-footer-top">
-      <section class="kdp-foot-col">
-        <h4>DAEJEON OFFICE</h4>
-        대전광역시 유성구 테크노2로 160, 
-        <br>충남대학교 산학협력지원센터 301호
-       
-        </p> <!-- 주소 알려주시면 바로 채워 넣을게요 -->
-      </section>
-
-
-      <section class="kdp-foot-col">
-        <h4>CONTACT</h4>
-        <ul class="kdp-contact">
-          <li><span class="k">H.P</span> 010-5577-4376</li>
-          <li><span class="k">Tel.</span> 070-8287-7600</li>
-          <li><span class="k">Email</span> <a href="mailto:kdream2060@gmail.com">&nbsp; kdream2060@gmail.com</a></li>
-        </ul>
-      </section>
+  <footer class="kdp-footer">
+    <div class="container">
+      <div class="kdp-footer-top">
+        <section class="kdp-foot-col">
+          <h4>DAEJEON OFFICE</h4>
+          대전광역시 유성구 테크노2로 160,
+          <br>충남대학교 산학협력지원센터 301호
+          </p>
+        </section>
+        <section class="kdp-foot-col">
+          <h4>CONTACT</h4>
+          <ul class="kdp-contact">
+            <li><span class="k">H.P</span> 010-5577-4376</li>
+            <li><span class="k">Tel.</span> 070-8287-7600</li>
+            <li><span class="k">Email</span> <a href="mailto:kdream2060@gmail.com">&nbsp; kdream2060@gmail.com</a></li>
+          </ul>
+        </section>
       </div>
-<!--
-      <aside class="kdp-foot-social" aria-label="소셜 링크">
-        <a class="sns yt" href="#" aria-label="YouTube"></a>
-        <a class="sns fb" href="#" aria-label="Facebook"></a>
-        <a class="sns blog" href="#" aria-label="Blog"></a>
-        <a class="sns ig" href="#" aria-label="Instagram"></a>
-      </aside>
-    </div>-->
-
-    <hr class="kdp-foot-divider"> 
-
-    <!-- 하단: 좌-정책 / 우-카피 -->
-    <div class="kdp-footer-bottom">
-      <a class="kdp-privacy" href="/privacy.html">개인정보 처리방침</a>
-      <p class="kdp-copy">© <span id="y"></span> KDreamPartners. All rights reserved.</p>
+      <hr class="kdp-foot-divider">
+      <div class="kdp-footer-bottom">
+        <a class="kdp-privacy" href="/privacy.html">개인정보 처리방침</a>
+        <p class="kdp-copy">© <span id="y"></span> KDreamPartners. All rights reserved.</p>
+      </div>
     </div>
-  </div>
-</footer>
-
-<script>
-  // 연도 자동 표기(기존 #y 재사용)
-  (function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();
-</script>
-  <!-- ====== SCRIPTS  ====== -->
+  </footer>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // header interactions (existing)
     (function () {
       const header = document.querySelector('.site-header');
-      const panel  = document.querySelector('#menuPanel');
+      const panel = document.querySelector('#menuPanel');
       if (!header || !panel) return;
       panel.setAttribute('data-col', '1');
       header.querySelectorAll('.mitem[data-col]').forEach(li => {
         const c = li.getAttribute('data-col');
         li.addEventListener('mouseenter', () => panel.setAttribute('data-col', c));
-        li.addEventListener('focusin',    () => panel.setAttribute('data-col', c));
+        li.addEventListener('focusin', () => panel.setAttribute('data-col', c));
       });
       header.addEventListener('mouseleave', () => panel.setAttribute('data-col', '1'));
       const btn = header.querySelector('.menu-toggle');
@@ -479,33 +320,29 @@
         panel.setAttribute('aria-hidden', 'true');
       });
     })();
-
-    // dropdown positioning (existing logic)
-    (function(){
+    (function () {
       const header = document.querySelector('.site-header');
-      const panel  = document.querySelector('#menuPanel');
-      const grid   = panel?.querySelector('.panel-grid');
+      const panel = document.querySelector('#menuPanel');
+      const grid = panel?.querySelector('.panel-grid');
       if (!header || !panel || !grid) return;
-
       const styles = getComputedStyle(document.documentElement);
       const PAD_TOP = parseInt(styles.getPropertyValue('--panel-pad-top')) || 18;
       const PAD_BOTTOM = parseInt(styles.getPropertyValue('--panel-pad-bottom')) || 22;
       const COL_W = parseInt(styles.getPropertyValue('--col-w')) || 240;
-
-      function setOpenHeight(key){
+      function setOpenHeight(key) {
         const col = panel.querySelector(`.col[data-key="${key}"]`);
         if (!col) return;
         const h = col.scrollHeight + PAD_TOP + PAD_BOTTOM;
         panel.style.setProperty('--open-h', h + 'px');
       }
-      function positionUnder(li){
+      function positionUnder(li) {
         const cLeft = grid.getBoundingClientRect().left + window.scrollX;
         const r = li.getBoundingClientRect();
-        const center = r.left + (r.width/2) + window.scrollX - cLeft;
-        const left = Math.max(0, Math.round(center - (COL_W/2)));
-       panel.style.setProperty('--submenu-left', left + 'px');
+        const center = r.left + (r.width / 2) + window.scrollX - cLeft;
+        const left = Math.max(0, Math.round(center - (COL_W / 2)));
+        panel.style.setProperty('--submenu-left', left + 'px');
       }
-      function activate(li){
+      function activate(li) {
         const key = li.dataset.col;
         if (!key) return;
         panel.setAttribute('data-col', key);
@@ -513,351 +350,133 @@
         setOpenHeight(key);
       }
       const items = header.querySelectorAll('.mitem[data-col]');
-      items.forEach(li=>{
-        li.addEventListener('mouseenter', ()=>{ header.classList.add('open'); activate(li); });
-        li.addEventListener('focusin',    ()=>{ header.classList.add('open'); activate(li); });
-        li.querySelector('a')?.addEventListener('click', (e)=>{
-            const a = e.currentTarget;
-             const href = a.getAttribute('href') || '';
-
-        // 패널 닫기 (UX)
-      header.classList.remove('open');
-      panel.setAttribute('aria-hidden','true');
-
-  if (href.startsWith('#')) {
-    // 해시(섹션)이면 부드럽게 스크롤
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior:'smooth' });
-  }
-  // 해시가 아니면(e.g. *.html) 기본 동작 = 페이지 이동
-});
-
+      items.forEach(li => {
+        li.addEventListener('mouseenter', () => {
+          header.classList.add('open');
+          activate(li);
+        });
+        li.addEventListener('focusin', () => {
+          header.classList.add('open');
+          activate(li);
+        });
+        li.querySelector('a')?.addEventListener('click', (e) => {
+          const a = e.currentTarget;
+          const href = a.getAttribute('href') || '';
+          header.classList.remove('open');
+          panel.setAttribute('aria-hidden', 'true');
+          if (href.startsWith('#')) {
+            e.preventDefault();
+            document.querySelector(href)?.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
       });
-      header.addEventListener('mouseleave', ()=> header.classList.remove('open'));
+      header.addEventListener('mouseleave', () => header.classList.remove('open'));
       if (items[0]) activate(items[0]);
       let t;
-      window.addEventListener('resize', ()=>{
+      window.addEventListener('resize', () => {
         clearTimeout(t);
-        t = setTimeout(()=>{
+        t = setTimeout(() => {
           const activeKey = panel.getAttribute('data-col') || '1';
           const li = header.querySelector(`.mitem[data-col="${activeKey}"]`) || items[0];
           if (li) activate(li);
         }, 80);
       });
     })();
-
-    // portfolio hover card (existing)
-    (function(){
+    (function () {
       const card = document.getElementById('partnerCard');
       const stage = document.getElementById('pcStage');
       const title = document.getElementById('pcTitle');
-      const sector= document.getElementById('pcSector');
-      const sub   = document.getElementById('pcSub');
-      const desc  = document.getElementById('pcDesc');
-
-      function show(e, el){
+      const sector = document.getElementById('pcSector');
+      const sub = document.getElementById('pcSub');
+      const desc = document.getElementById('pcDesc');
+      function show(e, el) {
         const r = el.getBoundingClientRect();
-        card.style.left = (r.left + r.width/2) + 'px';
-       card.style.top = (r.top - 10 + window.scrollY) + 'px';
+        card.style.left = (r.left + r.width / 2) + 'px';
+        card.style.top = (r.top - 10 + window.scrollY) + 'px';
         stage.textContent = el.dataset.stage || '';
         title.textContent = el.dataset.title || '';
-        sector.textContent= el.dataset.sector|| '';
-        sub.textContent   = el.dataset.subtitle || '';
-        desc.textContent  = el.dataset.desc || '';
+        sector.textContent = el.dataset.sector || '';
+        sub.textContent = el.dataset.subtitle || '';
+        desc.textContent = el.dataset.desc || '';
         card.classList.add('show');
       }
-      function hide(){ card.classList.remove('show'); }
-
-      document.querySelectorAll('.partner').forEach(el=>{
-        el.addEventListener('mouseenter', (e)=> show(e, el));
+      function hide() {
+        card.classList.remove('show');
+      }
+      document.querySelectorAll('.partner').forEach(el => {
+        el.addEventListener('mouseenter', (e) => show(e, el));
         el.addEventListener('mouseleave', hide);
-        el.addEventListener('focusin',    (e)=> show(e, el));
-        el.addEventListener('focusout',   hide);
+        el.addEventListener('focusin', (e) => show(e, el));
+        el.addEventListener('focusout', hide);
       });
     })();
-
-    // form demo
-    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
       e.preventDefault();
       alert('폼 예시입니다. 실제 전송 기능은 다음 단계에서 구현합니다.');
     });
-  </script>
-
-    ...
-    <!-- 기존 스크립트 -->
-
-    <script>
-      // 여기서부터 (B) 코드 추가
-      const header = document.querySelector('.site-header');
-      const btn = header?.querySelector('.menu-toggle');
-      const panel = document.querySelector('#menuPanel');
-
-      header?.addEventListener('mouseenter', ()=> header.classList.add('mega', 'open'));
-      header?.addEventListener('mouseleave', ()=> header.classList.remove('mega', 'open'));
-
-      btn?.addEventListener('click', ()=>{
-        const open = header.classList.toggle('open');
-        header.classList.toggle('mega', open);
+    const header = document.querySelector('.site-header');
+    const btn = header?.querySelector('.menu-toggle');
+    const panel = document.querySelector('#menuPanel');
+    header?.addEventListener('mouseenter', () => header.classList.add('mega', 'open'));
+    header?.addEventListener('mouseleave', () => header.classList.remove('mega', 'open'));
+    btn?.addEventListener('click', () => {
+      const open = header.classList.toggle('open');
+      header.classList.toggle('mega', open);
+    });
+    (function () {
+      const viewport = document.querySelector('.pf-viewport');
+      const track = viewport?.querySelector('.pf-track');
+      const prevBtn = document.querySelector('.pf-prev');
+      const nextBtn = document.querySelector('.pf-next');
+      const dotsWrap = document.querySelector('.pf-dots');
+      if (!viewport || !track || !prevBtn || !nextBtn || !dotsWrap) return;
+      const PER_PAGE = 3;
+      const cards = Array.from(track.querySelectorAll('.pf-card'));
+      if (!cards.length) return;
+      if (!track.querySelector('.pf-page')) {
+        for (let i = 0; i < cards.length; i += PER_PAGE) {
+          const page = document.createElement('div');
+          page.className = 'pf-page';
+          cards.slice(i, i + PER_PAGE).forEach(card => page.appendChild(card));
+          track.appendChild(page);
+        }
+      }
+      const pages = Array.from(track.querySelectorAll('.pf-page'));
+      let index = 0;
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        pages.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', `${i + 1} 페이지로 이동`);
+          b.addEventListener('click', () => go(i));
+          dotsWrap.appendChild(b);
+        });
+      }
+      function update() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        Array.from(dotsWrap.children).forEach((dot, i) => {
+          dot.classList.toggle('on', i === index);
+        });
+        prevBtn.disabled = (index === 0);
+        nextBtn.disabled = (index === pages.length - 1);
+      }
+      function go(i) {
+        index = Math.max(0, Math.min(pages.length - 1, i));
+        update();
+      }
+      prevBtn.addEventListener('click', () => go(index - 1));
+      nextBtn.addEventListener('click', () => go(index + 1));
+      buildDots();
+      update();
+      track.setAttribute('tabindex', '0');
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') go(index - 1);
+        if (e.key === 'ArrowRight') go(index + 1);
       });
-    </script>
-
-
-
-
-  <!-- ==================== KDP Modal (drop-in) ============================ -->
-
-<div class="kdp-modal-overlay" id="kdpOverlay" aria-hidden="true">
-  <div class="kdp-modal" role="dialog" aria-modal="true" aria-labelledby="kdpModalTitle">
-
-    <!-- 우측 상단 페이지 네비 -->
-    
-    <div class="kdp-pager" aria-label="페이지 전환">
-      <button id="kdpPrev" title="이전 페이지" aria-label="이전 페이지">◀</button>
-      <span class="now" id="kdpNow">1</span><span class="sep">/</span><span id="kdpTotal">3</span>
-      <button id="kdpNext" title="다음 페이지" aria-label="다음 페이지">▶</button>
-    </div>
-
-    <!-- 자유 편집 영역: 페이지(슬라이드)들을 원하는 만큼 추가 -->
-    <div class="kdp-modal-body" id="kdpBody">
-      <h1 id="kdpModalTitle" style="margin:0 0 12px;font-size:14px;">공지사항</h1>
-      <hr class="kdp-divider">
-      <!-- PAGE 2 (이미지) -->
-      <section class="kdp-page" data-title="kdream">
-       <div></div>
-        <figure style="margin:0;text-align:center">
-          <a href="https://gartience.com/p2/c8" target="_blank" rel="noopener">
-          <img src="assets/promo/techart.jpg" >
-        </a>
-        </figure>
-      </section>
-
-
-      <!-- PAGE 2 (텍스트) -->
-      
-
-        
-  <section class="kdp-page" data-title="테크아트 스타트업 × NextGen 10 Talk">
-  <article class="ta-wrap">
-    <header class="ta-head">
-      <h3 class="ta-title">‘테크아트 스타트업 × NextGen 10 Talk’</h3>
-      <p class="ta-sub">TechArt Startup Audition 2025 — NextGen 10 Talk Special Edition</p>
-    </header>
-
-    <section class="ta-sec">
-      <h4>1) 행사정보</h4>
-      <dl class="ta-dl">
-        <dt>일시</dt><dd>2025년 11월 18일(화)</dd>
-        <dt>장소</dt><dd>대전컨벤션센터(DCC) 그랜드볼룸</dd>
-        <dt>참가 대상</dt><dd>예비창업자, 창업 2년 이내 스타트업, 청년 창작·창업팀</dd>
-        <dt>운영 목적</dt>
-        <dd>
-          <ul class="ta-ul">
-            <li>현직 투자평가 테스트와 스타트업 발굴 및 글로벌 무대 준비 기회 제공</li>
-            <li>NextGen 10 Talk과 연계하여 청년 창작자와 협업 및 무대 공유</li>
-            <li>글로벌 투자자·파트너와의 네트워크를 통한 실질적 투자 연계</li>
-          </ul>
-        </dd>
-      </dl>
-    </section>
-
-    <section class="ta-sec">
-      <h4>2) 주요 내용</h4>
-      <ul class="ta-ul">
-        <li><b>예선 심사</b> : 온라인 IR 제출 + 창작물 영상 공개, 전문가·투자자·대중 참여 진단 및 투표</li>
-        <li><b>본선 무대</b> : NextGen 10 Talk 현장 오프라인 IR 피칭(10분) + 질의응답</li>
-        <li><b>심사 기준</b> : 창의성·독창성, 기술·시장성, 비즈니스 전략, 확장성/성장 잠재력</li>
-        <li><b>평가 방식</b> : 전문가 60% + 대중 40% (현장·온라인 합산)</li>
-      </ul>
-    </section>
-
-    <section class="ta-sec">
-      <h4>3) 시상 및 지원</h4>
-      <ul class="ta-ul">
-        <li><b>상금 총액</b> : USD 3,600
-          <ul>
-            <li>대상(1팀) : $1,000 + 부상(노트북)</li>
-            <li>최우수상(2팀) : $500 + 부상</li>
-            <li>우수상(3팀) : $300 + 부상</li>
-            <li>장려상(3팀) : $200</li>
-          </ul>
-        </li>
-        <li><b>창업지원금</b>(Startup Track 한정) : 총 3,000만원
-          <ul>
-            <li>1위 : 2,000만원 / 2위 : 1,000만원 (투자/검토 조건에 따름)</li>
-          </ul>
-        </li>
-        <li><b>후속 지원</b> : 전문 액셀러레이팅·IR컨설팅, 글로벌 오디션 연계, 해외 진출 지원 등</li>
-      </ul>
-    </section>
-
-    <!-- 필요하면 신청 링크 버튼(선택) -->
-    <p class="ta-cta"><a href="https://gartience.com/p2/c8" target="_blank" rel="noopener">사전등록 바로가기</a></p>
-  </article>
-</section>
-
-      
-
-   
-
-    <!-- 하단 버튼 -->
-    <div class="kdp-modal-footer">
-      <button class="kdp-btn" id="kdpHide1d">1일간 보지 않기</button>
-      <button class="kdp-btn primary" id="kdpClose">닫기</button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  const HIDE_KEY = "kdp_modal_hide_until";
-  const ONE_DAY = 24*60*60*1000;
-
-  const $ = (s,ctx=document)=>ctx.querySelector(s);
-  const $$ = (s,ctx=document)=>Array.from(ctx.querySelectorAll(s));
-
-  const overlay = $('#kdpOverlay');
-  const bodyEl  = $('#kdpBody');
-  const pages   = $$('.kdp-page', bodyEl);
-  const prevBtn = $('#kdpPrev'), nextBtn = $('#kdpNext');
-  const nowEl   = $('#kdpNow'),  totalEl = $('#kdpTotal');
-  const hideBtn = $('#kdpHide1d'), closeBtn = $('#kdpClose');
-
-  let idx = 0; totalEl.textContent = String(pages.length);
-
-  function show(i){
-    idx = (i + pages.length) % pages.length;
-    pages.forEach((p, k)=> p.classList.toggle('active', k===idx));
-    nowEl.textContent = String(idx+1);
-    const t = pages[idx].dataset.title;
-    if(t) document.title = t + " - 공지 모달";
-  }
-
-  function open(){ overlay.classList.add('show'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='auto'; }
-  function close(){ overlay.classList.remove('show'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-
-  function setHide1d(){
-    try{ localStorage.setItem(HIDE_KEY, String(Date.now()+ONE_DAY)); }catch(e){}
-  }
-  function shouldHide(){
-    try{
-      const v = localStorage.getItem(HIDE_KEY);
-      const until = v ? parseInt(v,10) : 0;
-      return Number.isFinite(until) && Date.now() < until;
-    }catch(e){ return false; }
-  }
-
-  // 외부 클릭으로 닫기
-  overlay.addEventListener('click', (e)=>{ if(e.target===overlay) close(); });
-
-  // ESC/방향키
-  window.addEventListener('keydown', (e)=>{
-    if(!overlay.classList.contains('show')) return;
-    if(e.key==='Escape') close();
-    if(e.key==='ArrowLeft') show(idx-1);
-    if(e.key==='ArrowRight') show(idx+1);
-  });
-
-  prevBtn.addEventListener('click', ()=> show(idx-1));
-  nextBtn.addEventListener('click', ()=> show(idx+1));
-  closeBtn.addEventListener('click', close);
-  hideBtn.addEventListener('click', ()=>{ setHide1d(); close(); });
-
-  // 초기 자동 오픈 (1일간 보지 않기 미설정 시)
-  show(0);
-  if(!shouldHide()) open();
-
-  // 필요 시 개발·테스트용 강제 오픈:
-   
-})();
-</script>
-
-
-  <!--               PORTFOLIO DETAIL            JS-->
- <!-- ===== Portfolios: 3개씩 묶어 페이지 생성 + 화살표/도트로 이동 ===== */     -->           
-
-
-
-
-
-</script>
-
-<script>
-(function(){
-  // 기본 요소
-  const viewport = document.querySelector('.pf-viewport');
-  const track    = viewport?.querySelector('.pf-track');
-  const prevBtn  = document.querySelector('.pf-prev');
-  const nextBtn  = document.querySelector('.pf-next');
-  const dotsWrap = document.querySelector('.pf-dots');
-
-  if (!viewport || !track || !prevBtn || !nextBtn || !dotsWrap) return;
-
-  const PER_PAGE = 3;
-
-  // 1) 카드들을 3개씩 .pf-page로 묶기 (DOM 재배치)
-  const cards = Array.from(track.querySelectorAll('.pf-card'));
-  if (!cards.length) return;
-
-  // 이미 페이지가 구성돼 있으면 스킵
-  if (!track.querySelector('.pf-page')) {
-    for (let i = 0; i < cards.length; i += PER_PAGE) {
-      const page = document.createElement('div');
-      page.className = 'pf-page';
-      cards.slice(i, i + PER_PAGE).forEach(card => page.appendChild(card));
-      track.appendChild(page);
-    }
-  }
-
-  const pages = Array.from(track.querySelectorAll('.pf-page'));
-  let index = 0;
-
-  // 2) 도트 생성
-  function buildDots(){
-    dotsWrap.innerHTML = '';
-    pages.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', `${i+1} 페이지로 이동`);
-      b.addEventListener('click', () => go(i));
-      dotsWrap.appendChild(b);
-    });
-  }
-
-  // 3) 상태 업데이트
-  function update(){
-    track.style.transform = `translateX(-${index * 100}%)`;
-    Array.from(dotsWrap.children).forEach((dot, i) => {
-      dot.classList.toggle('on', i === index);
-    });
-    // 필요 시 비활성화(양끝에서)
-    prevBtn.disabled = (index === 0);
-    nextBtn.disabled = (index === pages.length - 1);
-  }
-
-  function go(i){
-    index = Math.max(0, Math.min(pages.length - 1, i));
-    update();
-  }
-
-  // 4) 버튼 이벤트
-  prevBtn.addEventListener('click', () => go(index - 1));
-  nextBtn.addEventListener('click', () => go(index + 1));
-
-  // 초기화
-  buildDots();
-  update();
-
-  // (선택) 키보드 좌우 화살표 지원
-  track.setAttribute('tabindex','0');
-  track.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft')  go(index - 1);
-    if (e.key === 'ArrowRight') go(index + 1);
-  });
-})();
-</script>
-
-
-
-
+    })();
+  </script>
 </body>
 </html>
