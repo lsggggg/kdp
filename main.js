@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // 푸터 연도를 자동으로 업데이트하는 함수
+    
+  
+  
+  // 푸터 연도를 자동으로 업데이트하는 함수
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // 헤더의 동작을 관리하는 통합 함수 (모든 페이지 공통)
@@ -130,6 +133,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+ // 히어로(영상/배경) 높이를 기준으로 헤더 상태 전환 (hero-page 전용)
+if (document.body.classList.contains('hero-page')) {
+  const header = document.querySelector('.site-header');
+  // 다양한 히어로 섹션을 모두 지원
+  const heroSection = document.querySelector('.hero-video, .team-hero, .hero-hero');
+
+  if (header && heroSection) {
+    const getHeroHeight = () => heroSection.offsetHeight || 0;
+
+    const onScroll = () => {
+      const heroH = getHeroHeight();
+
+      // 1) 살짝만 내려도 배경=흰색, 텍스트/로고 전환
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // 2) 히어로 구간을 지나쳤을 때 보조 클래스(옵션)
+      if (window.scrollY > heroH - header.offsetHeight) {
+        header.classList.add('scrolled-past-hero');
+      } else {
+        header.classList.remove('scrolled-past-hero');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    onScroll(); // 초기 1회 실행
+  }
+}
+
+
     // 포트폴리오 호버 카드 동작 IIFE
     (function () {
       const card = document.getElementById('partnerCard');
@@ -234,4 +271,190 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowRight') go(index + 1);
       });
     })();
+});
+
+
+
+
+/*BUSINESS PAGE START */
+
+
+
+// ===== Business Page Hero Animation Trigger =====
+document.addEventListener('DOMContentLoaded', function() {
+    // business-page 클래스가 있는 페이지에서만 실행
+    if (document.body.classList.contains('business-page')) {
+        // 짧은 지연 후 loaded 클래스를 추가하여 애니메이션 시작
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 100);
+    }
+});
+
+
+
+
+
+
+
+
+// ===== Index Page Hero Text Animation Trigger =====
+document.addEventListener('DOMContentLoaded', function() {
+    // hero-video 클래스가 있는 페이지에서만 실행
+    if (document.querySelector('.hero-video')) {
+        // 짧은 지연 후 loaded 클래스를 body에 추가하여 애니메이션 시작
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 100);
+    }
+});
+
+
+
+
+
+// ===== 최종 모달 스크립트 (다중 페이지, 자동 열림) =====
+
+document.addEventListener('DOMContentLoaded', function () {
+    // 필요한 모든 HTML 요소를 변수로 지정
+    const overlay = document.getElementById('kdpModalOverlay');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const closeTodayBtn = document.getElementById('closeTodayBtn');
+
+    const prevPageBtn = document.getElementById('prevPageBtn');
+    const nextPageBtn = document.getElementById('nextPageBtn');
+    const currentPageNumEl = document.getElementById('currentPageNum');
+    const totalPagesNumEl = document.getElementById('totalPagesNum');
+    const pages = document.querySelectorAll('.kdp-page');
+
+    if (!overlay || pages.length === 0) return;
+
+    let currentPage = 0;
+    const totalPages = pages.length;
+
+    function updatePage(pageIndex) {
+        pages.forEach(page => page.classList.remove('active'));
+        pages[pageIndex].classList.add('active');
+        if (currentPageNumEl) currentPageNumEl.textContent = pageIndex + 1;
+        if (prevPageBtn) prevPageBtn.disabled = pageIndex === 0;
+        if (nextPageBtn) nextPageBtn.disabled = pageIndex === totalPages - 1;
+    }
+    
+    function openModal() {
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        updatePage(currentPage);
+    }
+
+    function closeModal() {
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    function closeForToday() {
+        const expiryDate = new Date();
+        expiryDate.setHours(23, 59, 59, 999);
+        document.cookie = `hideKdpModal=true; expires=${expiryDate.toUTCString()}; path=/`;
+        closeModal();
+    }
+
+    // 페이지 로드 시 쿠키를 확인하여 모달을 자동으로 엽니다.
+    if (!document.cookie.includes('hideKdpModal=true')) {
+        openModal(); 
+    }
+
+    // 클릭 이벤트 설정
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (closeTodayBtn) closeTodayBtn.addEventListener('click', closeForToday);
+    
+    overlay.addEventListener('click', function(event) {
+        if (event.target === overlay) closeModal();
+    });
+
+    if (prevPageBtn) {
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage(currentPage);
+            }
+        });
+    }
+    if (nextPageBtn) {
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                updatePage(currentPage);
+            }
+        });
+    }
+    
+    if (totalPagesNumEl) totalPagesNumEl.textContent = totalPages;
+    updatePage(0);
+});
++
+
+
+
+
+// ===== INDEX HERO COMPANY KPIs: in-view 시 숫자 카운트   START =====
+// ===== INDEX HERO COMPANY KPIs: in-view 시 숫자 카운트   START =====
+// ===== INDEX HERO COMPANY KPIs: in-view 시 숫자 카운트 +  START =====
+
+// ===== KPI Count-up (text only) =====
+(function(){
+  const wrap = document.querySelector('.c1 .kdp-kpis');
+  if (!wrap) return;
+
+  const nums = wrap.querySelectorAll('.kpi-num');
+  if (!nums.length) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el){
+    const target = Number(el.getAttribute('data-target') || el.textContent.replace(/[^\d]/g,'')) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (prefersReduced) { el.textContent = target.toLocaleString() + suffix; return; }
+
+    // 크기에 따라 살짝 가변 (최소 900ms ~ 최대 1600ms)
+    const dur = Math.min(1600, Math.max(900, target * 0.3 + 900));
+    const start = performance.now();
+    const from = 0;
+
+    function tick(now){
+      const t = Math.min(1, (now - start) / dur);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.floor(from + (target - from) * eased);
+      el.textContent = val.toLocaleString() + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // 보일 때 1회만 실행
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if (entry.isIntersecting){
+        nums.forEach(n => countUp(n));
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  io.observe(wrap);
+})();
+
+// ===== INDEX HERO COMPANY KPIs: in-view 시 숫자 카운트 END =====
+// ===== INDEX HERO COMPANY KPIs: in-view 시 숫자 카운트 END =====
+// ===== INDEX HERO COMPANY KPIs: in-view 시 숫자 카운트 END =====
+
+
+
+
+
+// company hero animation trigger
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('.kdp-hero.hero-anim')) {
+    setTimeout(() => document.body.classList.add('loaded'), 120);
+  }
 });

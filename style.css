@@ -100,10 +100,10 @@ img {
 
 .shadow-card {
   background: #fff;
-  border: 1px solid var(--border);
+  border: 0px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px
+  box-shadow: none(--shadow);
+  padding: 0 0 70px;
 }
 
 
@@ -195,7 +195,7 @@ img {
   background: var(--bg);
   color: var(--fg);
   border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 18px 28px rgba(2, 6, 23, .08);
+  box-shadow: none;/*0 18px 28px rgba(2, 6, 23, .08);*/
   transition: background-color 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -257,6 +257,7 @@ img {
 }
 
 .menu a:hover {
+  
   color: var(--fg);
   background: #eef2ff
 }
@@ -447,17 +448,294 @@ img {
 }
 
 
-/* ===== COMPANY ===== */
-/* ===== COMPANY ===== */
-/* ===== COMPANY ===== */
-/* ===== COMPANY ===== */
+/* ===== index / 홈화면 START ===== */
+/* ===== index / 홈화면 START ===== */
+/* ===== index / 홈화면 START ===== */
+
+/* ===== NEW: Video Background Hero Section ===== */
+
+.hero-video {
+    position: relative; /* 자식 요소(video, overlay, content)의 기준점 */
+    width: 100%;
+    height: 100vh; /* 화면 전체 높이 사용 */
+    overflow: hidden; /* 동영상 튀어나오는 부분 숨기기 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* 배경이 어두워지므로 텍스트 색상을 흰색으로 변경 */
+    text-align: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* 다른 콘텐츠 뒤로 보냄 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    object-fit: cover; /* 화면을 꽉 채우도록 */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 어두운 오버레이 (투명도 조절) */
+    z-index: 0; /* 동영상 위에, 텍스트 아래에 위치 */
+}
+
+.hero-content {
+    position: relative; /* 오버레이 위에 올라오도록 */
+    z-index: 1; /* 가장 위에 위치 */
+    padding: 20px;
+}
+
+.hero-video .hero-content h1 {
+    font-size: clamp(2.5rem, 1vw, 2.5rem);
+    font-weight: 600;
+    margin-left : 200px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-video .hero-content h1 {
+    font-size: clamp(2.5rem, 1vw, 2.5rem);
+    font-weight: 600;
+    margin-left : -1018px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero-video .hero-content p {
+    font-size: clamp(2.5rem, 1vw, 2.5rem);
+    font-weight: 550;
+    margin-left : -985px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #2563eb;
+}
+
+
+.hero-content .lead {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* 초기 상태 (숨김) */
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* JavaScript로 .loaded 클래스 추가 시 나타나는 애니메이션 */
+body.loaded .fade-in-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+body.loaded .fade-in-text.delay-1 { transition-delay: 0.3s; }
+body.loaded .fade-in-text.delay-2 { transition-delay: 0.6s; }
+
+
+/* 미디어 쿼리: 모바일에서는 동영상 대신 배경 이미지 */
+@media (max-width: 768px) {
+    .background-video {
+        display: none; /* 모바일에서는 동영상 숨김 */
+    }
+    .hero-video {
+        background-image: url('assets/.jpg'); /* 대체 배경 이미지 */
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/* team.html 페이지에만 적용되는 헤더 스타일 */
+.hero-page .site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent; /* 초기 배경 투명 */
+  border-bottom: none;
+  box-shadow: none;
+  transition: background-color 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 스크롤 내리거나 호버했을 때의 헤더 스타일 */
+.hero-page .site-header.scrolled,
+.hero-page .site-header:hover {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 18px 28px rgba(2, 6, 23, .08);
+}
+
+/* 팀 히어로 섹션 */
+.hero-hero {
+    position: absolute; /* Header와 별도로 페이지 최상단에 배치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px; /* 배경 이미지 섹션 높이 */
+    z-index: 999; 
+    overflow: hidden;
+}
+
+.hero-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('assets/contact5.jpg') center/cover no-repeat;
+    filter: brightness(0.6);
+    z-index: -10;
+}
+
+
+/* 텍스트 색상: 스크롤 최상단 (흰색), 스크롤/호버 (검은색) */
+.hero-page .site-header:not(.scrolled):not(:hover) .menu a,
+.hero-page .site-header:not(.scrolled):not(:hover) .brand .logo-text,
+.hero-page .site-header:not(.scrolled):not(:hover) .menu-toggle {
+    color: #e2e8f0 !important;
+}
+.hero-page .site-header:not(.scrolled):not(:hover) .brand .logo-text.short {
+    color: #e2e8f0 !important;
+}
+
+/* ======================================================================== */
+/* 스크롤 위치에 따른 텍스트/로고 색상 변경 규칙              */
+/* ======================================================================== */
+
+
+
+
+
+
+.hero-page .site-header.scrolled .menu a,
+.hero-page .site-header.scrolled .brand .logo-text,
+.hero-page .site-header.scrolled .menu-toggle,
+.hero-page .site-header:hover .menu a,
+.hero-page .site-header:hover .brand .logo-text,
+.hero-page .site-header:hover .menu-toggle {
+    color: var(--ink) !important; /* #0f172a */
+}
+.hero-page .site-header.scrolled .brand .logo-text.short,
+.hero-page .site-header:hover .brand .logo-text.short {
+    color: var(--brand) !important;
+}
+/* 드롭다운 메뉴 패널 스타일 (홈 페이지 전용) */
+.hero-page .menu-panel {
+    background-color: #ffffff !important;
+    border-top: 1px solid var(--border) !important;
+    border-bottom: 1px solid var(--border) !important;
+    box-shadow: 0 24px 60px rgba(2, 6, 23, .10) !important;
+    z-index: 1001;
+}
+
+
+
+
+
+/* 동영상 섹션을 지나쳤을 때(.scrolled-past-hero)의 색상 규칙 */
+.hero-page .site-header.scrolled-past-hero .brand .logo-text,
+.hero-page .site-header.scrolled-past-hero .brand .logo-text.short {
+    color: var(--brand) !important; /* 로고를 브랜드 색상으로 변경 */
+}
+.hero-page .site-header.scrolled-past-hero .menu a,
+.hero-page .site-header.scrolled-past-hero .menu-toggle {
+    color: var(--ink) !important; /* 메뉴 텍스트를 검은색으로 변경 */
+}
+
+
+/* ===== INDEX HERO COMPANY 현황 (텍스트) ===== */
+.c1-media.kdp-kpis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding-right: 0px; /* 오른쪽 공간 확보 */
+  transform: translateX(60px); /* 살짝 오른쪽으로 밀어냄 */
+  transform: translateY(-20px); /* Y축 */
+}
+
+.c1 .kpi-title {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.c1 .kpi-sub {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.c1 .kpi-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(1px, 2fr));
+  align-items: start;
+  padding:0 0 0px
+}
+
+.c1 .kpi {
+  display: flex;
+  flex-direction: column;
+}
+
+.c1 .kpi-num {
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 56px);
+  color: #111;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.c1 .kpi-label {
+  color: #666;
+  font-size: 15px;
+}
+/* ===== INDEX HERO COMPANY 현황 (텍스트) ===== */
+
+
+
+
+
+
+/* ===== index / 홈화면 END ===== */
+/* ===== index / 홈화면 END ===== */
+/* ===== index / 홈화면 END ===== */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== COMPANY START===== */
+/* ===== COMPANY START===== */
+/* ===== COMPANY START===== */
+/* ===== COMPANY START===== */
 
 .c1 .c1-grid {
+  font-family:  "Noto Sans KR", sans-serif;
   display: grid;
   grid-template-columns: 1.15fr .85fr;
   gap: 28px;
   align-items: center;
   margin-top: 22px
+
+  
 }
 
 .c1-feats {
@@ -528,10 +806,10 @@ img {
 }
 
 
-/* ===== COMPANY ===== */
-/* ===== COMPANY ===== */
-/* ===== COMPANY ===== */
-/* ===== COMPANY ===== */
+/* ===== COMPANY END ===== */
+/* ===== COMPANY END ===== */
+/* ===== COMPANY END ===== */
+/* ===== COMPANY END ===== */
 
 
 
@@ -561,6 +839,7 @@ img {
 
 /* 팀 히어로 섹션 */
 .team-hero {
+    
     position: absolute; /* Header와 별도로 페이지 최상단에 배치 */
     top: 0;
     left: 0;
@@ -635,6 +914,7 @@ img {
 
 
 .team-title {
+    font-family: 'Poppins', 'Noto Sans KR';
     font-size: clamp(2rem, 6vw, 4rem);
     font-weight: 500;
     margin-top: 150px;
@@ -750,6 +1030,135 @@ img {
 
 
 
+/* ===== TEAM - STAFF STYLES START ===== */
+/* ===== TEAM - STAFF STYLES START ===== */
+/* ===== TEAM - STAFF STYLES START ===== */
+
+/* ===== Staff Detail Page Styles ===== */
+.staff-profile-section {
+    margin: 150px -10px 200px; /* 페이지 상하에 충분한 여백 추가 */
+}
+
+.staff-profile-grid {
+   
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 50px;
+    align-items: start;
+    padding: 0 18%; /* 화면 좌우에 4%의 여백을 추가합니다. */
+}
+
+.staff-photo {
+    /* 이 값을 조절하여 위로 이동하는 정도를 변경하세요. */
+    margin-top: 10px; /* 음수(-) 값을 주면 위로 이동합니다. */
+}
+
+.staff-photo img {
+    width: 100%;
+    height: 230px;
+    border-radius: 4px; /* 이미지 모서리 살짝 둥글게 */
+    object-fit: cover;
+    object-position: center 70%; /* 이미지의 살짝 아랫부분을 중심으로 표시 */
+    border: 1px solid var(--border); /* ▼▼▼ 이 줄을 추가하세요 ▼▼▼ */
+    
+}
+
+.staff-namecard {
+    display: flex;
+    align-items: baseline; /* 이름과 직책의 글자 하단 정렬 */
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.staff-namecard h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.staff-namecard .title {
+    font-size: 18px;
+    color: var(--muted); /* 기존 CSS 변수 활용 */
+}
+
+.staff-role {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.staff-description {
+    line-height: 1.7;
+    margin-bottom: 40px;
+    
+}
+
+.staff-history {
+    position: relative; /* 가상 요소(::before)의 위치 기준점 */
+    grid-column: 1 / -1;
+    padding-top: 40px;
+    padding-left: 330px !important;
+    padding-right: 5px !important;
+
+    /* border-top과 좌우 padding은 여기서 제거합니다. */
+}
+
+
+
+.staff-history dl {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 16px 30px;
+    font-size: 16px;
+    /* border-top은 ::before로 대체되었으므로 여기서 제거합니다. */
+}
+
+.staff-history::before {
+    content: ''; /* 가상 요소에는 반드시 content 속성이 필요합니다. */
+    position: absolute;
+    top: 0; /* staff-history 상단에 위치 */
+    left: 50%; /* 왼쪽에서 50% 지점 */
+    transform: translateX( -52%); /* 자신의 너비의 50%만큼 왼쪽으로 이동하여 중앙 정렬 */
+
+    width: 60%; /* ★★★ 이 값을 조절하여 선의 길이를 변경하세요 ★★★ */
+    height: 1px; /* 선의 두께 */
+    background-color: var(--border); /* 선의 색상 */
+}
+
+.staff-history dt {
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* dd: 오른쪽 열(직책) 스타일 */
+.staff-history dd {
+    margin: 0; /* 브라우저 기본 마진 제거 */
+    text-align: left; /* 텍스트를 왼쪽으로 정렬 */
+    writing-mode: horizontal-tb; /* 가로쓰기 모드 확실히 적용 */
+}
+
+/* 반응형: 화면이 768px보다 작아지면 세로로 쌓임 */
+@media (max-width: 768px) {
+    .staff-profile-grid {
+        grid-template-columns: 1fr; /* 1단 레이아웃으로 변경 */
+        gap: 30px;
+    }
+    .staff-photo {
+        max-width: 200px; /* 모바일에서 사진 크기 제한 */
+    }
+}
+
+
+
+
+/* ===== TEAM -  STAFF END ===== */
+/* ===== TEAM -  STAFF END ===== */
+/* ===== TEAM -  STAFF END ===== */
+
+
+
+
+
 
 
 /* ===== BUSINESS (4 grid) ===== */
@@ -757,70 +1166,131 @@ img {
 /* ===== BUSINESS (4 grid) ===== */
 /* ===== BUSINESS (4 grid) ===== */
 
-.alt {
-  background: #f8fafc
+/* ===== NEW: Business Page Redesign (Kakao Ventures Style) ===== */
+
+/* 페이지 기본 설정 */
+.business-page {
+    --kv-ink: #1e1e1e;
+    --kv-gray: #888;
+    --kv-bg: #f8f8f8;
+    --kv-radius: 20px;
 }
 
-.b1-grid {
-  grid-template-columns: repeat(6, 1fr)
+/* 1. Hero Section 스타일 */
+.biz-hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    color: var(--kv-ink);
+    padding: 80px 0;
+}
+.biz-hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+.biz-hero-title .line {
+    display: block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+/* 페이지 로드 시 애니메이션 활성화 */
+body.loaded .biz-hero-title .line:nth-child(1) {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+body.loaded .biz-hero-title .line:nth-child(2) {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+.biz-hero-subtitle {
+    max-width: 500px;
+    margin-top: 24px;
+    font-size: 1.1rem;
+    color: var(--kv-gray);
 }
 
-.card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-  box-shadow: var(--shadow)
+/* 2. Business Areas (카드) 스타일 */
+.biz-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+.biz-card {
+    background-color: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--kv-radius);
+    padding: 32px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.biz-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+.biz-card-icon {
+    font-size: 2.5rem;
+    color: var(--brand);
+    margin-bottom: 16px;
+}
+.biz-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--kv-ink);
+    margin-bottom: 12px;
+}
+.biz-card-desc {
+    color: var(--kv-gray);
+    line-height: 1.7;
 }
 
-.card h3 {
-  font-size: 18px;
-  margin-bottom: 8px
+/* 3. Process Section 스타일 */
+.biz-process {
+    padding-top: 50px;
+}
+.process-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+}
+.process-item:first-child {
+    border-top: 1px solid var(--border);
+}
+.process-num {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--kv-gray);
+}
+.process-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--kv-ink);
+    grid-column: 2 / 3;
+}
+.process-desc {
+    grid-column: 2 / 3;
+    color: var(--kv-gray);
+    line-height: 1.7;
 }
 
-.card p {
-  color: var(--muted)
-}
-
-.b1-grid--4 {
-  grid-template-columns: repeat(4, 1fr)
-}
-
-.b1-grid--4 .card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px
-}
-
-@media (max-width:960px) {
-  .b1-grid--4 {
-    grid-template-columns: 1fr 1fr
-  }
-}
-
-@media (max-width:640px) {
-  .b1-grid--4 {
-    grid-template-columns: 1fr
-  }
-}
-
-#business .overline {
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-  /* 폰트 */
-  font-weight: 600;
-  /* 굵기: 400~900 */
-  font-size: 28px;
-  /* 크기 */
-  letter-spacing: .009em;
-  /* 자간(영문은 크게, 한글은 줄이세요) */
-  text-transform: uppercase;
-  /* 대문자 고정 해제하려면 'none' */
-  color: #0b0f19;
-  /* 색상(브랜드 컬러 변수) */
-  margin-bottom: 30px;
-  /* 아래 여백 */
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .process-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .process-num, .process-title, .process-desc {
+        grid-column: 1 / -1;
+    }
+    .process-title {
+        font-size: 1.5rem;
+    }
 }
 
 
@@ -839,9 +1309,9 @@ img {
   position: relative;
   overflow: hidden;
   background: #fff;
-  border: 1px solid var(--border);
+  border: 0px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: none;
   padding: 12px 0
 }
 
@@ -1244,7 +1714,7 @@ small.help {
 
 
 /* ===== Footer ===== */
-/* ===== KDP Footer (Bluepoint-like) ===== */
+/* ===== KDP Footer  ===== */
 
 .kdp-footer {
   font: "Poppins", "Monsterrat", system-ui, "Segoe UI", Roboto, sans-serif;
@@ -1538,7 +2008,7 @@ small.help {
   left: 50%;
   bottom: 24px;
   transform: translateX(-50%);
-  *: 5
+
 }
 
 .scroll-down a {
@@ -1556,7 +2026,7 @@ small.help {
 
 .scroll-down {
   position: absolute;
-  bottom: 140px;
+  bottom: 230px;
   /* 섹션 하단에서 여백 */
   left: 50%;
   transform: translateX(-50%);
@@ -1573,8 +2043,8 @@ small.help {
 }
 
 .scroll-down a:hover {
-  opacity: 1;
-  transform: translateY(4px);
+  opacity: 6;
+  transform: translateY(5px);
   /* 살짝 아래로 움직이는 효과 */
 }
 
@@ -1784,7 +2254,7 @@ small.help {
   justify-content: center;
   width: 95px;
   /* 정사각형 크기 (필요 시 조절) */
-  height: 30px;
+  height: 35px;
   margin: 10px 30px 20px;
   font: "Poppins", "Monsterrat";
   font-size: 12px;
@@ -2069,239 +2539,8 @@ small.help {
 /* *********************** 팝업 모달 ****************************/
 
 
-/* ====== KDP Modal (vanilla) ====== */
+/* ==================== 최종 모달 스타일 ==================== */
 
-
-/* 레이아웃 밀림 방지: 스크롤바가 사라져도 폭 유지 */
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  scrollbar-gutter: stable both-edges;
-}
-
-.kdp-modal-overlay {
-  position: fixed;
-  inset: 0;
-  display: none;
-  place-items: center;
-  background: rgba(0, 0, 0, .45);
-  z-index: 12000
-}
-
-.kdp-modal-overlay.show {
-  display: grid
-}
-
-.kdp-modal {
-  width: 500px;
-  /* 가로 500px */
-  height: 770px;
-  /* 세로 740px */
-  max-height: none;
-  /* 기존 max-height 제한 제거 */
-  background: #fff;
-  color: #0f172a;
-  border-radius: 0px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  position: relative
-}
-
-.kdp-pager {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, .9);
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 13px;
-  backdrop-filter: blur(6px)
-}
-
-.kdp-pager button {
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 8px
-}
-
-.kdp-pager button:hover {
-  background: #f3f4f6
-}
-
-.kdp-pager .now {
-  font-weight: 700;
-  color: #2563eb
-}
-
-.kdp-pager .sep {
-  color: #9ca3af
-}
-
-.kdp-modal-body {
-  padding: 22px 22px 0;
-  overflow: hidden;
-  flex: 1 1 auto;
-  min-height: 0;
-  /* flex 자식 스크롤 보장 */
-}
-
-.kdp-page {
-  display: none
-}
-
-.kdp-page.active {
-  display: block
-}
-
-.kdp-modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: 12px 16px;
-  border-top: 1px solid #e5e7eb;
-  background: #fafafa
-}
-
-.kdp-btn {
-  appearance: none;
-  border: 1px solid #fff;
-  background: #fff;
-  color: #111827;
-  padding: 10px 14px;
-  border-radius: 0px;
-  cursor: pointer;
-  font-weight: 600
-}
-
-.kdp-btn:hover {
-  background: #f8fafc
-}
-
-.kdp-btn.primary {
-  background: #fff;
-  color: #111827;
-  border-color: #fff
-}
-
-.kdp-btn.primary:hover {
-  filter: brightness(.95)
-}
-
-.kdp-divider {
-  /*공지사항 하단 구분선*/
-  height: 1px;
-  background: #e5e7eb;
-  /* 연한 회색 */
-  border: 0;
-  margin-top: px;
-  margin-bottom: 10px;
-  /* 위·아래 여백 */
-}
-
-@media (max-height:10px) {
-  .kdp-modal-body {
-    padding-top: 1px
-  }
-  .kdp-modal {
-    width: 10vw;
-    /* 화면 너비의 50% */
-    height: auto;
-    /* 내용에 맞게 자동 높이 */
-    max-height: 84vh;
-    /* 너무 길어지지 않도록 제한 */
-    border-radius: 0px;
-  }
-}
-
-
-/* --- modal text article (scoped) --- */
-
-.kdp-modal-body .ta-wrap {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #111827;
-}
-
-.kdp-modal-body .ta-head {
-  margin-bottom: 6px;
-}
-
-.kdp-modal-body .ta-title {
-  margin: 0 0 2px;
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.kdp-modal-body .ta-sub {
-  margin: 0;
-  color: #2563eb;
-  font-weight: 400;
-}
-
-.kdp-modal-body .ta-sec {
-  margin-top: 12px;
-}
-
-.kdp-modal-body .ta-sec h4 {
-  margin: 0 0 2px;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.kdp-modal-body .ta-ul {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.kdp-modal-body .ta-ul>li {
-  margin: 4px 0;
-}
-
-.kdp-modal-body .ta-dl {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 6px 12px;
-  margin: 0;
-}
-
-.kdp-modal-body .ta-dl dt {
-  color: #374151;
-  font-weight: 700;
-}
-
-.kdp-modal-body .ta-dl dd {
-  margin: 0;
-}
-
-.kdp-modal-body .ta-cta {
-  margin-top: 14px;
-}
-
-.kdp-modal-body .ta-cta a {
-  display: inline-block;
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 700;
-  padding-left: 180px;
-}
-
-.kdp-modal-body .ta-cta a:hover {
-  filter: brightness(.95);
-}
 
 
 /* *********** Company html용 *************** */
@@ -2410,192 +2649,152 @@ body {
 }
 
 
-/* === COMPANY 사이트 HTML ============================================== */
+/* === COMPANY 사이트 HTML (정리본) ================================== */
 
-:root {
-  --kdp-brand: #2563eb;
-  /* KDP 블루 */
-  --kdp-brand-dark: #1e40af;
-  /* 본문 */
-  --kdp-ink: #0f172a;
-  --kdp-muted: #64748b;
-  /* 보조 텍스트 */
-  --kdp-soft: #495057;
-  /* 섹션 배경 */
-  --kdp-maxw: 1100px;
-  --kdp-eyebrow1: "Noto Sans KR";
+/* Variables */
+:root{
+  --kdp-brand:#2563eb;           /* KDP 블루 */
+  --kdp-brand-dark:#1e40af;
+  --kdp-ink:#0f172a;             /* 본문 */
+  --kdp-muted:#64748b;           /* 보조 텍스트 */
+  --kdp-soft:#495057;            /* 섹션 배경 보조 */
+  --kdp-maxw:1100px;
+  --kdp-eyebrow1:"Noto Sans KR"; /* (유지) */
+  --kdp-border:#eef2f7;
 }
 
-
-/* 패널-회색(히어로) 사이 1px 경계 제거 */
-
-.site-header.on-hero,
-.site-header.open {
-  border-bottom: 0 !important;
-  box-shadow: none !important;
+/* Base */
+.kdp-about{ color:var(--kdp-ink) }
+.kdp-about .container{
+  font-family:'Poppins','Noto Sans KR',sans-serif;
+  max-width:var(--kdp-maxw);
+  margin:0 auto;
+  padding:0;
+  font-size:20px;
+  color:#0f172a;
 }
-
-
-/* 헤더 하단선 끔 */
-
-.site-header.open .menu-panel,
-.site-header.on-hero .menu-panel {
-  border-top: 0 !important;
+.kdp-about .container .h0{
+  font-family:'Poppins','Noto Sans KR',sans-serif;
+  font-size:70px;
+  font-weight:100;
 }
-
-
-/* 패널 상단선 끔 */
-
-
-/* 드물게 남는 머리카락 선 보정 */
-
-.site-header.open .menu-panel {
-  top: calc(var(--header-h) -1px);
-}
-
-.kdp-about {
-  color: var(--kdp-ink);
-}
-
-.kdp-about .container {
-  font-family: 'Poppins', ;
-  max-width: var(--kdp-maxw);
-  margin: 0 auto;
-  padding: 0 0px;
-  font-size: 20x;
-  color: #efefef;
-}
-
-.kdp-about .container .h0 {
-  /* ABOUT 글꼴 */
-  font-family: 'Poppins', 'Noto Sans KR';
-  font-size: 40px;
-  font-weight: 100;
-}
-
 
 /* Hero */
+.kdp-hero{
+  /* 기존: linear-gradient(180deg, #efefef), var(--kdp-soft)
+     → 불필요한 2중 배경 제거, 톤은 유지 */
+  background:linear-gradient(180deg,#efefef 0%,#ffffff 100%);
+  padding:72px 0 60px;
+  border-top:1px solid var(--kdp-border);
+}
+.kdp-hero h1{
+  font-family:'Poppins','Noto Sans KR',sans-serif;
+  margin:20px 0 30px;
+  font-weight:500;
+  letter-spacing:-.02em;
+  font-size:clamp(20px,3.2vw,28px);
+}
+.kdp-ac{
+  font-family:'Poppins',sans-serif;
+  color:#0f172a;
+  font-size:24px;
+  font-weight:300;
+  letter-spacing:-.01em;
+}
+.kdp-hero p{ margin:0; color:var(--kdp-muted); font-size:1.05rem }
 
-.kdp-hero {
-  background: linear-gradient(180deg, #999999), var(--kdp-soft);
-  padding: 72px 0 60px;
-  border-top: 1px solid #eef2f7;
+/* Badges */
+.kdp-badges{ margin-top:14px; display:flex; gap:8px; flex-wrap:wrap }
+.kdp-badge{
+  background:#eaf1ff; color:var(--kdp-brand-dark);
+  border-radius:999px; padding:6px 10px;
+  font-weight:700; font-size:12px;
 }
 
-.kdp-hero h1 {
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif, 'Noto Sans KR';
-  margin: 20px 0px 30px;
-  font-weight: 500;
-  letter-spacing: -.02em;
-  font-size: clamp(20px, 3.2vw, 28px);
+/* Sections */
+.kdp-sec{
+  padding:80px 0;
+  border-top:1px solid var(--kdp-border);
+  background:#fff;
 }
 
-.kdp-ac {
-  font-family: 'Poppins';
-  color: #0f172a;
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: -.01em;
-}
-
-.kdp-hero p {
-  margin: 0;
-  color: var(--kdp-muted);
-  font-size: 1.05rem;
-}
-
-.kdp-badges {
-  margin-top: 14px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.kdp-badge {
-  background: #eaf1ff;
-  color: var(--kdp-brand-dark);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-weight: 700;
-  font-size: 12px;
+/* Eyebrow (공통화) */
+.kdp-eyebrow,
+.kdp-eyebrow1,
+.kdp-eyebrow2{
+  color:var(--kdp-brand);
+  font-family:'Poppins','Noto Sans KR',sans-serif;
+  font-weight:600;
+  font-size:35px;
+  letter-spacing:.06em;
+  text-transform:uppercase; /* 중복 선언 제거 */
 }
 
 
-/* Section scaffolds */
 
-.kdp-sec {
-  padding: 80px 0;
-  border-top: 1px solid #eef2f7;
-  background: #fff;
+/* Titles & Lead */
+.kdp-title{
+  color:#0f172a;
+  margin:.3rem 0 1rem;
+  font-weight:800;
+  font-size:clamp(20px,2.2vw,28px);
 }
-
-.kdp-eyebrow1 {
-  color: var(--kdp-brand);
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif, 'Noto Sans KR';
-  text-transform: lowercase;
-  font-weight: 600;
-  font-size: 35px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  /* 대문자 고정 없애러면 none*/
-}
-
-.kdp-eyebrow2 {
-  color: var(--kdp-brand);
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif, 'Noto Sans KR';
-  text-transform: lowercase;
-  font-weight: 600;
-  font-size: 35px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  /* 대문자 고정 없애러면 none*/
-}
-
-.kdp-title {
-  color: #0f172a;
-  margin: .3rem 0 1rem;
-  font-weight: 800;
-  font-size: clamp(20px, 2.2vw, 28px);
-}
-
-.kdp-lead {
-  color: var(--kdp-ink);
-  font-size: 1.05rem;
-}
-
+.kdp-lead{ 
+  font-family:'Noto Sans KR',sans-serif;
+  color:var(--kdp-ink); font-size:1.05rem }
 
 /* Timeline */
-
-.kdp-timeline {
-  list-style: none;
-  margin: 16px 0 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
+.kdp-timeline{
+  list-style:none; margin:16px 0 0; padding:0;
+  display:grid; gap:12px;
+}
+.kdp-timeline li{
+  display:grid; grid-template-columns:120px 1fr;
+  gap:16px; align-items:start;
+}
+.kdp-timeline time{ color:var(--kdp-brand-dark); font-weight:800 }
+.kdp-timeline p{ margin:0; color:var(--kdp-ink) }
+@media (max-width:900px){
+  .kdp-timeline li{ grid-template-columns:90px 1fr }
 }
 
-.kdp-timeline li {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 16px;
-  align-items: start;
+/* ===== Hero Animation (최소 추가) =============================== */
+/* ABOUT(eyebrow) 페이드업 */
+.hero-eyebrow{
+  opacity:0; transform:translateY(8px);
+  transition:opacity .5s ease, transform .5s ease;
+}
+body.loaded .hero-eyebrow{
+  opacity:1; transform:none; transition-delay:.05s;
 }
 
-.kdp-timeline time {
-  color: var(--kdp-brand-dark);
-  font-weight: 800;
+/* 라인 슬라이드업 공통 */
+.kdp-lead-anim{ overflow:hidden }
+.kdp-lead-anim .line{
+  display:block; transform:translateY(100%); opacity:0;
+  transition:transform .8s ease, opacity .8s ease;
 }
 
-.kdp-timeline p {
-  margin: 0;
-  color: var(--kdp-ink);
+/* 히어로: 제목 → 서브 순서로 순차 등장 */
+body.loaded .hero-title .line:nth-child(1){
+  transform:translateY(0); opacity:1; transition-delay:.15s;
+}
+body.loaded .hero-title .line:nth-child(2){
+  transform:translateY(0); opacity:1; transition-delay:.30s;
+}
+body.loaded .hero-sub .line:nth-child(1){
+  transform:translateY(0); opacity:1; transition-delay:.55s;
+}
+body.loaded .hero-sub .line:nth-child(2){
+  transform:translateY(0); opacity:1; transition-delay:.70s;
 }
 
-@media (max-width:900px) {
-  .kdp-timeline li {
-    grid-template-columns: 90px 1fr;
-  }
+/* 모션 최소화 접근성 */
+@media (prefers-reduced-motion:reduce){
+  .hero-eyebrow{ opacity:1; transform:none; transition:none }
+  .kdp-lead-anim .line{ transform:none; opacity:1; transition:none }
 }
+
 
 
 /* Pillars (vision) */
@@ -2667,7 +2866,7 @@ body {
 /* 0) 회색 히어로와 동일하게 쓸 공통 변수 (필요시 색만 바꾸면 됨) */
 
 :root {
-  --hero-top-bg: #999999;
+  --hero-top-bg: #efefef;
 }
 
 
@@ -2724,7 +2923,7 @@ body {
 
 .hero-right {
   position: absolute;
-  z-index: 2;
+  z-index: 100;
 }
 
 .hero-right img {
@@ -2831,7 +3030,7 @@ body {
   color: #fff;
   font-weight: 900;
   letter-spacing: .05em;
-  margin: 0;
+  
 }
 
 
@@ -2910,7 +3109,7 @@ body {
 }
 
 .contact-page .c-sec-title {
-  margin: 100px 0 50px;
+  margin: 150px 0 50px;
   font-size: 26px;
   font-weight: 600;
   padding-bottom: 12px;
@@ -2969,7 +3168,7 @@ body {
 }
 
 .contact-page .c-sec-help-detail {
-  margin: ;
+  margin: 1;
   color: var(--c-muted);
   font-size: 15px;
 }
@@ -3358,5 +3557,100 @@ body {
   border-color: var(--c-blue, #2563eb);
   color: #fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* ===== NEW: Video Background Hero Section ===== */
+
+.hero-video {
+    position: relative; /* 자식 요소(video, overlay, content)의 기준점 */
+    width: 100%;
+    height: 100vh; /* 화면 전체 높이 사용 */
+    overflow: hidden; /* 동영상 튀어나오는 부분 숨기기 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* 배경이 어두워지므로 텍스트 색상을 흰색으로 변경 */
+    text-align: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* 다른 콘텐츠 뒤로 보냄 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    object-fit: cover; /* 화면을 꽉 채우도록 */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 어두운 오버레이 (투명도 조절) */
+    z-index: 0; /* 동영상 위에, 텍스트 아래에 위치 */
+}
+
+.hero-content {
+    position: relative; /* 오버레이 위에 올라오도록 */
+    z-index: 1; /* 가장 위에 위치 */
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content .lead {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* 초기 상태 (숨김) */
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* JavaScript로 .loaded 클래스 추가 시 나타나는 애니메이션 */
+body.loaded .fade-in-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+body.loaded .fade-in-text.delay-1 { transition-delay: 0.3s; }
+body.loaded .fade-in-text.delay-2 { transition-delay: 0.6s; }
+
+
+/* 미디어 쿼리: 모바일에서는 동영상 대신 배경 이미지 */
+@media (max-width: 768px) {
+    .background-video {
+        display: none; /* 모바일에서는 동영상 숨김 */
+    }
+    .hero-video {
+        background-image: url('assets/hero-mobile-fallback.jpg'); /* 대체 배경 이미지 */
+        background-size: cover;
+        background-position: center;
+    }
+}
+
 
 

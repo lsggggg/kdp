@@ -10,7 +10,9 @@
   <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
+
+
+<body class="hero-page">
   <header class="site-header" role="navigation">
     <div class="container nav">
       <a href="#home" class="brand" aria-label="홈으로" title="홈으로">
@@ -52,30 +54,72 @@
       </div>
     </div>
   </header>
-  <section id="home" class="kv kv--center">
-    <div class="kv-center container">
-      <p class="kv-overline">START-UP with K-Dream-Partners</p>
-      <h1 class="kv-title">INNOVATION</h1>
-      <p class="kv-sub">혁신을 위한 첫 발걸음</p>
+  <section class="hero-video">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="assets/home.mp4" type="video/mp4">
+        
+    </video>
+    <div class="video-overlay"></div> <div class="container hero-content center">
+        <h1 class=>기술과 꿈을 현실로</h1>
+        <p class=>KDREAMPARTNERS</p>
+        <!--
+        <a href="company.html" class="btn fade-in-text delay-2">자세히 알아보기</a> -->
     </div>
+
     <div class="scroll-down">
-      <a href="#company" aria-label="다음 섹션으로">↓</a>
+      <a href="#company" aria-label="다음 섹션으로"></a>
     </div>
   </section>
+
+
   <section id="company" class="section company c1">
-    <div class="container c1-grid">
-      <div class="c1-copy">
-        <span class="overline">COMPANY</span>
-        <h2>케이드림파트너스는 실행 중심의 AC(액셀러레이터)입니다.</h2><br>
-        <p class="lead">아이디어 검증부터 스케일업까지, 실무형 코칭과 자금·네트워크로 성장의 속도를 높입니다.
-        <br> 기업의 시작과 도약을 함께하며, 시드/브릿지 투자와 컨설팅 지원을 제공합니다.</p>
+  <div class="container c1-grid">
+
+    <!-- 왼쪽 소개 -->
+    <div class="c1-copy">
+      <span class="overline"></span>
+      <h2>케이드림파트너스는 실행 중심의 AC(액셀러레이터)입니다.</h2><br>
+      <p class="lead">
+        아이디어 검증부터 스케일업까지, 실무형 코칭과 자금·네트워크로 성장의 속도를 높입니다.
+        <br> 기업의 시작과 도약을 함께하며, 시드 및 브릿지 투자와 컨설팅 지원을 제공합니다.
+        <br><br>파트너 기업의 든든한 동반자가 되기 위한 성장을 멈추지 않겠습니다.
+      </p>
+    </div>
+
+    <!-- 오른쪽 KPI (※ c1-copy의 “바깥”, 형제 요소여야 함) -->
+    <aside class="c1-media kdp-kpis" aria-label="KDP 현황">
+      
+      <div class="kpi-grid">
+        <article class="kpi">
+          <div class="kpi-num" data-target="10" data-suffix="+">0</div>
+          <div class="kpi-label">투자사 수</div>
+        </article>
+        <article class="kpi">
+          <div class="kpi-num" data-target="60" data-suffix="+">0</div>
+          <div class="kpi-label">투자유치 (억원)</div>
+        </article>
+        <article class="kpi">
+          <div class="kpi-num" data-target="6" data-suffix="+">0</div>
+          <div class="kpi-label">누적 펀드(조합)</div>
+        </article>
+      </div>
+    </aside>
+
+  </div>
+</section>
+     <!--    </p>
         <ul class="bullet"></ul>
       </div>
       <aside class="c1-media shadow-card">
         <img src="assets/hero-kdp.png" alt="KDP — We're AC, we're company builder.">
       </aside>
     </div>
-    <br><br>
+    <br><br>-->
+
+
+
+    
+    <!-- 
     <div class="container c1-feats">
       <article class="feat">
         <h3>실행 코칭</h3>
@@ -90,7 +134,17 @@
         <p>정부지원금 기획 · 문서 · 평가 대응</p>
       </article>
     </div>
+  -->
   </section>
+
+ 
+<!-- ============ /KDP Modal (FINAL) ================================= -->
+
+    <!-- 필요하면 신청 링크 버튼(선택) -->
+    <!-- <p class="ta-cta"><a href="https://예시-신청링크" target="_blank" rel="noopener">사전등록 바로가기</a></p> -->
+  </article>
+</section>
+
   <section id="portfolio" class="section portfolio p1">
     <div class="container">
       <div class="portfolio-head">
@@ -136,7 +190,9 @@
     </div>
   </section>
   <section class="pf-section">
+    
     <div class="container">
+      
       <div class="pf-head">
         <h2></h2>
         <div class="pf-nav">
@@ -153,7 +209,7 @@
             </div>
             <div class="pf-div"></div>
             <h3 class="pf-name">(주)아크론에코</h3>
-            <span class="pf-tag"><b>Plastic Recy.<b></span>
+            <span class="pf-tag">Plastic Recy.</span>
             <p class="pf-desc">폐플라스틱 열분해 및 방사능 제염 솔루션</p>
             <p class="pf-sub">복합 폐 플라스틱 열분해를 통해 손쉬운 처리 솔루션</p>
           </a>
@@ -164,7 +220,7 @@
             </div>
             <div class="pf-div"></div>
             <h3 class="pf-name">에그풀</h3>
-            <span class="pf-tag"><b>Manufature<b></span>
+            <span class="pf-tag">Manufature</span>
             <p class="pf-desc">테이블링 오더에 광고를 접목한 기프트오더</p>
             <p class="pf-sub">여분의 시간에 광고를 활용한 기프트오더</p>
           </a>
@@ -175,26 +231,57 @@
             </div>
             <div class="pf-div"></div>
             <h3 class="pf-name">만월상회</h3>
-            <span class="pf-tag"><b>F&B Retail<b></span>
+            <span class="pf-tag">F&B Platform</span>
             <p class="pf-desc">카페 재료 및 식음료 리테일 플랫폼</p>
             <p class="pf-sub">B2B, B2C, 개인카페 모두 이용가능한<br>F&B 플랫폼</p>
           </a>
           <a class="pf-card" href="/portfolio/131">
-            <span class="pf-badge">V Growth</span>
+            <span class="pf-badge">SEED</span>
             <div class="pf-logo-wrap">
-              <img src="assets/portfolio/quiks.png" alt="QUIKS">
+              <img src="assets/retouch/viveai_retouched.png" alt="QUIKS">
             </div>
             <div class="pf-div"></div>
-            <h3 class="pf-name"></h3>
-            <span class="pf-tag">Digital Life</span>
-            <p class="pf-desc"></p>
-            <p class="pf-sub"></p>
+            <h3 class="pf-name">바이브AI</h3>
+            <span class="pf-tag">DeepTech.</span>
+            <p class="pf-desc">빅데이터 및 딥러닝</p>
+            <p class="pf-sub">빅데이터와 딥러닝으로 온라인 유저 데이터를 통해 <br>맞춤형 인사이트 도출
+              <br>
+            </p>
           </a>
+
+           <a class="pf-card" href="/portfolio/132">
+            <span class="pf-badge">Growth</span>
+            <div class="pf-logo-wrap">
+              <img src="assets/retouch/intelligent_gene_fit.png" alt="mw">
+            </div>
+            <div class="pf-div"></div>
+            <h3 class="pf-name">인텔리전트진</h3>
+            <span class="pf-tag">Bio Meca.</span>
+            <p class="pf-desc">분자진단</p>
+            <p class="pf-sub">나노바이오융합 시장에 기반한 분자진단</p> 
+          </a>
+
+          <a class="pf-card" href="/portfolio/132">
+            <span class="pf-badge">Growth</span>
+            <div class="pf-logo-wrap">
+              <img src="assets/retouch/gundol_fit.png" alt="mw">
+            </div>
+            <div class="pf-div"></div>
+            <h3 class="pf-name">군돌이</h3>
+            <span class="pf-tag">Platform</span>
+            <p class="pf-desc">군생활 관리 플랫폼</p>
+            <p class="pf-sub">군인들에게 필요한 편의기능을 제공하는<br>군생활 관리 올인원 플랫폼</p> 
+          </a>
+
+
+
+
         </div> </div>
       <div class="pf-dots" aria-label="pagination" role="tablist"></div>
     </div>
     <body class="no-radius"></body>
   </section>
+  <!-- 
   <section id="vision" class="section vision">
     <div class="container">
       <span class="overline">Vision</span>
@@ -202,7 +289,8 @@
       <p class="lead">처음이라는 막막함에 시작을 망설이지 않도록, 토탈 멘토링과 투자를 진행합니다.</p>
       <a class="btn" href="contact.html">문의하기</a>
     </div>
-  </section>
+  </section>-->
+  <br><br><br>
   <section id="recruit" class="ctaBand">
     <div class="container bandGrid">
       <div>
@@ -250,7 +338,7 @@
       <aside id="location" class="shadow-card">
         <h3>오시는 길</h3><br>
         <p>대전광역시 유성구 테크노2로 160,<br>충남대학교 산학협력센터 301호</p>
-        <a href="https://map.naver.com/p/search/%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0/place/33253518?c=19.23,0,0,0,dh&placePath=/home?entry=pll&from=map&fromPanelNum=2&timestamp=202508291906&locale=ko&svcName=map_pcv5&searchText=%EC%B6%A9%EB%82%A8%EB%8C%80%ED%95%99%EA%B5%90%EC%82%B0%ED%95%99%ED%98%91%EB%A0%A5%EC%A9%80%EC%9B%90%EC%84%BC%ED%84%B0" class="map-link" aria-label="네이버지도에서 보기">
+        <a href="https://map.naver.com/p/entry/place/33253518?c=16.80,0,0,0,dh&placePath=/home?from=map&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202510140954&locale=ko&svcName=map_pcv5" class="map-link" aria-label="네이버지도에서 보기">
           <div class="mapPh">
             <img src="assets/maps.png" alt="" class="mapImg" />
           </div>
@@ -283,200 +371,11 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    (function () {
-      const header = document.querySelector('.site-header');
-      const panel = document.querySelector('#menuPanel');
-      if (!header || !panel) return;
-      panel.setAttribute('data-col', '1');
-      header.querySelectorAll('.mitem[data-col]').forEach(li => {
-        const c = li.getAttribute('data-col');
-        li.addEventListener('mouseenter', () => panel.setAttribute('data-col', c));
-        li.addEventListener('focusin', () => panel.setAttribute('data-col', c));
-      });
-      header.addEventListener('mouseleave', () => panel.setAttribute('data-col', '1'));
-      const btn = header.querySelector('.menu-toggle');
-      if (btn) {
-        btn.addEventListener('click', () => {
-          const open = header.classList.toggle('open');
-          btn.setAttribute('aria-expanded', String(open));
-          panel.setAttribute('aria-hidden', String(!open));
-        });
-        panel.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            header.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            panel.setAttribute('aria-hidden', 'true');
-            btn.focus();
-          }
-        });
-      }
-      panel.addEventListener('click', (e) => {
-        const a = e.target.closest('a[href^="#"]');
-        if (!a) return;
-        header.classList.remove('open');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-        panel.setAttribute('aria-hidden', 'true');
-      });
-    })();
-    (function () {
-      const header = document.querySelector('.site-header');
-      const panel = document.querySelector('#menuPanel');
-      const grid = panel?.querySelector('.panel-grid');
-      if (!header || !panel || !grid) return;
-      const styles = getComputedStyle(document.documentElement);
-      const PAD_TOP = parseInt(styles.getPropertyValue('--panel-pad-top')) || 18;
-      const PAD_BOTTOM = parseInt(styles.getPropertyValue('--panel-pad-bottom')) || 22;
-      const COL_W = parseInt(styles.getPropertyValue('--col-w')) || 240;
-      function setOpenHeight(key) {
-        const col = panel.querySelector(`.col[data-key="${key}"]`);
-        if (!col) return;
-        const h = col.scrollHeight + PAD_TOP + PAD_BOTTOM;
-        panel.style.setProperty('--open-h', h + 'px');
-      }
-      function positionUnder(li) {
-        const cLeft = grid.getBoundingClientRect().left + window.scrollX;
-        const r = li.getBoundingClientRect();
-        const center = r.left + (r.width / 2) + window.scrollX - cLeft;
-        const left = Math.max(0, Math.round(center - (COL_W / 2)));
-        panel.style.setProperty('--submenu-left', left + 'px');
-      }
-      function activate(li) {
-        const key = li.dataset.col;
-        if (!key) return;
-        panel.setAttribute('data-col', key);
-        positionUnder(li);
-        setOpenHeight(key);
-      }
-      const items = header.querySelectorAll('.mitem[data-col]');
-      items.forEach(li => {
-        li.addEventListener('mouseenter', () => {
-          header.classList.add('open');
-          activate(li);
-        });
-        li.addEventListener('focusin', () => {
-          header.classList.add('open');
-          activate(li);
-        });
-        li.querySelector('a')?.addEventListener('click', (e) => {
-          const a = e.currentTarget;
-          const href = a.getAttribute('href') || '';
-          header.classList.remove('open');
-          panel.setAttribute('aria-hidden', 'true');
-          if (href.startsWith('#')) {
-            e.preventDefault();
-            document.querySelector(href)?.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      header.addEventListener('mouseleave', () => header.classList.remove('open'));
-      if (items[0]) activate(items[0]);
-      let t;
-      window.addEventListener('resize', () => {
-        clearTimeout(t);
-        t = setTimeout(() => {
-          const activeKey = panel.getAttribute('data-col') || '1';
-          const li = header.querySelector(`.mitem[data-col="${activeKey}"]`) || items[0];
-          if (li) activate(li);
-        }, 80);
-      });
-    })();
-    (function () {
-      const card = document.getElementById('partnerCard');
-      const stage = document.getElementById('pcStage');
-      const title = document.getElementById('pcTitle');
-      const sector = document.getElementById('pcSector');
-      const sub = document.getElementById('pcSub');
-      const desc = document.getElementById('pcDesc');
-      function show(e, el) {
-        const r = el.getBoundingClientRect();
-        card.style.left = (r.left + r.width / 2) + 'px';
-        card.style.top = (r.top - 10 + window.scrollY) + 'px';
-        stage.textContent = el.dataset.stage || '';
-        title.textContent = el.dataset.title || '';
-        sector.textContent = el.dataset.sector || '';
-        sub.textContent = el.dataset.subtitle || '';
-        desc.textContent = el.dataset.desc || '';
-        card.classList.add('show');
-      }
-      function hide() {
-        card.classList.remove('show');
-      }
-      document.querySelectorAll('.partner').forEach(el => {
-        el.addEventListener('mouseenter', (e) => show(e, el));
-        el.addEventListener('mouseleave', hide);
-        el.addEventListener('focusin', (e) => show(e, el));
-        el.addEventListener('focusout', hide);
-      });
-    })();
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('폼 예시입니다. 실제 전송 기능은 다음 단계에서 구현합니다.');
-    });
-    const header = document.querySelector('.site-header');
-    const btn = header?.querySelector('.menu-toggle');
-    const panel = document.querySelector('#menuPanel');
-    header?.addEventListener('mouseenter', () => header.classList.add('mega', 'open'));
-    header?.addEventListener('mouseleave', () => header.classList.remove('mega', 'open'));
-    btn?.addEventListener('click', () => {
-      const open = header.classList.toggle('open');
-      header.classList.toggle('mega', open);
-    });
-    (function () {
-      const viewport = document.querySelector('.pf-viewport');
-      const track = viewport?.querySelector('.pf-track');
-      const prevBtn = document.querySelector('.pf-prev');
-      const nextBtn = document.querySelector('.pf-next');
-      const dotsWrap = document.querySelector('.pf-dots');
-      if (!viewport || !track || !prevBtn || !nextBtn || !dotsWrap) return;
-      const PER_PAGE = 3;
-      const cards = Array.from(track.querySelectorAll('.pf-card'));
-      if (!cards.length) return;
-      if (!track.querySelector('.pf-page')) {
-        for (let i = 0; i < cards.length; i += PER_PAGE) {
-          const page = document.createElement('div');
-          page.className = 'pf-page';
-          cards.slice(i, i + PER_PAGE).forEach(card => page.appendChild(card));
-          track.appendChild(page);
-        }
-      }
-      const pages = Array.from(track.querySelectorAll('.pf-page'));
-      let index = 0;
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        pages.forEach((_, i) => {
-          const b = document.createElement('button');
-          b.type = 'button';
-          b.setAttribute('aria-label', `${i + 1} 페이지로 이동`);
-          b.addEventListener('click', () => go(i));
-          dotsWrap.appendChild(b);
-        });
-      }
-      function update() {
-        track.style.transform = `translateX(-${index * 100}%)`;
-        Array.from(dotsWrap.children).forEach((dot, i) => {
-          dot.classList.toggle('on', i === index);
-        });
-        prevBtn.disabled = (index === 0);
-        nextBtn.disabled = (index === pages.length - 1);
-      }
-      function go(i) {
-        index = Math.max(0, Math.min(pages.length - 1, i));
-        update();
-      }
-      prevBtn.addEventListener('click', () => go(index - 1));
-      nextBtn.addEventListener('click', () => go(index + 1));
-      buildDots();
-      update();
-      track.setAttribute('tabindex', '0');
-      track.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') go(index - 1);
-        if (e.key === 'ArrowRight') go(index + 1);
-      });
-    })();
-  </script>
+  
+  
+ <script src="main.js" defer></script>
+
 </body>
+
+
 </html>

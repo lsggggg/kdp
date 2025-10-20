@@ -37,7 +37,7 @@
       <div class="container panel-grid">
         <div class="col" data-key="1">
           <a href="company.html">회사 소개</a>
-          <a href="company.html#values">핵심 가치</a>
+          <a href="team.html#team">핵심 가치</a>
         </div>
         <div class="col" data-key="2">
           <a href="business.html">사업 영역</a>
@@ -57,6 +57,11 @@
       </div>
     </div>
   </header>
+
+
+
+
+
 
   <main id="news" class="section news n1 alt">
     <div class="container">
@@ -81,5 +86,55 @@
     </nav>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+
+<script>
+(function(){
+  const root   = document.querySelector('.pf-section.pf2');
+  if(!root) return;
+  const track  = root.querySelector('.pf-track');
+  const btnL   = root.querySelector('.pf-prev');
+  const btnR   = root.querySelector('.pf-next');
+  const dots   = root.querySelector('.pf-dots');
+  const PER = 3; // 3개씩 페이지
+
+  // 이미 .pf-page 가 있으면 재구성 스킵
+  if(!track.querySelector('.pf-page')){
+    const cards = Array.from(track.querySelectorAll('.pf-card'));
+    for(let i=0;i<cards.length;i+=PER){
+      const page = document.createElement('div');
+      page.className = 'pf-page';     // pf2 CSS가 이 .pf-page에 자동 적용됨
+      cards.slice(i,i+PER).forEach(c => page.appendChild(c));
+      track.appendChild(page);
+    }
+  }
+
+  const pages = Array.from(track.querySelectorAll('.pf-page'));
+  let idx = 0;
+
+  function buildDots(){
+    dots.innerHTML = '';
+    pages.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.type='button';
+      b.addEventListener('click',()=>go(i));
+      dots.appendChild(b);
+    });
+  }
+  function update(){
+    track.style.transform = `translateX(-${idx*100}%)`;
+    Array.from(dots.children).forEach((d,i)=>d.classList.toggle('on',i===idx));
+    btnL.disabled = (idx===0);
+    btnR.disabled = (idx===pages.length-1);
+  }
+  function go(i){ idx = Math.max(0, Math.min(pages.length-1, i)); update(); }
+
+  btnL?.addEventListener('click',()=>go(idx-1));
+  btnR?.addEventListener('click',()=>go(idx+1));
+  buildDots(); update();
+})();
+</script>
+
+
 </body>
 </html>

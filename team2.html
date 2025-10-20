@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>팀 문화 | YourBrand</title>
+  <meta name="description" content="YourBrand의 팀 문화와 우리가 일하는 방식" />
+  <style>
+    /* ---- Theme Variables ---- */
+    :root{
+      --brand:#3182f6;          /* 브랜드 메인 컬러 (Toss 블루 톤) */
+      --brand-ink:#0b2a6b;      /* 딥 블루 포인트 */
+      --bg:#0b0c10;             /* 페이지 배경 (다크) */
+      --card:#12151b;           /* 카드 배경 */
+      --ink:#e9eefc;            /* 본문 텍스트 */
+      --ink-dim:#9bb0d3;        /* 보조 텍스트 */
+      --line:#1f2430;           /* 구분선 */
+      --ok:#20c997;             /* 긍정 컬러 */
+      --warn:#ffd166;           /* 경고 컬러 */
+      --danger:#ff6b6b;         /* 위험 컬러 */
+      --radius:20px;
+      --gap:20px;
+      --shadow: 0 6px 28px rgba(0,0,0,.35), 0 2px 10px rgba(0,0,0,.2);
+    }
+
+    /* ---- Reset / Base ---- */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px, 100% - 32px);margin:0 auto}
+
+    /* ---- Header ---- */
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.8);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{inline-size:28px;block-size:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),#67a8ff)}
+    .brand-name{font-weight:700;letter-spacing:.2px}
+    .nav-items{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .pill{padding:8px 12px;border-radius:999px;border:1px solid transparent;color:var(--ink-dim)}
+    .pill:hover{background:rgba(255,255,255,.04);color:var(--ink)}
+    .pill[aria-current="page"]{border-color:rgba(99,123,255,.35);background:rgba(49,130,246,.12);color:#dce8ff}
+    .cta{padding:10px 14px;border-radius:12px;background:var(--brand);color:#fff;font-weight:700;box-shadow:var(--shadow);border:0}
+    .cta:hover{filter:brightness(1.05)}
+
+    /* ---- Hero ---- */
+    .hero{position:relative;padding:72px 0 40px;border-bottom:1px solid var(--line);overflow:hidden}
+    .hero .bg{position:absolute;inset:-10% -10% auto -10%;z-index:-1;pointer-events:none;opacity:.45;background:
+      radial-gradient(1200px 400px at 10% 20%, rgba(49,130,246,.25), transparent 60%),
+      radial-gradient(900px 300px at 80% 0%, rgba(32,201,151,.18), transparent 55%),
+      radial-gradient(1000px 420px at 50% 100%, rgba(99,123,255,.16), transparent 60%)}
+    .hero h1{font-size:clamp(28px, 3.8vw, 48px);line-height:1.15;margin:0 0 14px}
+    .hero p{color:var(--ink-dim);margin:0 0 24px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#0e1320;color:var(--ink)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),#5f9dff);border-color:transparent;color:#fff;font-weight:700}
+
+    /* ---- Sections ---- */
+    section{padding:48px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px}
+    .section-head h2{font-size:22px;margin:0}
+    .section-head p{color:var(--ink-dim);margin:0}
+
+    /* ---- Cards / Grid ---- */
+    .grid{display:grid;gap:var(--gap)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){ .grid.cols-3{grid-template-columns:1fr 1fr} }
+    @media (max-width:640px){ .grid.cols-3,.grid.cols-2{grid-template-columns:1fr} }
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;box-shadow:0 1px 0 rgba(255,255,255,.03) inset}
+    .card h3{margin:2px 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--ink-dim)}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:#d6e1ff;background:#0f1422;font-size:12px}
+
+    /* ---- "우리가 일하는 방식" ---- */
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(49,130,246,.12);color:#cfe1ff;border:1px solid rgba(99,123,255,.3);font-weight:600}
+    .principle{display:flex;gap:12px}
+    .num{flex:0 0 28px;height:28px;border-radius:8px;background:rgba(49,130,246,.15);color:#b7ccff;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+    /* ---- Benefits ---- */
+    .benefit{display:flex;gap:12px;align-items:flex-start}
+    .benefit .dot{inline-size:10px;block-size:10px;border-radius:50%;background:var(--ok);margin-top:9px}
+
+    /* ---- Positions (placeholder) ---- */
+    .position{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px dashed var(--line);padding:14px;border-radius:14px}
+    .position strong{display:block}
+    .position small{color:var(--ink-dim)}
+
+    /* ---- FAQ ---- */
+    .faq{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .faq-item+ .faq-item{border-top:1px solid var(--line)}
+    .faq-q{width:100%;text-align:left;background:#0f1422;color:var(--ink);padding:16px;border:0;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+    .faq-a{padding:0 16px 16px;color:var(--ink-dim);display:none}
+    .faq-item[open] .faq-a{display:block}
+
+    /* ---- Footer ---- */
+    .site-footer{padding:28px 0;color:var(--ink-dim)}
+    .site-footer a{color:#cfe1ff}
+
+    /* ---- Utilities ---- */
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .muted{color:var(--ink-dim)}
+    .spacer{height:10px}
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span class="brand-name">YourBrand</span>
+      </div>
+      <nav class="nav-items" aria-label="주요 메뉴">
+        <a class="pill" href="#culture" aria-current="page">문화</a>
+        <a class="pill" href="#principles">우리가 일하는 방식</a>
+        <a class="pill" href="#benefits">복지/혜택</a>
+        <a class="pill" href="#positions">채용</a>
+        <a class="pill" href="#faq">FAQ</a>
+        <a class="cta" href="#apply">지원하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="culture">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="container">
+      <span class="badge">팀 문화</span>
+      <h1>자율과 책임으로
+        <br/>임팩트를 만드는 사람들</h1>
+      <p>빠르게 실험하고, 사실로 말하며, 탁월함을 집요하게 추구합니다. 좋은 동료들과 함께 더 나은 사용자 경험을 만듭니다.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#positions">열린 포지션 보기</a>
+        <a class="btn" href="#principles">우리가 일하는 방식</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Principles ===== -->
+  <section id="principles">
+    <div class="container">
+      <div class="section-head">
+        <h2>우리가 일하는 방식</h2>
+        <p>원칙은 의사결정의 속도와 품질을 높입니다.</p>
+      </div>
+      <div class="grid cols-3">
+        <article class="card principle">
+          <div class="num">1</div>
+          <div>
+            <h3>자율 ≠ 방임, 책임의 다른 말</h3>
+            <p>문제를 발견하면 주인의식으로 끝까지 밀어붙입니다. 권한은 책임과 함께 옵니다.</p>
+          </div>
+        </article>
+        <article class="card principle">
+          <div class="num">2</div>
+          <div>
+            <h3>빠르게 실험, 데이터로 판단</h3>
+            <p>가설을 최소 기능으로 검증하고, 감이 아니라 사실로 결정합니다.</p>
+          </div>
+        </article>
+        <article class="card principle">
+          <div class="num">3</div>
+          <div>
+            <h3>임팩트에 집중</h3>
+            <p>바쁜 일보다 중요한 일을 택합니다. 사용자 가치가 곧 우선순위입니다.</p>
+          </div>
+        </article>
+        <article class="card principle">
+          <div class="num">4</div>
+          <div>
+            <h3>탁월함의 기준 상향</h3>
+            <p>스스로의 기준을 높이고, 서로의 피드백으로 결과물의 완성도를 올립니다.</p>
+          </div>
+        </article>
+        <article class="card principle">
+          <div class="num">5</div>
+          <div>
+            <h3>투명한 공유, 단순한 커뮤니케이션</h3>
+            <p>맥락과 근거를 공개하고, 간결하게 씁니다. 말보다 문서가 오래 갑니다.</p>
+          </div>
+        </article>
+        <article class="card principle">
+          <div class="num">6</div>
+          <div>
+            <h3>사용자 집착</h3>
+            <p>모든 결정의 마지막 질문은 “사용자에게 이득인가?” 입니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Snapshot / Metrics (optional) ===== -->
+  <section id="snapshot">
+    <div class="container">
+      <div class="section-head">
+        <h2>Work at a Glance</h2>
+        <p>일하는 방식을 수치로 요약합니다.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>의사결정 리드타임</h3>
+          <p class="muted">평균 <strong>48시간</strong> 내 결론</p>
+        </div>
+        <div class="card">
+          <h3>가설 → 배포</h3>
+          <p class="muted">주당 <strong>5회</strong> 실험 릴리즈</p>
+        </div>
+        <div class="card">
+          <h3>문서 우선 문화</h3>
+          <p class="muted">결정의 <strong>100%</strong> 문서화</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Benefits ===== -->
+  <section id="benefits">
+    <div class="container">
+      <div class="section-head">
+        <h2>복지 · 혜택</h2>
+        <p>몰입과 성장을 돕는 제도를 운영합니다.</p>
+      </div>
+      <div class="grid cols-2">
+        <div class="card benefit">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3>최고의 동료 · 최고 보상</h3>
+            <p>성과와 임팩트에 기반한 보상. 탁월한 동료와의 협업을 최우선합니다.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3>학습과 성장 지원</h3>
+            <p>컨퍼런스/교육/서적 등 자기계발 비용 전폭 지원.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3>워케이션 · 자율 근무</h3>
+            <p>팀의 성과를 전제로 장소/시간의 자율 보장.</p>
+          </div>
+        </div>
+        <div class="card benefit">
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h3>건강과 삶</h3>
+            <p>건강검진, 심리상담, 최고급 장비 등 업무 몰입 환경 제공.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Positions (placeholder data) ===== -->
+  <section id="positions">
+    <div class="container">
+      <div class="section-head">
+        <h2>채용 중 포지션</h2>
+        <p>함께 더 큰 임팩트를 만들 동료를 찾습니다.</p>
+      </div>
+      <div class="grid cols-2" id="positionList">
+        <!-- 자바스크립트에서 목록이 주입됩니다. 아래 seed를 참고하세요. -->
+      </div>
+      <div class="spacer"></div>
+      <div class="row">
+        <a class="btn" href="#apply">지원 절차</a>
+        <a class="btn" href="#faq">채용 FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p>지원 전 자주 묻는 질문을 확인하세요.</p>
+      </div>
+      <div class="faq" role="list">
+        <details class="faq-item">
+          <summary class="faq-q">지원 절차는 어떻게 되나요? <span aria-hidden>＋</span></summary>
+          <div class="faq-a">서류 → 실무 인터뷰 → 과제(직무별 상이) → 컬처핏 인터뷰 → 최종 협의 순으로 진행됩니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">재택/자율근무가 가능한가요? <span aria-hidden>＋</span></summary>
+          <div class="faq-a">팀의 목표 달성을 전제로 장소/시간 자율을 보장합니다. 필요 시 오피스 출근이 요청될 수 있습니다.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">평가와 보상은 어떻게 이루어지나요? <span aria-hidden>＋</span></summary>
+          <div class="faq-a">성과와 임팩트를 기준으로 투명하게 산정하며, 주기적인 피드백과 리뷰를 실행합니다.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <small>© <span id="y"></span> YourBrand. 모든 권리 보유.</small>
+        <small>문의: <a href="mailto:careers@yourbrand.com">careers@yourbrand.com</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Nav aria-current toggle on hash change
+    function syncNav(){
+      const hash = location.hash || '#culture';
+      document.querySelectorAll('.nav-items .pill').forEach(a=>{
+        if(a.getAttribute('href')===hash) a.setAttribute('aria-current','page');
+        else a.removeAttribute('aria-current');
+      });
+    }
+    window.addEventListener('hashchange', syncNav); syncNav();
+
+    // Seed positions (replace or fetch from API)
+    const positions = [
+      {title:'프론트엔드 엔지니어', team:'Product · Web', type:'정규직', url:'#apply'},
+      {title:'백엔드 엔지니어', team:'Platform', type:'정규직', url:'#apply'},
+      {title:'모바일(iOS) 엔지니어', team:'App', type:'정규직', url:'#apply'},
+      {title:'프로덕트 디자이너', team:'Design', type:'정규직', url:'#apply'}
+    ];
+
+    const wrap = document.getElementById('positionList');
+    positions.forEach(p=>{
+      const el = document.createElement('article');
+      el.className = 'position';
+      el.innerHTML = `
+        <div>
+          <strong>${p.title}</strong>
+          <small>${p.team} · ${p.type}</small>
+        </div>
+        <a class="btn" href="${p.url}">지원하기</a>
+      `;
+      wrap.appendChild(el);
+    });
+
+    // FAQ details caret toggle
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.addEventListener('toggle',()=>{
+        /* close siblings for accordion behavior */
+        if(item.open){
+          document.querySelectorAll('.faq-item').forEach(other=>{ if(other!==item) other.open=false; });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
